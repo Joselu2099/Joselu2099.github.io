@@ -63,6 +63,10 @@ main{
     background: rgb(17, 114, 217)
 }
 
+.horario{
+    background: rgb(246, 151, 7)
+}
+
 .apartado form{
     color: white;
     text-align: left;

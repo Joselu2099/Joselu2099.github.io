@@ -89,6 +89,26 @@
                             <p class="listaCategorias"><span id="listaCategorias"></span></p>
                         </div>
                     </section>
+                    <section class="container apartado horario">
+                        <h2>Horario de la asociación</h2>
+                        <script src="js/horario.js"></script>
+                        <form method="post" class="col-md-12">
+                            <div class="inputs">
+                                <div class="form-group">
+                                    <label for="edadCategoria">Edad</label>
+                                    <input type="number" name="edadCategoria" id="edadCategoria" class="form-control" placeholder="Introduce tu edad">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button type="button" onclick="calcularCategoria()" name="calcular" class="btn btn-primary">Calcular</button>
+                            </div>
+                        </form>
+                        <div class="show-resultado">
+                            <label class="resultadoCategoria">Categoría: <span id="resultadoCategoria"></span></label>
+                            <p class="listaCategorias"><span id="listaCategorias"></span></p>
+                        </div>
+                    </section>
                 </div>     
             </div> 
         </main>      
