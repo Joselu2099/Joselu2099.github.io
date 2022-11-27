@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Proyecto DWEC</title>
+        <link href="style/index.css" rel="stylesheet"/>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Proyecto DWEC</h1>
+        </header>
+        <main>
+            <div class="container contenido">
+                <div class="row">
+                    <section class="container apartado imc">
+                        <h2>Calculadora de IMC</h2>
+                        <script src="js/imc.js"></script>
+                        <form method="post" class="col-md-12">
+                            <div class="inputs">
+                                <div class="form-group">
+                                    <label for="altura">Altura</label>
+                                    <input type="number" name="altura" id="altura" class="form-control" placeholder="Introduce tu altura en cm">
+                                </div>
+                                <div class="form-group">
+                                    <label for="peso">Peso</label>
+                                    <input type="number" name="peso" id="peso" class="form-control" placeholder="Introduce tu peso en kg">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button type="button" onclick="calcularIMC()" name="calcular" class="btn btn-primary">Calcular</button>
+                            </div>
+                        </form>
+                        <div class="show-resultado">
+                            <label class="resultadoIMC">Resultado: <span id="resultadoIMC"></span></label>
+                            <label class="clasificacionIMC"><span id="clasificacionIMC"></span></label>
+                        </div>
+                    </section>
+                    <section class="container apartado fcm">
+                        <h2>Calculadora de FCM</h2>
+                        <script src="js/fcm.js"></script>
+                        <form method="post" class="col-md-12">
+                            <div class="inputs">
+                                <div class="form-group">
+                                    <label for="edadFCM">Edad</label>
+                                    <input type="number" name="edadFCM" id="edadFCM" class="form-control" placeholder="Introduce tu edad">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sexo">Sexo</label>
+                                    <select class="form-select" name="sexo" id="sexo" aria-label="Default select example">
+                                        <option value="0" selected>Selecciona tu sexo</option>
+                                        <option value="1">Hombre</option>
+                                        <option value="2">Mujer</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button type="button" onclick="calcularFCM()" name="calcular" class="btn btn-primary">Calcular</button>
+                            </div>
+                        </form>
+                        <div class="show-resultado">
+                            <label class="resultadoFCM">Resultado: <span id="resultadoFCM"></span></label>
+                            <p class="clasificacionFCM"><span id="clasificacionFCM"></span></p>
+                        </div>
+                    </section>
+                    <section class="container apartado categoria">
+                        <h2>Calculadora de Categoría</h2>
+                        <script src="js/categoria.js"></script>
+                        <form method="post" class="col-md-12">
+                            <div class="inputs">
+                                <div class="form-group">
+                                    <label for="edadCategoria">Edad</label>
+                                    <input type="number" name="edadCategoria" id="edadCategoria" class="form-control" placeholder="Introduce tu edad">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button type="button" onclick="calcularCategoria()" name="calcular" class="btn btn-primary">Calcular</button>
+                            </div>
+                        </form>
+                        <div class="show-resultado">
+                            <label class="resultadoCategoria">Categoría: <span id="resultadoCategoria"></span></label>
+                        </div>
+                    </section>
+                </div>     
+            </div> 
+        </main>      
+    </body>
+</html>
