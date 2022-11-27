@@ -2,8 +2,11 @@ function calcularIMC(){
     let peso = document.getElementById("peso").value==""? null:parseFloat(document.getElementById("peso").value);
     let altura = document.getElementById("altura").value==""? null:parseFloat(document.getElementById("altura").value);
 
-    if(peso==null || altura==null) alert("No has escrito valores correctos en peso o altura");
-    else{
+    if(peso==null || altura==null){ 
+        document.getElementById("resultadoIMC").innerHTML = "";
+        document.getElementById("clasificacionIMC").innerHTML = "";
+        alert("No has escrito valores correctos en peso o altura");
+    }else{
         let resultado = (peso/Math.pow(altura,2)).toFixed(2);
         document.getElementById("resultadoIMC").innerHTML = resultado+"<br>";
         if(resultado<16.00) document.getElementById("clasificacionIMC").innerHTML = "<p>Infrapeso (delgadez severa)</p>";

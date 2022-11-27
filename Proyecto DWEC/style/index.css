@@ -113,8 +113,16 @@ main{
     border-color: white;
     padding: 1rem;
     margin-top: 1rem;
-    background-color: #b91e1e;
     border-radius: 1.5rem;
+    font-style: italic;
+}
+
+.clasificacionFCM fieldset{
+    background-color: #b91e1e;
+}
+
+.listaCategorias fieldset{
+    background-color: #108cce;
 }
 
 p{
@@ -123,7 +131,7 @@ p{
 }
 
 .show-resultado span{
-    color: rgb(255, 204, 0) !important;
+    color: rgb(255, 204, 0);
     font-weight: 500;
 }
 

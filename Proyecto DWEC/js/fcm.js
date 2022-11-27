@@ -1,9 +1,12 @@
 function calcularFCM(){
-    let edad = document.getElementById("edadFCM").value==""? null:parseInt(document.getElementById("edad").value);
+    let edad = document.getElementById("edadFCM").value==""? null:parseInt(document.getElementById("edadFCM").value);
     let sexo = document.getElementById("sexo").value==0? null:parseInt(document.getElementById("sexo").value);
 
-    if(edad==null || sexo==null) alert("No has escrito o seleccionado valores correctos en edad o sexo");
-    else{
+    if(edad==null || sexo==null){
+        document.getElementById("resultadoFCM").innerHTML = "";
+        document.getElementById("clasificacionFCM").innerHTML = "";
+        alert("No has escrito o seleccionado valores correctos en edad o sexo"); 
+    }else{
         let resultado=NaN;
         if(sexo===1){
             resultado=220-edad;
