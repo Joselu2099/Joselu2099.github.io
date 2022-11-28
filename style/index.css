@@ -17,3 +17,12 @@ main > h1{
     color: white;
     margin: 2rem !important;
 }
+
+.contenido{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido > img{
+    border-radius: 10rem;
+}
