@@ -30,6 +30,7 @@ main > h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: fit-content;
 }
 
 .horario{
