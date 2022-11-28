@@ -50,6 +50,12 @@ header .dropdown-item:hover{
     text-shadow: 2px 1px 10px rgb(0, 0, 0);
 }
 
+@media only screen and (min-width: 1200px) {
+  header .nav{
+    margin-left: 40%;
+  } 
+}
+
  .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
