@@ -29,6 +29,7 @@ main > h1{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .horario{
@@ -38,6 +39,9 @@ main > h1{
     text-align: center;
     padding-left: 1rem;
     padding-right: 1rem;
+    width: fit-content;
+    min-width: 20rem;
+    border-radius: 1rem;
 }
 
 .horario.manana{
@@ -53,7 +57,12 @@ main > h1{
     font-weight: bold;
     text-shadow: 2px 1px 10px rgb(0, 0, 0);
     color: white;
-    margin: 2rem;
+    margin: 1rem;
+}
+
+.horario button{
+    margin: 1rem;
+    border-color: black;
 }
 
 .table{
@@ -62,10 +71,12 @@ main > h1{
 }
 
 #horarioManana{
+    /*display: none;*/
     background: rgb(179, 41, 41);
 }
 
 #horarioTarde{
+    /*display: none;*/
     background: rgb(13, 179, 79);
 }
 

@@ -1,8 +1,25 @@
-let horarioManana = "<tr><td>11:00-12:00</td></tr>";       
+function init(){
+    let horarioManana = document.getElementById("horarioManana");
+    horarioManana.style.display = "none";
+    let horarioTarde = document.getElementById("horarioTarde");
+    horarioTarde.style.display = "none";
+    alert("hola");
+}
 
-let horarioTarde = "";   
+function mostrarHorarioManana(){
+    let horarioManana = document.getElementById("horarioManana");
+    if (horarioManana.style.display === "none") {
+        horarioManana.style.display = "table";
+    } else {
+        horarioManana.style.display = "none";
+    }
+}
 
-document.getElementById("horarioManana").innerHTML += horarioManana+"</table>";
-document.getElementById("horarioTarde").innerHTML += horarioTarde;
-
-alert("hola");
+function mostrarHorarioTarde(){
+    let horarioTarde = document.getElementById("horarioTarde");
+    if (horarioTarde.style.display === "none") {
+        horarioTarde.style.display = "table";
+    } else {
+        horarioTarde.style.display = "none";
+    }
+}
