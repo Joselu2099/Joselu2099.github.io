@@ -1,0 +1,72 @@
+*{
+    color: white;
+}
+
+html{
+    background: rgb(33,37,41);
+}
+
+body{
+    background: inherit !important;
+}
+
+main{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main > h1{
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 1px 10px rgb(0, 0, 0);
+    color: white;
+    margin: 2rem;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.horario{
+    margin: 1rem;
+    border: 2px solid;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.horario.manana{
+    background: rgb(179, 41, 41);
+}
+
+.horario.tarde{
+    background: rgb(13, 179, 79);
+}
+
+.horario>h3{
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 1px 10px rgb(0, 0, 0);
+    color: white;
+    margin: 2rem;
+}
+
+.table{
+    border: 1px solid;
+    text-shadow: 1px 1px 6px rgb(0 0 0);
+}
+
+th, td{
+    min-width: 7rem;
+    border: 1px solid;
+    border-color: white;
+}
+
+.horas{
+    border-right: 1px solid;
+}
+
