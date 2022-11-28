@@ -1,0 +1,133 @@
+html{
+    background: rgb(33,37,41);
+}
+
+body{
+    background: inherit !important;
+}
+
+main{
+    overflow: auto;
+    min-height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: column;
+}
+
+.apartado{
+    display: block !important;
+    background: #4048bd;
+    padding: 1rem;
+    width: 20rem!important;
+    max-width: 500px !important;
+    margin: 2rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    text-shadow: 2px 1px 10px darkblue;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.apartado > h2{
+    text-shadow: 2px 1px 10px rgb(7 7 7);
+    color: white;
+    height: 5rem;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.imc{
+    background: rgb(97, 161, 1);
+}
+
+.fcm{
+    background: rgb(122, 2, 2)
+}
+
+.categoria{
+    background: rgb(17, 114, 217)
+}
+
+.horario{
+    background: rgb(246, 151, 7)
+}
+
+.apartado form{
+    color: white;
+    text-align: left;
+}
+
+.apartado .inputs{
+    height: 9rem;
+    padding: 1rem;
+}
+
+.apartado button{
+    display: block;
+    margin: auto;
+    border-color: white;
+    --bs-btn-bg: #524d87 !important;
+    --bs-btn-color: #ffffff;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-disabled-bg: #524d87 !important;
+    --bs-btn-disabled-border-color: rgb(0, 0, 0) !important;
+    text-shadow: 2px 1px #000000;
+}
+
+.apartado button:hover{
+    --bs-btn-color: #f5f5f5 !important;
+    --bs-btn-bg: #8927ed;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #f5f5f5 !important;
+    --bs-btn-hover-bg: #8927ed;
+    --bs-btn-hover-border-color: #ffffff;
+    text-shadow: 2px 2px #000000;
+}
+
+.show-resultado{
+    margin-top: 20px !important;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.show-resultado #fcm{
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+.show-resultado fieldset{
+    border: 2px solid;
+    border-color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 1.5rem;
+    font-style: italic;
+}
+
+.clasificacionFCM fieldset{
+    background-color: #b91e1e;
+}
+
+.listaCategorias fieldset{
+    background-color: #108cce;
+}
+
+p{
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+}
+
+.show-resultado span{
+    color: rgb(255, 204, 0);
+    font-weight: 500;
+}
+

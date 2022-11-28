@@ -2,8 +2,22 @@ html{
     background-color: rgba(107,0,237,1);
 }
 
+header{
+    background-color: #39b9a7 !important;
+}
+
 .header-logo{
-    width: 5rem;
+    width: 4rem;
+    transition: 6s;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 1px 10px rgb(0 0 0);
+    color: white;
+    margin: 0.4rem;
+    font-size: xx-large;
 }
 
 header .nav{
@@ -21,7 +35,6 @@ header .nav-link:hover{
 }
 
 header .nav-link{
-    color: white;
     font-weight: bold;
 }
 
@@ -29,195 +42,12 @@ header .dropdown-item:hover{
     background-color: rgb(149, 57, 235, 0.3) !important;
 }
 
-.user-selector a{
-    display: table !important;
+.text-black{
+    text-shadow: 2px 1px 10px rgb(254, 254, 254);
 }
 
-.user-selector a img, .user-selector a p{
-    display: table-cell !important;
-    vertical-align: middle;
-    margin-right: 1rem;
-}
-
-.dropdown img{
-    width: 3rem;
-}
-
-.dropdown .link-white{
-    color: white !important;
-}
-
-.dropdown-menu{
-    overflow-y: auto;
-    --bs-dropdown-border-radius: 1rem !important;
-}
-
-.filters-menu{
-    overflow: auto;
-    padding: 1rem !important;
-    margin-top: 1.2rem !important;
-}
-
-.filters-menu .owners{
-    display: flex;
-}
-
-.filters-menu .owners label{
-    width: 6rem;
-}
-
-.filters-menu .positions label{
-    width: 4rem;
-}
-
-
-.header-final{
-    display: flex;
-    margin-left: auto;
-}
-
-.header-final .searchBar{
-    display: table;
-    margin-right: 2rem !important;
-}
-
-.searchBar div{
-    display: table-cell;
-    vertical-align: middle;
-    padding: 0.4rem;
-}
-
-.header-final .searchBar form{
-    display: block;
-    margin: auto;
-}
-
-.searchBar .searchText{
-    border-radius: 2rem;
-    padding: 0.3rem;
-}
-
-.searchBar .searchImg{
-    width: 3rem;
-}
-
-.searchBar .searchImg:hover{
-    width: 3.5rem;
-    transition: 0.5s;
-}
-
-.searchText{
-    border: 1px solid;
-}
-
-.header-final .logs{
-    display: flex;
-}
-
-.header-final .logs a{
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 7rem;
-}
-
-header .dropdown-item:hover{
-    background-color: rgb(149, 57, 235, 0.3) !important;
-}
-
-.user-selector a{
-    display: table !important;
-}
-
-.user-selector a img, .user-selector a p{
-    display: table-cell !important;
-    vertical-align: middle;
-    margin-right: 1rem;
-}
-
-.dropdown img{
-    width: 3rem;
-}
-
-.dropdown .link-white{
-    color: white !important;
-}
-
-.dropdown-menu{
-    overflow-y: auto;
-    --bs-dropdown-border-radius: 1rem !important;
-}
-
-.logs .log-in{
-    --bs-btn-color: #ffffff;
-    --bs-btn-bg: #c204fb;
-    --bs-btn-border-color: #ffffff;
-    --bs-btn-disabled-bg: #ffc107 !important;
-    --bs-btn-disabled-border-color: rgb(0, 0, 0) !important;
-    text-shadow: 2px 1px #000000;
-    font-weight: bold;
-}
-
-.logs .log-in:hover{
-    --bs-btn-hover-color: #f5f5f5 !important;
-    --bs-btn-hover-bg: #8108a5;
-    --bs-btn-hover-border-color: #ffffff;
-    --bs-btn-disabled-bg: #ffc107 !important;
-    --bs-btn-disabled-border-color: rgb(0, 0, 0) !important;
-    text-shadow: 2px 1px #000000;
-    font-weight: bold;
-}
-
-.logs .log-out{
-    --bs-btn-color: #ffffff;
-    --bs-btn-bg: #dc3545;
-    --bs-btn-border-color: #ffffff;
-    --bs-btn-disabled-bg: #ffc107 !important;
-    --bs-btn-disabled-border-color: rgb(0, 0, 0) !important;
-    text-shadow: 2px 1px #000000;
-    font-weight: bold;
-}
-
-.logs .log-out:hover{
-    --bs-btn-hover-color: #f5f5f5 !important;
-    --bs-btn-hover-bg: #9f0d1b;
-    --bs-btn-hover-border-color: #ffffff;
-    --bs-btn-disabled-bg: #ffc107 !important;
-    --bs-btn-disabled-border-color: rgb(0, 0, 0) !important;
-    text-shadow: 2px 1px #000000;
-    font-weight: bold;
-}
-
-.log-out .reload{
-    width: 4rem;
-    border-radius: 1.5rem;
-}
-
-.log-out .reload:hover{
-    width: 4.5rem;
-    transition: 0.5s;
-}
-
-@media only screen and (min-width: 535px) {
-    .user-selector a::after{
-        display: block !important;
-        margin-bottom: 21px;
-        margin-left: 10px;
-    }
-}
-
-@media only screen and (max-width: 535px) {
-    .user-selector a::after{
-        display: none !important;
-        margin-bottom: 21px;
-        margin-left: 10px;
-    }
-
-    .dropdown a > p{
-        display: none !important;
-    }
+.text-white{
+    text-shadow: 2px 1px 10px rgb(0, 0, 0);
 }
 
  .bd-placeholder-img {

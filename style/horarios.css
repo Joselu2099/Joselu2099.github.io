@@ -32,6 +32,7 @@ main > h1{
 }
 
 .horario{
+    overflow: auto;
     margin: 1rem;
     border: 2px solid;
     text-align: center;
@@ -40,11 +41,11 @@ main > h1{
 }
 
 .horario.manana{
-    background: rgb(179, 41, 41);
+    background: rgb(209 15 15);
 }
 
 .horario.tarde{
-    background: rgb(13, 179, 79);
+    background: rgb(9 221 54);
 }
 
 .horario>h3{
@@ -58,6 +59,14 @@ main > h1{
 .table{
     border: 1px solid;
     text-shadow: 1px 1px 6px rgb(0 0 0);
+}
+
+#horarioManana{
+    background: rgb(179, 41, 41);
+}
+
+#horarioTarde{
+    background: rgb(13, 179, 79);
 }
 
 th, td{

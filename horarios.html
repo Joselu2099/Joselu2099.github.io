@@ -4,16 +4,29 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Horarios</title>
+        <link href="style/header.css" rel="stylesheet"/>
         <link href="style/horarios.css" rel="stylesheet"/>
-        <script src="js/horario.js"></script>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     </head>
     <body>
-        <header>
-            
+        <header class="p-3">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center">
+                    <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <img src="img/run3.gif" class="bi me-2 header-logo" aria-label="Bootstrap"/>
+                        <h1 class="title">Proyecto DWEC</h1>
+                        <img src="img/run1.gif" class="bi me-2 header-logo" aria-label="Bootstrap"/>
+                    </a>
+                    <ul class="nav mb-2 justify-content-lg-end mb-md-0">
+                        <li><a href="index.html" class="nav-link px-2 text-white">Inicio</a></li>
+                        <li><a href="utilidades.html" class="nav-link px-2 text-white">Utilidades</a></li>
+                        <li><a href="horarios.html" class="nav-link px-2 text-black">Horarios</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
         <main>
             <h1>Horarios</h1>
@@ -61,6 +74,20 @@
                     </table> 
                 </div>
             </div> 
-        </main>      
+        </main>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <p class="col-md-4 mb-0 text-muted">&copy; 2022 Proyecto DWEC</p>
+          
+              <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+              </a>
+          
+              <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+              </ul>
+            </footer>
+        </div>          
     </body>
 </html>
