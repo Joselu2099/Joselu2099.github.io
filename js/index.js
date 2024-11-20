@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.getElementById("toggle-description");
     const descriptionSection = document.getElementById("description");
 
-    hideProyects();
+    hideProjects();
 
     toggleButton.addEventListener("click", () => {
         if (descriptionSection.style.display === "block") {
@@ -27,31 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const downloadLink = document.getElementById("download-link");
 
     downloadLink.addEventListener("click", (event) => {
-        event.preventDefault(); // Evita la acción predeterminada del enlace
+        event.preventDefault();
 
         const fileUrl = downloadLink.getAttribute("href");
 
-        // Verifica si el archivo está disponible
         fetch(fileUrl, { method: "HEAD" })
             .then(response => {
                 if (response.ok) {
-                    // Abrir en una nueva pestaña
                     window.open(fileUrl, '_blank');
 
-                    // Crear un enlace de descarga manualmente
                     const tempLink = document.createElement('a');
                     tempLink.href = fileUrl;
-                    tempLink.download = ''; // Asigna un nombre de archivo si es necesario
+                    tempLink.download = '';
                     document.body.appendChild(tempLink);
                     tempLink.click();
                     document.body.removeChild(tempLink);
                 } else {
-                    // Si no está disponible, muestra un mensaje
                     alert("En estos momentos, el documento no está disponible para descargar.");
                 }
             })
             .catch(() => {
-                // Muestra un mensaje si hay un error en la solicitud
                 alert("Hubo un problema al intentar descargar el documento. Por favor, inténtalo más tarde.");
             });
     });
@@ -64,20 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".popup-trigger").forEach(trigger => {
         trigger.addEventListener("click", async (e) => {
             e.preventDefault();
-            const projectName = trigger.dataset.project; // Nombre del proyecto
-            const project = document.getElementById(projectName); // Referencia al project-item
+            const projectName = trigger.dataset.project; 
+            const project = document.getElementById(projectName); 
+            console.log("popup: " + projectName);
 
-            // Evitar que se oculte el project-item
+            // Evitar hover y touch temporalmente
             if (project) {
-                project.classList.add("fixed"); // Añadimos clase para bloquear cambios de posición
+                project.classList.add("no-hover"); 
             }
 
-            // Cargar contenido HTML del archivo correspondiente
             try {
                 const response = await fetch(`${projectName}.html`);
                 if (!response.ok) throw new Error("No se pudo cargar el contenido del proyecto.");
                 const content = await response.text();
-                popupDetails.innerHTML = content; // Insertar el contenido cargado
+                popupDetails.innerHTML = content; 
                 popup.classList.add("visible");
             } catch (error) {
                 popupDetails.innerHTML = `<p>Error: ${error.message}</p>`;
@@ -89,27 +84,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cerrar popup
     closePopupButton.addEventListener("click", () => {
         popup.classList.remove("visible");
-        document.querySelectorAll(".project-item.fixed").forEach(item => item.classList.remove("fixed")); // Restaurar clases
+        restoreProjectItems();
     });
 
-    // Cerrar popup al hacer clic fuera del contenido
     popup.addEventListener("click", (e) => {
         if (e.target === popup) {
             popup.classList.remove("visible");
-            document.querySelectorAll(".project-item.fixed").forEach(item => item.classList.remove("fixed")); // Restaurar clases
+            restoreProjectItems();
         }
     });
+
+    function restoreProjectItems() {
+        document.querySelectorAll('.project-item').forEach(item => {
+            item.classList.remove("fixed", "no-hover");
+        });
+        hideProjects();
+    }
 });
 
-function hideProyects() {
-    // Obtener el ancho del elemento izquierdo y derecho
+function hideProjects() {
     const leftItems = document.querySelectorAll('.project-item.left');
     const rightItems = document.querySelectorAll('.project-item.right');
 
     leftItems.forEach(leftItem => {
         adjustPosition(leftItem, 'left');
     });
-    
+
     rightItems.forEach(rightItem => {
         adjustPosition(rightItem, 'right');
     });
@@ -118,81 +118,45 @@ function hideProyects() {
 function adjustPosition(item, positionType) {
     const anchoImagen = 130;
     const itemWidth = item.offsetWidth;
-    const positionValue = anchoImagen-itemWidth; // Ancho del objeto más 150px
+    const positionValue = anchoImagen - itemWidth;
 
-    // Dependiendo de si es "left" o "right", aplicar la posición correcta
     if (positionType === 'left') {
         item.style.left = `${positionValue}px`;
     } else if (positionType === 'right') {
         item.style.right = `${positionValue}px`;
     }
 
-    // Eventos para ratón
-    item.addEventListener('mouseenter', function() {
-        item.style.transition = 'all 1.5s ease';
-        updateProjectItem(item, positionType, '0');
+    item.addEventListener('mouseenter', function () {
+        if (!item.classList.contains("no-hover")) {
+            item.style.transition = 'all 1.5s ease';
+            updateProjectItem(item, positionType, '0');
+        }
     });
-    item.addEventListener('mouseleave', function() {
-        item.style.transition = 'all 2s ease';
-        updateProjectItem(item, positionType, `${positionValue}px`);
+    item.addEventListener('mouseleave', function () {
+        if (!item.classList.contains("no-hover")) {
+            item.style.transition = 'all 2s ease';
+            updateProjectItem(item, positionType, `${positionValue}px`);
+        }
     });
 
-    // Eventos para pantallas táctiles
-    item.addEventListener('touchstart', function() {
-        item.style.transition = 'all 1.5s ease';
-        updateProjectItem(item, positionType, '0');
+    item.addEventListener('touchstart', function () {
+        if (!item.classList.contains("no-hover")) {
+            item.style.transition = 'all 1.5s ease';
+            updateProjectItem(item, positionType, '0');
+        }
     });
-    item.addEventListener('touchend', function() {
-        item.style.transition = 'all 2s ease';
-        updateProjectItem(item, positionType, `${positionValue}px`);
+    item.addEventListener('touchend', function () {
+        if (!item.classList.contains("no-hover")) {
+            item.style.transition = 'all 2s ease';
+            updateProjectItem(item, positionType, `${positionValue}px`);
+        }
     });
 }
 
 function updateProjectItem(item, positionType, positionValue) {
     if (positionType === 'left') {
-        item.style.left = positionValue; 
+        item.style.left = positionValue;
     } else if (positionType === 'right') {
         item.style.right = positionValue;
     }
-}
-
-function validateLink(linkId) {
-    // Evita el comportamiento predeterminado del enlace
-    event.preventDefault();
-
-    // Obtiene el elemento del enlace usando el ID
-    const linkElement = document.getElementById(linkId);
-    if (!linkElement) {
-        alert("El enlace no está disponible actualmente.");
-        return;
-    }
-
-    // Obtiene la URL del atributo href
-    const linkUrl = linkElement.getAttribute("href");
-
-    // Comprueba si el href está vacío
-    if (!linkUrl || linkUrl.trim() === "") {
-        alert("El enlace no está disponible actualmente.");
-        return;
-    }
-
-    window.open(linkUrl, '_blank');
-
-    /*
-    // Valida si el enlace está disponible
-    fetch(linkUrl, { method: "HEAD" })
-        .then(response => {
-            if (response.ok) {
-                // Si está disponible, abre en una nueva pestaña
-                window.open(linkUrl, '_blank');
-            } else {
-                // Si el enlace no está disponible, muestra un mensaje
-                alert("El enlace no está disponible actualmente.");
-            }
-        })
-        .catch(() => {
-            // Muestra un mensaje en caso de error
-            alert("Hubo un error al intentar validar el enlace. Por favor, inténtalo más tarde.");
-        });
-        */
 }
