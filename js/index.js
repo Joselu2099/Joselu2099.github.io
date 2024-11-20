@@ -27,51 +27,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function hideProyects() {
     // Obtener el ancho del elemento izquierdo y derecho
-    const anchoImagen = 130;
     const leftItems = document.querySelectorAll('.project-item.left');
     const rightItems = document.querySelectorAll('.project-item.right');
 
-    // Función para aplicar el estilo dinámico
-    function adjustPosition(items, positionType) {
-        items.forEach(item => {
-            const itemWidth = item.offsetWidth;
-            const positionValue = anchoImagen-itemWidth; // Ancho del objeto más 150px
-
-            // Dependiendo de si es "left" o "right", aplicar la posición correcta
-            if (positionType === 'left') {
-                item.style.left = `${positionValue}px`;
-            } else if (positionType === 'right') {
-                item.style.right = `${positionValue}px`;
-            }
-
-            // Evento para cuando el ratón entre en el elemento
-            item.addEventListener('mouseenter', function() {
-                item.style.transition = 'all 1.5s ease';
-                if (positionType === 'left') {
-                    item.style.left = '0'; // Eliminar el desplazamiento izquierdo
-                } else if (positionType === 'right') {
-                    item.style.right = '0'; // Eliminar el desplazamiento derecho
-                }
-            });
-
-            // Evento para cuando el ratón salga del elemento
-            item.addEventListener('mouseleave', function() {
-                item.style.transition = 'all 1.5s ease';
-                if (positionType === 'left') {
-                    item.style.left = `${positionValue}px`; // Volver a la posición original
-                } else if (positionType === 'right') {
-                    item.style.right = `${positionValue}px`; // Volver a la posición original
-                }
-            });
-        });
-    }
-
-    // Ajustar posiciones para los elementos 'left' y 'right'
-    adjustPosition(leftItems, 'left');
-    adjustPosition(rightItems, 'right');
+    leftItems.forEach(leftItem => {
+        adjustPosition(leftItem, 'left');
+    });
+    
+    rightItems.forEach(rightItem => {
+        adjustPosition(rightItem, 'right');
+    });
 }
 
-function showProyect(idProyect) {
-    leftItem.style.left = `${0}px`;
-    rightItem.style.right = `${0}px`;
+function adjustPosition(item, positionType) {
+    const anchoImagen = 130;
+    const itemWidth = item.offsetWidth;
+    const positionValue = anchoImagen-itemWidth; // Ancho del objeto más 150px
+
+    // Dependiendo de si es "left" o "right", aplicar la posición correcta
+    if (positionType === 'left') {
+        item.style.left = `${positionValue}px`;
+    } else if (positionType === 'right') {
+        item.style.right = `${positionValue}px`;
+    }
+
+    // Eventos para ratón
+    item.addEventListener('mouseenter', function() {
+        item.style.transition = 'all 1.5s ease';
+        updateProjectItem(item, positionType, '0');
+    });
+    item.addEventListener('mouseleave', function() {
+        item.style.transition = 'all 2s ease';
+        updateProjectItem(item, positionType, `${positionValue}px`);
+    });
+
+    // Eventos para pantallas táctiles
+    item.addEventListener('touchstart', function() {
+        item.style.transition = 'all 1.5s ease';
+        updateProjectItem(item, positionType, '0');
+    });
+    item.addEventListener('touchend', function() {
+        item.style.transition = 'all 2s ease';
+        updateProjectItem(item, positionType, `${positionValue}px`);
+    });
+}
+
+function updateProjectItem(item, positionType, positionValue) {
+    if (positionType === 'left') {
+        item.style.left = positionValue; 
+    } else if (positionType === 'right') {
+        item.style.right = positionValue;
+    }
 }
