@@ -54,34 +54,48 @@
     <!-- Projects Section -->
     <section class="projects">
         <h2 data-aos="fade-up">Highlighted Projects</h2>
-        <div class="project-item left" data-aos="fade-right" id="project-madrid-digital">
+    
+        <!-- Proyecto Madrid Digital -->
+        <div id="modema" class="project-item left" data-aos="fade-right">
             <div class="project-info">
-                <h3>Madrid Digital</h3>
+                <a href="#" class="popup-trigger" data-project="modema"><h3>Madrid Digital</h3></a>
                 <p>Madrid Comunity Digital Project.</p>
             </div>
             <div class="project-img">
                 <img src="img/comunidadMadridMapa.png" alt="Project 1">
             </div>
         </div>
-        <div class="project-item right" data-aos="fade-left" id="project-coinscope">
+    
+        <!-- Proyecto CoinScope -->
+        <div id="coinscope" class="project-item right" data-aos="fade-left">
             <div class="project-img">
                 <img src="img/coinScope_logo1.png" alt="Project 2">
             </div>
             <div class="project-info">
-                <h3>CoinScope</h3>
-                <p>Crypto currencies manager and trading algorythms.</p>
+                <a href="#" class="popup-trigger" data-project="coinscope"><h3>CoinScope</h3></a>
+                <p>Crypto currencies manager and trading AI.</p>
             </div>
         </div>
-        <div class="project-item left" data-aos="fade-right" id="project-biwengerpm">
+    
+        <!-- Proyecto BiwengerProManager -->
+        <div id="biwengerpm" class="project-item left" data-aos="fade-right">
             <div class="project-info">
-                <h3>BiwengerProManager</h3>
-                <p>Web app to manage your Biwenger leagues effectively.</p>
+                <a href="#" class="popup-trigger" data-project="biwengerpm"><h3>BiwengerProManager</h3></a>
+                <p>Web app to manage Biwenger Futbol Leagues effectively.</p>
             </div>
             <div class="project-img">
-                <img src="img/logoProManager.png" alt="Project 2">
+                <img src="img/logoProManager.png" alt="Project 3">
             </div>
         </div>
     </section>
+    
+    <!-- Popup Container -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <button class="close-popup">X</button>
+            <div id="popup-details"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
