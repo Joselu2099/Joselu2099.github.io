@@ -17,9 +17,19 @@
         <div class="center">
             <h1 data-aos="fade-down">Jose Luis Sánchez Carrasco</h1>
             <p data-aos="zoom-in">Welcome to my portfolio!</p>
-            <div class="row">
-                <a href="CV_SanchezCarrasco_JoseLuis.pdf" class="btn-cv" download>
-                    <button class="btn-download" id="toggle-download">Download CV</button>
+            <div class="row buttons">
+                <a href="docs/CV-SanchezCarrasco-JoseLuis.pdf" class="btn-cv" id="download-link" download>
+                    <button class="btn-download" id="toggle-download">
+                        <img src="img/pdf_download.png" alt="Download" /> CV
+                    </button>
+                </a>
+                <a href="https://www.linkedin.com/in/jose-luis-s%C3%A1nchez-carrasco-aa479b1a0/" 
+                    class="btn-linkedin" 
+                    target="_blank" 
+                    rel="noopener noreferrer">
+                    <button class="btn-enlace-linkedin" id="toggle-linkedin">
+                        <img src="img/linkedin_icon.png" alt="LinkedIn" />
+                    </button>
                 </a>
             </div>
             <div class="row">
@@ -47,12 +57,16 @@
         <div class="project-item left" data-aos="fade-right" id="project-madrid-digital">
             <div class="project-info">
                 <h3>Madrid Digital</h3>
-                <p>Madrid Comunity digital project.</p>
+                <p>Madrid Comunity Digital Project.</p>
             </div>
-            <img src="project1.jpg" alt="Project 1">
+            <div class="project-img">
+                <img src="img/comunidadMadridMapa.png" alt="Project 1">
+            </div>
         </div>
         <div class="project-item right" data-aos="fade-left" id="project-coinscope">
-            <img src="project2.jpg" alt="Project 2">
+            <div class="project-img">
+                <img src="img/coinScope_logo1.png" alt="Project 2">
+            </div>
             <div class="project-info">
                 <h3>CoinScope</h3>
                 <p>Crypto currencies manager and trading algorythms.</p>
@@ -63,7 +77,9 @@
                 <h3>BiwengerProManager</h3>
                 <p>Web app to manage your Biwenger leagues effectively.</p>
             </div>
-            <img src="project2.jpg" alt="Project 2">
+            <div class="project-img">
+                <img src="img/logoProManager.png" alt="Project 2">
+            </div>
         </div>
     </section>
 

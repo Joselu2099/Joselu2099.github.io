@@ -23,6 +23,38 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleButton.innerHTML = '<span class="flecha-desc">&#x25BC;</span>';
         }
     });
+
+    const downloadLink = document.getElementById("download-link");
+
+    downloadLink.addEventListener("click", (event) => {
+        event.preventDefault(); // Evita la acción predeterminada del enlace
+
+        const fileUrl = downloadLink.getAttribute("href");
+
+        // Verifica si el archivo está disponible
+        fetch(fileUrl, { method: "HEAD" })
+            .then(response => {
+                if (response.ok) {
+                    // Abrir en una nueva pestaña
+                    window.open(fileUrl, '_blank');
+
+                    // Crear un enlace de descarga manualmente
+                    const tempLink = document.createElement('a');
+                    tempLink.href = fileUrl;
+                    tempLink.download = ''; // Asigna un nombre de archivo si es necesario
+                    document.body.appendChild(tempLink);
+                    tempLink.click();
+                    document.body.removeChild(tempLink);
+                } else {
+                    // Si no está disponible, muestra un mensaje
+                    alert("En estos momentos, el documento no está disponible para descargar.");
+                }
+            })
+            .catch(() => {
+                // Muestra un mensaje si hay un error en la solicitud
+                alert("Hubo un problema al intentar descargar el documento. Por favor, inténtalo más tarde.");
+            });
+    });
 });
 
 function hideProyects() {

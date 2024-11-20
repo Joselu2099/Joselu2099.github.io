@@ -67,25 +67,62 @@ button {
     font-weight: bold;
 }
 
+header .buttons {
+    justify-content: center;
+}
+
 .btn-cv {
     background: #6a11cb;
     color: white;
     font-size: 1rem;
-    padding: 10px 20px;
+    padding: 0.5rem;
     border-radius: 1.5em;
     border: 2px solid #fff; 
     text-decoration: none;
     width: fit-content;
-    margin: auto;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.btn-linkedin {
+    background: #6a11cb;
+    color: white;
+    font-size: 1rem;
+    padding: 0;
+    border-radius: 6rem;
+    border: 2px solid #fff; 
+    text-decoration: none;
+    width: fit-content;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .btn-cv:hover {
     background: #6e15ec;
 }
 
-.btn-cv:hover button{
-    font-size: 1.1rem;
-    transition: bottom 0.3s ease-in-out; /* Transición suave */
+.btn-cv button, .btn-linkedin button {
+    padding: 0;
+    margin: 0;
+}
+
+header a:hover img{
+    transition: bottom 1s ease-in-out; 
+}
+
+.btn-cv img {
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 0;
+}
+
+.btn-linkedin img {
+    object-fit: cover; 
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    border-radius: 0;
 }
 
 .btn-description {
@@ -115,7 +152,9 @@ button {
     text-align: center;
     margin-bottom: 40px;
     font-weight: bold;
+    text-shadow: 1px 1px 1px #ffffff;
 }
+
 .project-item {
     display: flex;
     align-items: center;
@@ -123,7 +162,7 @@ button {
     border: 2px solid #fff;
     position: relative;
     border-radius: 6rem;
-    background: linear-gradient(128deg, #be90f0a8, #29fff3a6);
+    background: linear-gradient(269deg, #b42bf39c, #0ae4d8a6);
     transition: all 1s ease-out;
     overflow: hidden;
 }
@@ -138,11 +177,38 @@ button {
     justify-self: right;
 }
 
-.project-item img {
-    border: 2px solid #fff;
-    border-radius: 6rem;
+.project-img {
+    border-radius: inherit; 
     height: 150px;
     width: 150px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;           
+    margin: 0;            
+    box-sizing: border-box; 
+}
+
+.project-img img {
+    width: 100%;          /* La imagen llena todo el ancho del contenedor */
+    height: 100%;         /* La imagen llena toda la altura del contenedor */
+    object-fit: cover;    /* Cubre el área del contenedor */
+    object-position: center;
+    border-radius: inherit;  /* Hereda el borde redondeado */
+    padding: 0;           /* Sin relleno */
+    margin: 0;            /* Sin márgenes */
+    display: block;       /* Asegura que no sea tratado como inline */
+    box-sizing: border-box; /* Evita el cálculo fuera de dimensiones */
+}
+
+.project-item.left .project-img {
+    border-left: 2px solid #fff;
+}
+
+.project-item.right .project-img {
+    border-right: 2px solid #fff;
 }
 
 .project-info {
