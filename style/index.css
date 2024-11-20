@@ -1,6 +1,7 @@
 html {
     background: linear-gradient(128deg, #be90f0a8, #29fff3a6);
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 body {
@@ -9,7 +10,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header {
@@ -20,7 +21,7 @@ header {
     padding-bottom: 0.5rem !important;
     justify-content: center;
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header h1 {
