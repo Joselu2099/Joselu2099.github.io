@@ -1,28 +1,213 @@
-*{
+html {
+    background: linear-gradient(128deg, #be90f0a8, #29fff3a6);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: inherit;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+header {
+    background: linear-gradient(135deg, #6a11cbc9, #03674aeb);
     color: white;
-}
-
-html{
-    background: rgb(33,37,41);
-}
-
-body{
-    background: inherit !important;
-}
-
-main > h1{
     text-align: center;
-    font-weight: bold;
-    text-shadow: 2px 1px 10px rgb(0, 0, 0);
-    color: white;
-    margin: 2rem !important;
-}
-
-.contenido{
+    padding: 20px 20px;
+    padding-bottom: 0.5rem !important;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
+    overflow: auto;
 }
 
-.contenido > img{
-    border-radius: 10rem;
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 4px 3px 8px black;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+header .left, header .center, header .right {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+header .left, header .right {
+    padding-bottom: 1rem;
+}
+
+header .center {
+    flex: 1; 
+    padding-top: 1rem;
+}
+
+header img {
+    border-radius: 50%; /* Hace la imagen redonda */
+    width: 10rem; /* Tamaño de la imagen */
+    height: 10rem; /* Asegura que sea cuadrada */
+    object-fit: cover; 
+    object-position: top;
+    border: 2px solid #fff; /* Borde blanco */
+}
+
+button {
+    background: none;
+    border: 0;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.btn-cv {
+    background: #6a11cb;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 1.5em;
+    border: 2px solid #fff; 
+    text-decoration: none;
+    width: fit-content;
+    margin: auto;
+}
+
+.btn-cv:hover {
+    background: #6e15ec;
+}
+
+.btn-cv:hover button{
+    font-size: 1.1rem;
+    transition: bottom 0.3s ease-in-out; /* Transición suave */
+}
+
+.btn-description {
+    margin-top: 1rem;
+}
+
+.flecha-desc {
+    font-size: x-large;
+}
+
+.description {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #6a11cba8, #2575fca6);
+    color: white;
+    text-shadow: 1px 1px 1px #2b0583;
+    transition: all 1.5s ease;
+}
+
+.projects {
+    background: linear-gradient(128deg, #be90f0a8, #29fff3a6);
+    padding: 40px 20px;
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+.project-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 2px solid #fff;
+    position: relative;
+    border-radius: 6rem;
+    background: linear-gradient(128deg, #be90f0a8, #29fff3a6);
+    transition: all 1s ease-out;
+    overflow: hidden;
+}
+
+.project-item.left {
+    left: -75px;
+    justify-self: left;
+}
+
+.project-item.right {
+    right: -75px;
+    justify-self: right;
+}
+
+.project-item img {
+    border: 2px solid #fff;
+    border-radius: 6rem;
+    height: 150px;
+    width: 150px;
+}
+
+.project-info {
+    margin: 1rem;
+}
+
+.project-item.left .project-info {
+    margin-left: 1rem;
+    text-align: right;
+}
+
+.project-item.right .project-info {
+    margin-right: 1rem;
+    text-align: left;
+}
+
+.project-info p {
+    display: none;
+}
+
+.project-item:hover p {
+    display: block;
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Footer principal */
+footer {
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 0.7em;
+    position: fixed;
+    bottom: -35px;
+    width: 100%;
+    transform: translateY(0);
+    transition: bottom 1s ease-in-out; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Hover en la solapa o el footer */
+footer:hover {
+    bottom: 0; /* Muestra el footer completo */
+    transition: bottom 0.3s ease-in-out;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 602px) {
+    header {
+        display: flex;
+        flex-direction: column; 
+    }
+
+    header .right {
+        display: none; 
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
 }

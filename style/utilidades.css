@@ -51,8 +51,8 @@ main{
     background: rgb(122, 2, 2)
 }
 
-.categoria{
-    background: rgb(17, 114, 217)
+.passGenerator{
+    background: rgb(74 16 64);
 }
 
 .horario{
@@ -65,7 +65,7 @@ main{
 }
 
 .apartado .inputs{
-    height: 9rem;
+    height: auto;
     padding: 1rem;
 }
 
@@ -89,6 +89,11 @@ main{
     --bs-btn-hover-bg: #8927ed;
     --bs-btn-hover-border-color: #ffffff;
     text-shadow: 2px 2px #000000;
+}
+
+.form-group {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .show-resultado{

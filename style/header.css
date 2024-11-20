@@ -3,7 +3,7 @@ html{
 }
 
 header{
-    background-color: #39b9a7 !important;
+    background-color: #310a74 !important;
 }
 
 .header-logo{
@@ -42,12 +42,12 @@ header .dropdown-item:hover{
     background-color: rgb(149, 57, 235, 0.3) !important;
 }
 
-.text-black{
-    text-shadow: 2px 1px 10px rgb(254, 254, 254);
-}
-
 .text-white{
     text-shadow: 2px 1px 10px rgb(0, 0, 0);
+}
+
+.nav-link.selected {
+  color: yellow !important;
 }
 
 @media only screen and (min-width: 1400px) {

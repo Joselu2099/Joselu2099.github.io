@@ -22,7 +22,7 @@
                     </a>
                     <ul class="nav mb-2 justify-content-lg-end mb-md-0">
                         <li><a href="index.html" class="nav-link px-2 text-white">Inicio</a></li>
-                        <li><a href="utilidades.html" class="nav-link px-2 text-black">Utilidades</a></li>
+                        <li><a href="utilidades.html" class="nav-link px-2 text-white selected">Utilidades</a></li>
                         <li><a href="horarios.html" class="nav-link px-2 text-white">Horarios</a></li>
                     </ul>
                 </div>
@@ -84,24 +84,35 @@
                             <p class="clasificacionFCM"><span id="clasificacionFCM"></span></p>
                         </div>
                     </section>
-                    <section class="container apartado categoria">
-                        <h2>Calculadora de Categoría</h2>
-                        <script src="js/categoria.js"></script>
+                    <section class="container apartado passGenerator">
+                        <h2>Password Generator</h2>
+                        <script src="js/passGenerator.js"></script>
                         <form method="post" class="col-md-12">
                             <div class="inputs">
                                 <div class="form-group">
-                                    <label for="edadCategoria">Edad</label>
-                                    <input type="number" name="edadCategoria" id="edadCategoria" class="form-control" placeholder="Introduce tu edad">
+                                    <label for="concept">Concept password (optional)</label>
+                                    <input type="text" name="concept" id="concept" class="form-control" placeholder="Introduce una palabra">
+                                </div>
+                                <div class="form-group">
+                                    <label for="passlength">Password Length (optional)</label>
+                                    <input onchange="validatePassLenght()" type="number" name="passlength" id="passlength" class="form-control" value="8" placeholder="Introduce la longitud de tu contraseña (Default: 8)">
+                                </div>
+                                <div class="form-group form-check">
+                                    <label for="specialCharacters" class="form-check-label">Special Characters (optional)</label>
+                                    <input type="checkbox" name="specialCharacters" id="specialCharacters" class="form-check-input">
+                                </div>
+                                <div class="form-group form-check">
+                                    <label for="capitalLetters" class="form-check-label">Capital Letters</label>
+                                    <input type="checkbox" name="capitalLetters" id="capitalLetters" class="form-check-input" checked>
                                 </div>
                             </div>
                             <br>
                             <div class="form-group">
-                                <button type="button" onclick="calcularCategoria()" name="calcular" class="btn btn-primary">Calcular</button>
+                                <button type="button" onclick="generarContrasena()" name="generar" class="btn btn-primary">Generar Contraseña</button>
                             </div>
                         </form>
                         <div class="show-resultado">
-                            <label class="resultadoCategoria">Categoría: <span id="resultadoCategoria"></span></label>
-                            <p class="listaCategorias"><span id="listaCategorias"></span></p>
+                            <label class="contrasenia">Contraseña: <span id="contrasenia"></span></label>
                         </div>
                     </section>
                 </div>     
@@ -109,14 +120,14 @@
         </main> 
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-              <p class="col-md-4 mb-0 text-muted">&copy; 2022 Proyecto DWEC</p>
+              <p class="col-md-4 mb-0 text-muted">&copy; 2024 Jose Luis Sánchez Carrasco</p>
           
               <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
               </a>
           
               <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a href="index.php" class="nav-link px-2 text-muted">Inicio</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Inicio</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contacto</a></li>
               </ul>
             </footer>
