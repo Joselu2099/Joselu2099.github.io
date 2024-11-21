@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const projectName = trigger.dataset.project; 
             const project = document.getElementById(projectName); 
-            console.log("popup: " + projectName);
 
             // Evitar hover y touch temporalmente
             if (project) {

@@ -1,0 +1,162 @@
+/* Estilos generales para el popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Cuando el popup está visible */
+.popup.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenedor del contenido del popup */
+.popup-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Botón para cerrar el popup */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+.close-popup:hover {
+    color: #ff0000; /* Cambiar el color al pasar el cursor */
+}
+
+/* Títulos del popup */
+#popup h1, #popup h2, #popup h3 {
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Diseño de la sección de capturas de pantalla */
+.img-fluid {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Diseño del contenido en columnas (responsive) */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+}
+
+.col-md-6 {
+    flex: 0 0 48%;
+}
+
+.col-md-4 {
+    flex: 0 0 30%;
+}
+
+/* Estilos para las tarjetas de las capturas */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Animaciones AOS */
+[data-aos="fade-down"] { animation-name: fadeDown; }
+[data-aos="fade-up"] { animation-name: fadeUp; }
+[data-aos="fade-right"] { animation-name: fadeRight; }
+[data-aos="fade-left"] { animation-name: fadeLeft; }
+[data-aos="zoom-in"] { animation-name: zoomIn; }
+
+/* Animaciones */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .col-md-6, .col-md-4 { flex: 0 0 100%; }
+    .row { flex-direction: column; }
+    .popup-content { padding: 15px; }
+}
+
+@media (max-width: 480px) {
+    .close-popup { font-size: 20px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 12px; }
+    .img-fluid { margin-bottom: 10px; }
+}

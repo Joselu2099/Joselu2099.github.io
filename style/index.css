@@ -135,7 +135,7 @@ header a:hover img{
 
 .description {
     display: none;
-    padding: 20px;
+    padding: 20px 100px;
     text-align: center;
     background: linear-gradient(135deg, #6a11cba8, #2575fca6);
     color: white;
@@ -261,9 +261,9 @@ header a:hover img{
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
+    z-index: 1000; /* Para asegurarse de que se vea por encima del contenido */
+    opacity: 0; /* Oculto inicialmente */
+    visibility: hidden; /* No visible inicialmente */
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
@@ -282,6 +282,7 @@ header a:hover img{
     width: 90%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
+    overflow-y: auto; /* Para un desplazamiento en contenido largo */
 }
 
 /* Botón para cerrar el popup */
@@ -303,11 +304,11 @@ header a:hover img{
 
 /* Estilo para el contenido dinámico del popup */
 #popup-details {
-    overflow-y: auto;
     max-height: 400px;
     padding: 10px 0;
     font-family: Arial, sans-serif;
     color: #333;
+    overflow-y: auto;
 }
 
 /* Para evitar scroll no deseado en el fondo cuando el popup está abierto */
@@ -319,6 +320,17 @@ body.popup-open {
 .project-item.no-hover {
     pointer-events: none;
     transition: none;
+}
+
+/* Animaciones */
+@keyframes fade-down {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Footer principal */
