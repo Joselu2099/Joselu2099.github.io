@@ -12,7 +12,7 @@ const translations = {
 
     projects: "Projects",
     projectsText:
-      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Development of a collection of useful tools such as calculators, generators, encryptors, and other practical mini-programs for everyday tasks.</p></div><div class='entry'><h3>File2File</h3><p>Java application for the automated migration of shell scripts (bash, sh, csh), optimizing their adaptation and portability across different environments.</p></div>",  
+      "<div class='entry'><h3><a href=''>BiwengerProManager</a></h3><p>Monolithic web application developed in PHP based on the Biwenger REST API (football game). Recreates its data model and adds features not available in the official site, allowing custom rules and enhancing the experience among friends.</p></div><div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>A collection of practical tools such as calculators, generators, encryptors, and other small programs for everyday tasks.</p></div><div class='entry'><h3><a href='https://github.com/Joselu2099/file2file/releases'>File2File</a></h3><p>Java application for the automated migration of shell scripts (bash, sh, csh), improving their portability and adaptability across environments.</p></div><div class='entry'><h3><a href=''>CoinScope</a></h3><p>Java + Angular REST API for building a cryptocurrency portfolio, centralizing multiple sources and offering advanced features like accumulation strategies and tax optimization, integrating data from exchanges and wallet explorers.</p></div>",  
 
     technologies: "Technologies",
     technologiesText:
@@ -58,7 +58,7 @@ const translations = {
 
     projects: "Proyectos",
     projectsText:
-      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Desarrollo de una colección de herramientas útiles como calculadoras, generadores, encriptadores y otros mini programas prácticos para tareas cotidianas.</p></div><div class='entry'><h3>File2File</h3><p>Aplicación Java para la migración automatizada de scripts de shell (bash, sh, csh), optimizando su adaptación y portabilidad entre entornos.</p></div>",
+      "<div class='entry'><h3><a href=''>BiwengerProManager</a></h3><p>Aplicación web monolítica desarrollada en PHP a partir del API REST de Biwenger (juego de fútbol). Reproduce su modelo de datos y amplía funcionalidades no disponibles en la web oficial, permitiendo crear nuevas reglas de juego y mejorar la experiencia entre amigos.</p></div><div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Colección de herramientas prácticas como calculadoras, generadores, encriptadores y otros mini programas útiles para tareas cotidianas.</p></div><div class='entry'><h3><a href='https://github.com/Joselu2099/file2file/releases'>File2File</a></h3><p>Aplicación Java para la migración automatizada de scripts de shell (bash, sh, csh), optimizando su adaptación y portabilidad entre distintos entornos.</p></div><div class='entry'><h3><a href=''>CoinScope</a></h3><p>API REST en Java + Angular para la creación de un portfolio de criptomonedas, capaz de centralizar múltiples fuentes y ofrecer funcionalidades avanzadas como estrategias de acumulación y optimización fiscal, integrando datos de exchanges y exploradores de wallets.</p></div>",
 
     languages: "Idiomas",
     languagesText:
@@ -92,7 +92,7 @@ const translations = {
 
     projects: "Projekte",
     projectsText:
-      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Entwicklung einer Sammlung nützlicher Werkzeuge wie Rechner, Generatoren, Verschlüsselungstools und weiterer praktischer Mini-Programme für alltägliche Aufgaben.</p></div><div class='entry'><h3>File2File</h3><p>Java-Anwendung zur automatisierten Migration von Shell-Skripten (bash, sh, csh), mit dem Ziel, deren Anpassung und Portabilität zwischen verschiedenen Umgebungen zu optimieren.</p></div>",
+      "<div class='entry'><h3><a href=''>BiwengerProManager</a></h3><p>Monolithische Webanwendung in PHP, basierend auf der Biwenger-REST-API (Fußballspiel). Repliziert das Datenmodell und erweitert Funktionen, die auf der offiziellen Website fehlen, um neue Spielregeln zu erstellen und das Erlebnis mit Freunden zu verbessern.</p></div><div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Sammlung nützlicher Tools wie Rechner, Generatoren, Verschlüsselungsprogramme und anderer praktischer Minianwendungen für den Alltag.</p></div><div class='entry'><h3><a href='https://github.com/Joselu2099/file2file/releases'>File2File</a></h3><p>Java-Anwendung zur automatisierten Migration von Shell-Skripten (bash, sh, csh), zur Optimierung der Anpassung und Portabilität in verschiedenen Umgebungen.</p></div><div class='entry'><h3><a href=''>CoinScope</a></h3><p>Java + Angular REST-API zur Erstellung eines Kryptowährungs-Portfolios, die mehrere Quellen zentralisiert und fortschrittliche Funktionen wie Ansammlungsstrategien und steuerliche Optimierung bietet – durch Integration von Daten aus Börsen und Wallet-Scannern.</p></div>",
     
     languages: "Sprachen",
     languagesText:
