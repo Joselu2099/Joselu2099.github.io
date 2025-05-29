@@ -1,0 +1,33 @@
+# Archivos y carpetas del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos temporales de VSCode y editores
+.vscode/
+*.code-workspace
+
+# Archivos temporales de sistema y backups
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+
+# Archivos de sistema Mac
+._*
+
+# Node/npm (si usas alguna herramienta JS)
+node_modules/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Archivos de producción o personales
+*.local
+*.bak
+
+# Archivos de caché
+.cache/
+dist/
+build/
