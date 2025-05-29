@@ -24,7 +24,7 @@ const translations = {
 
     projects: "Projects",
     projectsText:
-      "<div class='entry'><h3>Project 1</h3><p>Development of a web application for managing resources and users in an educational environment. Technologies: Java, Spring Boot, Angular, MySQL.</p></div><div class='entry'><h3>Project 2</h3><p>Reservation system for an equipment rental company. Includes authentication, roles, and admin panel. Technologies: PHP, Laravel, Bootstrap.</p></div>",
+      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Development of a collection of useful tools such as calculators, generators, encryptors, and other practical mini-programs for everyday tasks.</p></div><div class='entry'><h3>File2File</h3><p>Java application for the automated migration of shell scripts (bash, sh, csh), optimizing their adaptation and portability across different environments.</p></div>",
 
     contact: "Contact",
     contactText: "Email",
@@ -54,7 +54,7 @@ const translations = {
 
     projects: "Proyectos",
     projectsText:
-      "<div class='entry'><h3>Ultimate Util Calculator</h3><p>Desarrollo de una serie de mini programas como calculadoras, generadores, encriptadores y demás útiles.</p></div><div class='entry'><h3>File2File</h3><p>Aplicacion Java para la migración automática de scripts (bash, sh, csh).</p></div>",
+      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Desarrollo de una colección de herramientas útiles como calculadoras, generadores, encriptadores y otros mini programas prácticos para tareas cotidianas.</p></div><div class='entry'><h3>File2File</h3><p>Aplicación Java para la migración automatizada de scripts de shell (bash, sh, csh), optimizando su adaptación y portabilidad entre entornos.</p></div>",
 
     contact: "Contacto",
     contactText: "Correo",
@@ -84,8 +84,8 @@ const translations = {
 
     projects: "Projekte",
     projectsText:
-      "<div class='entry'><h3>Projekt 1</h3><p>Entwicklung einer Webanwendung zur Ressourcen- und Benutzerverwaltung in einer Bildungsumgebung. Technologien: Java, Spring Boot, Angular, MySQL.</p></div><div class='entry'><h3>Projekt 2</h3><p>Reservierungssystem für ein Ausrüstungsverleihunternehmen mit Authentifizierung, Rollenverwaltung und Admin-Panel. Technologien: PHP, Laravel, Bootstrap.</p></div>",
-
+      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Entwicklung einer Sammlung nützlicher Werkzeuge wie Rechner, Generatoren, Verschlüsselungstools und weiterer praktischer Mini-Programme für alltägliche Aufgaben.</p></div><div class='entry'><h3>File2File</h3><p>Java-Anwendung zur automatisierten Migration von Shell-Skripten (bash, sh, csh), mit dem Ziel, deren Anpassung und Portabilität zwischen verschiedenen Umgebungen zu optimieren.</p></div>",
+    
     contact: "Kontakt",
     contactText: "E-Mail",
   },
@@ -164,6 +164,30 @@ function setLanguage(lang) {
   document.querySelector("#contact h2").innerText = t.contact;
   document.querySelector("#contact #mail").innerHTML = t.contactText;
   document.getElementById("langPopup").style.display = "none";
+  loadSounds();
+}
+
+function loadSounds() {
+  const clickSound = new Audio("sounds/click.mp3");
+  const enterSound = new Audio("sounds/enter.mp3");
+  document.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", () => {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    });
+  });
+  document.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    });
+  });
+}
+
+function playSound(sound) {
+  const audio = new Audio(`sounds/${sound}.mp3`);
+  audio.currentTime = 0;
+  audio.play();
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -208,19 +232,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   startParticles();
 
-  // --- SONIDO EN BOTONES ---
-  const clickSound = new Audio("sounds/click.mp3");
-  const enterSound = new Audio("sounds/enter.mp3");
-  document.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => {
-      enterSound.currentTime = 0;
-      enterSound.play();
-    });
-  });
-  document.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      clickSound.currentTime = 0;
-      clickSound.play();
-    });
-  });
+  // --- SONIDO EN ENLACES ---
+  loadSounds();
 });
