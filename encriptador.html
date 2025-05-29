@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Encriptador/Desencriptador</title>
+  <link rel="icon" type="image/x-icon" href="img/encrypt.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/utils.css">
+  <link rel="stylesheet" href="css/encriptador.css">
+</head>
+<body>
+  <canvas id="particles-js"></canvas>
+
+  <button class="utils-home-toggle" aria-label="Volver a utilidades" onclick="window.location.href='utils.html'">
+    <img src="img/back.png" alt="Volver a utilidades" width="20" height="20">
+  </button>
+
+  <header>
+    <h3>Encriptador / Desencriptador</h3>
+    <p>Encripta y desencripta textos de forma sencilla</p>
+  </header>
+  <main>
+    <section class="crypto-box">
+      <label for="inputText">Texto:</label>
+      <textarea id="inputText" rows="4" placeholder="Introduce el texto aquí"></textarea>
+      <label for="method">Método:</label>
+      <select id="method">
+        <option value="b64">Base64</option>
+        <option value="rot13">ROT13</option>
+      </select>
+      <div class="crypto-actions">
+        <button id="encrypt">Encriptar</button>
+        <button id="decrypt">Desencriptar</button>
+      </div>
+      <label for="outputText">Resultado:</label>
+      <textarea id="outputText" rows="4" readonly></textarea>
+      <button id="copyResult" title="Copiar resultado">Copiar</button>
+      <div id="copied" style="display:none;">¡Copiado!</div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 - Jose Luis Sánchez Carrasco
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="js/encriptador.js"></script>
+</body>
+</html>
