@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
-  <meta name="description" content="Portfolio de Jose Luis Sánchez Carrasco, desarrollador web y de software. Proyectos, experiencia, tecnologías y contacto.">
+  <meta name="description"
+    content="Portfolio de Jose Luis Sánchez Carrasco, desarrollador web y de software. Proyectos, experiencia, tecnologías y contacto.">
   <meta name="author" content="Jose Luis Sánchez Carrasco">
-  <meta name="keywords" content="portfolio, Jose Luis Sánchez Carrasco, desarrollador, web, software, proyectos, experiencia">
-  <meta property="og:title" content="Portfolio | Jose Luis Sánchez Carrasco">
-  <meta property="og:description" content="Descubre los proyectos, experiencia y habilidades de Jose Luis Sánchez Carrasco.">
+  <meta name="keywords"
+    content="portfolio, Jose Luis Sánchez Carrasco, developer, web, software, projects, experience, technologies, contact">
+  <meta property="og:title" content="Jose Luis Sánchez Carrasco | Portfolio" />
+  <meta property="og:description"
+    content="Explore my personal portfolio: projects, experience, skills and downloadable CV." />
   <meta property="og:type" content="website">
-  <meta property="og:image" content="profile-picture-3.jpg">
-  <meta property="og:url" content="https://joselu2099.github.io/">
+  <meta property="og:image" content="https://joselu2099.github.io/img/miniatura.jpg" />
+  <meta property="og:url" content="https://joselu2099.github.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/portfolio.css">
 </head>
+
 <body>
   <button class="lang-toggle" aria-label="Language" onclick="showLangPopup()">
     <img src="img/language.png" alt="Language" width="20" height="20">
@@ -27,7 +35,7 @@
     <img src="img/download.png" alt="Descargar CV" width="20" height="20">
     <span id="cv">CV</span>
   </button>
-  
+
   <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
     <p id="popupTitle">Select CV Language:</p>
     <button onclick="downloadCV('en')" aria-label="Download CV in English">English</button>
@@ -46,7 +54,7 @@
   <header>Welcome to my Portfolio</header>
 
   <div class="profile">
-    <img src="img/profile-picture-3.jpg" alt="Profile Photo" loading="lazy"/>
+    <img src="img/profile-picture-3.jpg" alt="Profile Photo" loading="lazy" />
     <h2>Jose Luis Sánchez Carrasco</h2>
   </div>
 
@@ -61,25 +69,47 @@
     <a href="#contact"><span>Contact</span></a>
   </nav>
 
-  <section id="about"><h2>About Me</h2><p></p></section>
-  <section id="experience"><h2>Experience</h2><div class="entries"></div></section>
-  <section id="projects"><h2>Projects</h2><div class="entries"></div></section>
-  <section id="technologies"><h2>Technologies</h2><div class="entries"></div></section>
-  <section id="skills"><h2>Skills</h2><ul></ul></section>
-  <section id="languages"><h2>Languages</h2><div class="entries"></div></section>
-  <section id="education"><h2>Education</h2><div class="entries"></div></section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p></p>
+  </section>
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="entries"></div>
+  </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="entries"></div>
+  </section>
+  <section id="technologies">
+    <h2>Technologies</h2>
+    <div class="entries"></div>
+  </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul></ul>
+  </section>
+  <section id="languages">
+    <h2>Languages</h2>
+    <div class="entries"></div>
+  </section>
+  <section id="education">
+    <h2>Education</h2>
+    <div class="entries"></div>
+  </section>
   <section id="contact">
     <h2>Contacto</h2>
     <p>
       <a href="mailto:joseluischezcarrasco@gmail.com" class="contact-btn email-btn" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
-          <path d="M12 13.065L.564 4.5h22.872L12 13.065zm0 2.265L0 6.06v13.38h24V6.06L12 15.33z"/>
+          <path d="M12 13.065L.564 4.5h22.872L12 13.065zm0 2.265L0 6.06v13.38h24V6.06L12 15.33z" />
         </svg>
         <span id="mail"></span>
       </a>
-      <br/><br/>
+      <br /><br />
       <a href="https://www.linkedin.com/in/joseluissanchezcarrasco/" class="contact-btn linkedin-btn" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="linkedin-icon" />
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
+          class="linkedin-icon" />
         LinkedIn
       </a>
     </p>
@@ -90,4 +120,5 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
   <script src="js/portfolio.js"></script>
 </body>
+
 </html>
