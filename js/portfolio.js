@@ -124,6 +124,9 @@ sections.forEach((section) => observer.observe(section));
 
 function showPopup() {
   document.getElementById("popup").style.display = "block";
+  setTimeout(() => {
+    document.querySelector("#popup button").focus();
+  }, 10);
 }
 
 function downloadCV(lang) {
@@ -137,6 +140,9 @@ function downloadCV(lang) {
 
 function showLangPopup() {
   document.getElementById("langPopup").style.display = "block";
+  setTimeout(() => {
+    document.querySelector("#langPopup button").focus();
+  }, 10);
 }
 
 function goUp() {
@@ -144,43 +150,50 @@ function goUp() {
 }
 
 function setLanguage(lang) {
-  localStorage.setItem("language", lang);
-  const t = translations[lang];
-  document.querySelector("header").innerText = t.header;
-  document.querySelector("#cv").innerText = t.cv;
-  document.querySelector("a[href='#about'] span").innerText = t.about;
-  document.querySelector("a[href='#experience'] span").innerText = t.experience;
-  document.querySelector("a[href='#education'] span").innerText = t.education;
-  document.querySelector("a[href='#technologies'] span").innerText =
-    t.technologies;
-  document.querySelector("a[href='#skills'] span").innerText = t.skills;
-  document.querySelector("a[href='#projects'] span").innerText = t.projects;
-  document.querySelector("a[href='#languages'] span").innerText = t.languages;
-  document.querySelector("a[href='#contact'] span").innerText = t.contact;
-  document.querySelector("#about h2").innerText = t.about;
-  document.querySelector("#about p").innerText = t.aboutText;
-  document.querySelector(
-    "#experience"
-  ).innerHTML = `<h2>${t.experience}</h2>${t.experienceText}`;
-  document.querySelector(
-    "#education"
-  ).innerHTML = `<h2>${t.education}</h2>${t.educationText}`;
-  document.querySelector(
-    "#technologies"
-  ).innerHTML = `<h2>${t.technologies}</h2>${t.technologiesText}`;
-  document.querySelector(
-    "#skills"
-  ).innerHTML = `<h2>${t.skills}</h2><ul>${t.skillsText}</ul>`;
-  document.querySelector(
-    "#projects"
-  ).innerHTML = `<h2>${t.projects}</h2>${t.projectsText}`;
-  document.querySelector(
-    "#languages"
-  ).innerHTML = `<h2>${t.languages}</h2>${t.languagesText}`;
-  document.querySelector("#contact h2").innerText = t.contact;
-  document.querySelector("#contact #mail").innerHTML = t.contactText;
-  document.getElementById("langPopup").style.display = "none";
-  loadSounds();
+  // Transición de opacidad para el main content
+  const mainContent = document.body;
+  mainContent.style.transition = "opacity 0.4s";
+  mainContent.style.opacity = "0.3";
+  setTimeout(() => {
+    localStorage.setItem("language", lang);
+    const t = translations[lang];
+    document.querySelector("header").innerText = t.header;
+    document.querySelector("#cv").innerText = t.cv;
+    document.querySelector("a[href='#about'] span").innerText = t.about;
+    document.querySelector("a[href='#experience'] span").innerText = t.experience;
+    document.querySelector("a[href='#education'] span").innerText = t.education;
+    document.querySelector("a[href='#technologies'] span").innerText =
+      t.technologies;
+    document.querySelector("a[href='#skills'] span").innerText = t.skills;
+    document.querySelector("a[href='#projects'] span").innerText = t.projects;
+    document.querySelector("a[href='#languages'] span").innerText = t.languages;
+    document.querySelector("a[href='#contact'] span").innerText = t.contact;
+    document.querySelector("#about h2").innerText = t.about;
+    document.querySelector("#about p").innerText = t.aboutText;
+    document.querySelector(
+      "#experience"
+    ).innerHTML = `<h2>${t.experience}</h2>${t.experienceText}`;
+    document.querySelector(
+      "#education"
+    ).innerHTML = `<h2>${t.education}</h2>${t.educationText}`;
+    document.querySelector(
+      "#technologies"
+    ).innerHTML = `<h2>${t.technologies}</h2>${t.technologiesText}`;
+    document.querySelector(
+      "#skills"
+    ).innerHTML = `<h2>${t.skills}</h2><ul>${t.skillsText}</ul>`;
+    document.querySelector(
+      "#projects"
+    ).innerHTML = `<h2>${t.projects}</h2>${t.projectsText}`;
+    document.querySelector(
+      "#languages"
+    ).innerHTML = `<h2>${t.languages}</h2>${t.languagesText}`;
+    document.querySelector("#contact h2").innerText = t.contact;
+    document.querySelector("#contact #mail").innerHTML = t.contactText;
+    document.getElementById("langPopup").style.display = "none";
+    loadSounds();
+    mainContent.style.opacity = "1";
+  }, 250);
 }
 
 function loadSounds() {
@@ -250,4 +263,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // --- SONIDO EN ENLACES ---
   loadSounds();
+
+  window.addEventListener("keydown", function(e) {
+    const popup = document.querySelector(".popup[style*='block']");
+    if (popup && (e.key === "Escape" || e.key === "Esc")) {
+      popup.style.display = "none";
+      // Devuelve el foco al botón que abrió el popup si es posible
+      if (popup.id === "popup") document.getElementById("cv-download").focus();
+      if (popup.id === "langPopup") document.querySelector(".lang-toggle").focus();
+    }
+  });
 });
+

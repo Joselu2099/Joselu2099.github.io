@@ -28,17 +28,17 @@
     <span id="cv">CV</span>
   </button>
   
-  <div class="popup" id="popup">
-    <p>Select CV Language:</p>
-    <button onclick="downloadCV('en')">English</button>
-    <button onclick="downloadCV('es')">Español</button>
+  <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <p id="popupTitle">Select CV Language:</p>
+    <button onclick="downloadCV('en')" aria-label="Download CV in English">English</button>
+    <button onclick="downloadCV('es')" aria-label="Descargar CV en Español">Español</button>
   </div>
 
-  <div class="popup" id="langPopup">
-    <p>Select Language:</p>
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('es')">Español</button>
-    <button onclick="setLanguage('de')">Deutsch</button>
+  <div class="popup" id="langPopup" role="dialog" aria-modal="true" aria-labelledby="langPopupTitle">
+    <p id="langPopupTitle">Select Language:</p>
+    <button onclick="setLanguage('en')" aria-label="Cambiar idioma a inglés">English</button>
+    <button onclick="setLanguage('es')" aria-label="Cambiar idioma a español">Español</button>
+    <button onclick="setLanguage('de')" aria-label="Cambiar idioma a alemán">Deutsch</button>
   </div>
 
   <canvas id="particles-js"></canvas>

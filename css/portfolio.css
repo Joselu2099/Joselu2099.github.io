@@ -448,3 +448,11 @@ footer {
     transform: translateY(0);
   }
 }
+
+/* Accesibilidad: estilos de foco personalizados */
+a:focus, button:focus, .contact-btn:focus, .cv-download:focus, .lang-toggle:focus, .up-toggle:focus {
+  outline: 2.5px solid #00ffee;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #00ffee55;
+  z-index: 100;
+}
