@@ -1,0 +1,443 @@
+body {
+  margin: 0;
+  font-family: "Poppins", "Rajdhani", sans-serif;
+  background: radial-gradient(circle, #0f0f2d, #050510);
+  color: #00ffee;
+  overflow-x: hidden;
+  position: relative;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+  }
+  header {
+    font-size: 1.4rem;
+    padding: 2rem 0.5rem 1rem;
+    margin-top: 0.5em;
+  }
+  .profile img {
+    width: 90px;
+    height: 90px;
+  }
+  .profile h3 {
+    font-size: 1.1rem;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    align-items: stretch;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 8px 0;
+    text-align: center;
+    border-radius: 8px;
+    margin: 0 4em;
+    clip-path: none;
+    background: rgba(0, 255, 255, 0.08);
+  }
+  section {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    margin-left: 1em !important;
+    margin-right: 1em !important;
+  }
+  section h2 {
+    font-size: 1.2rem;
+    padding-bottom: 0.3rem;
+  }
+  .entry {
+    padding: 0.7rem;
+    font-size: 0.97rem;
+  }
+  .lang-toggle,
+  .cv-download {
+    font-size: 13px;
+    padding: 8px 12px;
+    top: 6px;
+    border-radius: 7px;
+  }
+  .lang-toggle {
+    right: 6px;
+  }
+  .cv-download {
+    left: 6px;
+  }
+  .popup {
+    width: 90vw;
+    max-width: 320px;
+    padding: 15px;
+    font-size: 14px;
+  }
+  .popup button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  footer {
+    font-size: 0.9rem;
+    padding: 1rem;
+    margin-bottom: 5em !important;
+  }
+}
+
+canvas#particles-js {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+
+/* Botones fijos superiores */
+.lang-toggle,
+.cv-download,
+.up-toggle {
+  position: fixed;
+  top: 10px;
+  padding: 12px 18px;
+  background: #00ffee33;
+  border: 1px solid #00ffee;
+  color: #00ffee;
+  cursor: pointer;
+  border-radius: 10px;
+  z-index: 10;
+  font-size: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.lang-toggle {
+  right: 10px;
+}
+
+.cv-download {
+  left: 10px;
+}
+
+.up-toggle {
+  top: auto;
+  bottom: 30px;
+  right: 20px;
+  left: auto;
+  border-radius: 30%;
+  padding: 12px 16px;
+  font-size: 20px;
+  z-index: 999;
+}
+
+/* Iconos de los botones */
+.lang-toggle img,
+.cv-download img,
+.up-toggle img {
+  filter: invert(1);
+  vertical-align: middle;
+  transition: filter 0.2s, width 0.2s, height 0.2s;
+  width: 20px;
+  height: 20px;
+}
+
+.up-toggle img {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Efecto hover para todos los botones fijos */
+.lang-toggle:hover,
+.cv-download:hover,
+.up-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #00ffeeaa;
+  color: #fff;
+  text-shadow: 0 0 10px #00ffee;
+}
+
+/* Efecto hover para los iconos */
+.lang-toggle:hover img,
+.cv-download:hover img,
+.up-toggle:hover img {
+  filter: invert(1) drop-shadow(0 0 8px #00ffee);
+  width: 1.5em;
+  height: 1.5em;
+}
+
+/* Efecto hover para el texto CV */
+.cv-download:hover #cv {
+  color: #fff;
+  text-shadow: 0 0 10px #00ffee;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+/*
+.lang-toggle,
+.cv-download {
+  position: fixed;
+  top: 10px;
+  padding: 12px 18px;
+  background: #00ffee33;
+  border: 1px solid #00ffee;
+  color: #00ffee;
+  cursor: pointer;
+  border-radius: 10px;
+  z-index: 10;
+  font-size: 16px;
+}
+
+.lang-toggle {
+  right: 10px;
+}
+.cv-download {
+  left: 10px;
+}
+
+.up-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  background: #00ffee33;
+  border: 1px solid #00ffee;
+  color: #00ffee;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.up-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ffeeaa;
+}
+*/
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0f0f2d;
+  padding: 25px;
+  border: 2px solid #00ffee;
+  border-radius: 12px;
+  z-index: 20;
+  color: #00ffee;
+  font-size: 16px;
+}
+
+.popup button {
+  margin: 8px;
+  padding: 12px 20px;
+  background: #00ffee33;
+  border: 1px solid #00ffee;
+  color: #00ffee;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+header {
+  padding: 3rem 2rem 1.5rem;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffee, 0 0 20px #00ffee;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+#cv-download img {
+  filter: invert(1);
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.cv-download:hover img {
+  filter: invert(1) drop-shadow(0 0 8px #00ffee) !important;
+  transition: filter 0.2s;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.cv-download:hover #cv {
+  color: #fff;
+  text-shadow: 0 0 10px #00ffee;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid #00ffee;
+  box-shadow: 0 0 20px #00ffee88;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  animation: slideIn 1s ease-in-out;
+}
+
+nav a {
+  color: #00ffee;
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 24px;
+  clip-path: polygon(10% 0%, 90% 0%, 80% 100%, 0% 100%);
+  background: rgb(0 255 255 / 6%);
+  border: 1px solid #00ffee;
+  transition: transform 0.3s;
+}
+
+nav a:hover,
+.cv-download:hover,
+.lang-toggle:hover {
+  transform: scale(1.02);
+  color: #fff;
+  text-shadow: 0 0 10px #00ffee;
+}
+
+nav a span {
+  display: block;
+  padding: 5px 6px;
+}
+
+section {
+  max-width: 960px;
+  margin: auto;
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid #00ffee;
+  border-radius: 18px;
+  box-shadow: 0 0 25px #00ffee44;
+  backdrop-filter: blur(10px);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+section.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+section h2 {
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #00ffee;
+  padding-bottom: 0.6rem;
+  font-size: 1.8rem;
+}
+
+.entry {
+  background: #111;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  border-radius: 10px;
+  border-left: 4px solid #00ffee;
+  transition: transform 0.3s;
+}
+
+.entry:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 18px #00ffee66;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0077b5;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #00ffee;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  width: 6em;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px #00ffee;
+}
+
+.email-btn {
+  background: #00ffee;
+  color: #000;
+}
+
+.linkedin-btn {
+  background: #0077b5;
+  color: white;
+}
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
