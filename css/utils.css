@@ -181,7 +181,7 @@ footer a {
     padding: 2rem 0.5rem 1rem;
   }
   .util-card {
-    width: 98vw;
+    width: 87vw;
     padding: 1.2rem 0.5rem;
   }
   .util-card h2 {
@@ -194,6 +194,7 @@ footer a {
   footer {
     font-size: 0.9rem;
     padding: 1rem;
+    margin-bottom: 3rem;
   }
 }
 

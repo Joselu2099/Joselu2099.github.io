@@ -10,9 +10,9 @@ const translations = {
     experienceText:
       "<div class='entry'><h3>Full Stack Developer & Analyst - NEORIS (March 2023 - Present)</h3><p>Development of web applications for the economy, employment, and environment departments of the Community of Madrid. Backend: Java, Spring Boot. Frontend: JavaScript, XHTML, JSP, CSS, Angular. Design and implementation of RESTful APIs, microservices-based architectures, and automated batch processes. Databases: Oracle, MySQL. Experience in team and project management, requirements gathering, technical analysis, incident resolution, maintenance, and migration processes. Task management through agile methodologies (SCRUM).</p></div>",
 
-    education: "Education",
-    educationText:
-      "<div class='entry'><h3>Advanced Technician in Web Application Development</h3><p>CESUR (2021 - 2023)</p></div><div class='entry'><h3>Bachelor’s Degree in Computer Engineering</h3><p>University of Murcia (2017 - 2024)</p></div><div class='entry'><h3>Technological Baccalaureate</h3><p>Maristas High School (2015 - 2017)</p></div>",
+    projects: "Projects",
+    projectsText:
+      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Development of a collection of useful tools such as calculators, generators, encryptors, and other practical mini-programs for everyday tasks.</p></div><div class='entry'><h3>File2File</h3><p>Java application for the automated migration of shell scripts (bash, sh, csh), optimizing their adaptation and portability across different environments.</p></div>",  
 
     technologies: "Technologies",
     technologiesText:
@@ -22,9 +22,13 @@ const translations = {
     skillsText:
       "<li>Leadership & Responsibility</li><li>Creativity & Imagination</li><li>Problem Solving</li><li>Analytical Thinking</li><li>Self-taught</li><li>Client Requirements Gathering</li><li>Quality Focus</li><li>Adaptability</li>",
 
-    projects: "Projects",
-    projectsText:
-      "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Development of a collection of useful tools such as calculators, generators, encryptors, and other practical mini-programs for everyday tasks.</p></div><div class='entry'><h3>File2File</h3><p>Java application for the automated migration of shell scripts (bash, sh, csh), optimizing their adaptation and portability across different environments.</p></div>",
+    languages: "Languages",
+    languagesText:
+      "<div class='entry'>Spanish (Native Speaker)</div><div class='entry'>English (B2 – Upper Intermediate)</div><div class='entry'>German (A1 – Beginner)</div>",
+    
+    education: "Education",
+    educationText:
+      "<div class='entry'><h3>Advanced Technician in Web Application Development</h3><p>CESUR (2021 - 2023)</p></div><div class='entry'><h3>Bachelor’s Degree in Computer Engineering</h3><p>University of Murcia (2017 - 2024)</p></div><div class='entry'><h3>Technological Baccalaureate</h3><p>Maristas High School (2015 - 2017)</p></div>",
 
     contact: "Contact",
     contactText: "Email",
@@ -56,6 +60,10 @@ const translations = {
     projectsText:
       "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Desarrollo de una colección de herramientas útiles como calculadoras, generadores, encriptadores y otros mini programas prácticos para tareas cotidianas.</p></div><div class='entry'><h3>File2File</h3><p>Aplicación Java para la migración automatizada de scripts de shell (bash, sh, csh), optimizando su adaptación y portabilidad entre entornos.</p></div>",
 
+    languages: "Idiomas",
+    languagesText:
+      "<div class='entry'>Español (Nativo)</div><div class='entry'>Inglés (B2 – Intermedio alto)</div><div class='entry'>Alemán (A1 – Principiante)</div>",
+
     contact: "Contacto",
     contactText: "Correo",
   },
@@ -86,6 +94,10 @@ const translations = {
     projectsText:
       "<div class='entry'><h3><a href='./utils.html'>Ultimate Utilities</a></h3><p>Entwicklung einer Sammlung nützlicher Werkzeuge wie Rechner, Generatoren, Verschlüsselungstools und weiterer praktischer Mini-Programme für alltägliche Aufgaben.</p></div><div class='entry'><h3>File2File</h3><p>Java-Anwendung zur automatisierten Migration von Shell-Skripten (bash, sh, csh), mit dem Ziel, deren Anpassung und Portabilität zwischen verschiedenen Umgebungen zu optimieren.</p></div>",
     
+    languages: "Sprachen",
+    languagesText:
+      "<div class='entry'>Spanisch (Muttersprache)</div><div class='entry'>Englisch (B2 – Fortgeschrittene Mittelstufe)</div><div class='entry'>Deutsch (A1 – Anfänger)</div>",  
+
     contact: "Kontakt",
     contactText: "E-Mail",
   },
@@ -143,6 +155,7 @@ function setLanguage(lang) {
     t.technologies;
   document.querySelector("a[href='#skills'] span").innerText = t.skills;
   document.querySelector("a[href='#projects'] span").innerText = t.projects;
+  document.querySelector("a[href='#languages'] span").innerText = t.languages;
   document.querySelector("a[href='#contact'] span").innerText = t.contact;
   document.querySelector("#about h2").innerText = t.about;
   document.querySelector("#about p").innerText = t.aboutText;
@@ -161,6 +174,9 @@ function setLanguage(lang) {
   document.querySelector(
     "#projects"
   ).innerHTML = `<h2>${t.projects}</h2>${t.projectsText}`;
+  document.querySelector(
+    "#languages"
+  ).innerHTML = `<h2>${t.languages}</h2>${t.languagesText}`;
   document.querySelector("#contact h2").innerText = t.contact;
   document.querySelector("#contact #mail").innerHTML = t.contactText;
   document.getElementById("langPopup").style.display = "none";
