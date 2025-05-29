@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora IPC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Rajdhani', sans-serif;
+      background: radial-gradient(circle, #0f0f2d, #050510);
+      color: #00ffee;
+      overflow-x: hidden;
+      font-size: 18px;
+      line-height: 1.7;
+      padding: 2rem;
+    }
+
+    canvas#particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 5px #00ffee, 0 0 15px #00ffee;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid #00ffee;
+      border-radius: 18px;
+      box-shadow: 0 0 25px #00ffee44;
+      backdrop-filter: blur(8px);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #00ffee;
+      padding-bottom: 0.5rem;
+      color: white;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border-radius: 10px;
+      border: 1px solid #00ffee99;
+      background: #111;
+      color: #00ffee;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #00ffee;
+    }
+
+    .resultado {
+      margin-top: 1rem;
+      background: #111;
+      padding: 1rem;
+      border-left: 4px solid #00ffee;
+      border-radius: 10px;
+      color: #00ffee;
+    }
+
+    #infoIPC {
+      margin: auto;
+      max-width: 900px;
+      margin-bottom: 2rem;
+      background: #111;
+      padding: 1.5rem;
+      border-left: 5px solid #10b981;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles-js"></canvas>
+
+  <h1>Calculadora Ajustada por IPC</h1>
+
+  <div id="infoIPC">
+    <h3>Datos actuales usados en los cálculos:</h3>
+    <p><strong>Inflación anual actual:</strong> <span id="ipcActual">Cargando...</span></p>
+    <p><strong>Media inflación últimos 5 años:</strong> <span id="ipcMedia">Cargando...</span></p>
+  </div>
+
+  <section>
+    <h2>Producto Financiado</h2>
+    <label for="costeProducto">Coste total con TAE (€):</label>
+    <input type="number" id="costeProducto" step="0.01"/>
+
+    <label for="mesesProducto">Meses de financiación:</label>
+    <input type="number" id="mesesProducto"/>
+
+    <div class="resultado" id="resultadoProducto"></div>
+  </section>
+
+  <section>
+    <h2>Hipoteca</h2>
+    <label for="precioVivienda">Precio de la vivienda (€):</label>
+    <input type="number" id="precioVivienda" step="0.01"/>
+
+    <label for="interesHipoteca">Interés anual (%):</label>
+    <input type="number" id="interesHipoteca" step="0.01"/>
+
+    <label for="aniosHipoteca">Años de hipoteca:</label>
+    <input type="number" id="aniosHipoteca"/>
+
+    <div class="resultado" id="resultadoHipoteca"></div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js@master/demo/particles.json');
+
+    let inflacionAnualActual = 0.022;
+    let inflacionMedia5Anios = 0.025;
+
+    fetch('https://api.estadistica.opendata.es/ipc')
+      .then(response => response.json())
+      .then(data => {
+        inflacionAnualActual = data.actual / 100;
+        inflacionMedia5Anios = data.media5 / 100;
+        document.getElementById('ipcActual').textContent = (inflacionAnualActual * 100).toFixed(2) + '%';
+        document.getElementById('ipcMedia').textContent = (inflacionMedia5Anios * 100).toFixed(2) + '%';
+        calcularProducto();
+        calcularHipoteca();
+      })
+      .catch(() => {
+        document.getElementById('ipcActual').textContent = '2.2% (valor fijo)';
+        document.getElementById('ipcMedia').textContent = '2.5% (valor fijo)';
+      });
+
+    const costeProducto = document.getElementById('costeProducto');
+    const mesesProducto = document.getElementById('mesesProducto');
+    const resultadoProducto = document.getElementById('resultadoProducto');
+
+    const calcularProducto = () => {
+      const total = parseFloat(costeProducto.value);
+      const n = parseInt(mesesProducto.value);
+      if (!total || !n) return resultadoProducto.textContent = '';
+      const cuota = total / n;
+      const inflacionMensual = Math.pow(1 + inflacionMedia5Anios, 1 / 12) - 1;
+      let valorReal = 0;
+      for (let i = 1; i <= n; i++) {
+        valorReal += cuota / Math.pow(1 + inflacionMensual, i);
+      }
+      resultadoProducto.textContent = `Valor real ajustado por inflación: €${valorReal.toFixed(2)}`;
+    };
+
+    costeProducto.addEventListener('input', calcularProducto);
+    mesesProducto.addEventListener('input', calcularProducto);
+
+    const precioVivienda = document.getElementById('precioVivienda');
+    const interesHipoteca = document.getElementById('interesHipoteca');
+    const aniosHipoteca = document.getElementById('aniosHipoteca');
+    const resultadoHipoteca = document.getElementById('resultadoHipoteca');
+
+    const calcularHipoteca = () => {
+      const P = parseFloat(precioVivienda.value);
+      const r = parseFloat(interesHipoteca.value) / 100 / 12;
+      const n = parseInt(aniosHipoteca.value) * 12;
+      if (!P || isNaN(r) || !n) return resultadoHipoteca.textContent = '';
+      const cuota = (P * r) / (1 - Math.pow(1 + r, -n));
+      const inflacionMensual = Math.pow(1 + inflacionMedia5Anios, 1 / 12) - 1;
+      let valorReal = 0;
+      for (let i = 1; i <= n; i++) {
+        valorReal += cuota / Math.pow(1 + inflacionMensual, i);
+      }
+      const totalPagado = cuota * n;
+      resultadoHipoteca.textContent = `Cuota mensual: €${cuota.toFixed(2)}\nCoste total pagado: €${totalPagado.toFixed(2)}\nValor real ajustado por inflación: €${valorReal.toFixed(2)}`;
+    };
+
+    precioVivienda.addEventListener('input', calcularHipoteca);
+    interesHipoteca.addEventListener('input', calcularHipoteca);
+    aniosHipoteca.addEventListener('input', calcularHipoteca);
+  </script>
+</body>
+</html>

@@ -1,109 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', 'Rajdhani', sans-serif;
+      background: radial-gradient(circle, #0f0f2d, #050510);
+      color: #00ffee;
+      overflow-x: hidden;
+      position: relative;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 15px;
+        line-height: 1.5;
+        padding: 0;
+      }
+      header {
+        font-size: 1.4rem;
+        padding: 2rem 0.5rem 1rem;
+        margin-top: 0.5em;
+      }
+      .profile img {
+        width: 90px;
+        height: 90px;
+      }
+      .profile h3 {
+        font-size: 1.1rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        align-items: stretch;
+      }
+      nav a {
+        font-size: 1rem;
+        padding: 8px 0;
+        text-align: center;
+        border-radius: 8px;
+        margin: 0 11em;
+        clip-path: none;
+        background: rgba(0,255,255,0.08);
+      }
+      section {
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        margin-left: 1em !important;
+        margin-right: 1em !important;
+      }
+      section h2 {
+        font-size: 1.2rem;
+        padding-bottom: 0.3rem;
+      }
+      .entry {
+        padding: 0.7rem;
+        font-size: 0.97rem;
+      }
+      .lang-toggle, .cv-download {
+        font-size: 13px;
+        padding: 8px 12px;
+        top: 6px;
+        border-radius: 7px;
+      }
+      .lang-toggle { right: 6px; }
+      .cv-download { left: 6px; }
+      .popup {
+        width: 90vw;
+        max-width: 320px;
+        padding: 15px;
+        font-size: 14px;
+      }
+      .popup button {
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 6px;
+      }
+      footer {
+        font-size: 0.9rem;
+        padding: 1rem;
+      }
+    }
+
+    canvas#particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    .lang-toggle, .cv-download {
+      position: fixed;
+      top: 10px;
+      padding: 12px 18px;
+      background: #00ffee33;
+      border: 1px solid #00ffee;
+      color: #00ffee;
+      cursor: pointer;
+      border-radius: 10px;
+      z-index: 10;
+      font-size: 16px;
+    }
+
+    .lang-toggle { right: 10px; }
+    .cv-download { left: 10px; }
+
+    .up-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      background: #00ffee33;
+      border: 1px solid #00ffee;
+      color: #00ffee;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .up-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #00ffeeaa;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #0f0f2d;
+      padding: 25px;
+      border: 2px solid #00ffee;
+      border-radius: 12px;
+      z-index: 20;
+      color: #00ffee;
+      font-size: 16px;
+    }
+
+    .popup button {
+      margin: 8px;
+      padding: 12px 20px;
+      background: #00ffee33;
+      border: 1px solid #00ffee;
+      color: #00ffee;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    header {
+      padding: 3rem 2rem 1.5rem;
+      text-align: center;
+      font-size: 2.4rem;
+      font-weight: bold;
+      text-shadow: 0 0 5px #00ffee, 0 0 20px #00ffee;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .profile img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 3px solid #00ffee;
+      box-shadow: 0 0 20px #00ffee88;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    nav a {
+      color: #00ffee;
+      text-decoration: none;
+      font-size: 1.2rem;
+      position: relative;
+      padding-left: 10px;
+      padding-right: 24px;
+      clip-path: polygon(10% 0%, 90% 0%, 80% 100%, 0% 100%);
+      background: rgb(0 255 255 / 6%);
+      border: 1px solid #00ffee;
+      transition: transform 0.3s;
+    }
+
+    nav a:hover, .cv-download:hover, .lang-toggle:hover {
+      transform: scale(1.02);
+      color: #fff;
+      text-shadow: 0 0 10px #00ffee;
+    }
+
+    nav a span {
+      display: block;
+      padding: 5px 6px;
+    }
+
+    section {
+      max-width: 960px;
+      margin: auto;
+      margin-bottom: 4rem;
+      padding: 2.5rem;
+      background: rgba(0, 255, 255, 0.05);
+      border: 1px solid #00ffee;
+      border-radius: 18px;
+      box-shadow: 0 0 25px #00ffee44;
+      backdrop-filter: blur(10px);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    }
+
+    section.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    section h2 {
+      color: #ffffff;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid #00ffee;
+      padding-bottom: 0.6rem;
+      font-size: 1.8rem;
+    }
+
+    .entry {
+      background: #111;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+      border-radius: 10px;
+      border-left: 4px solid #00ffee;
+      transition: transform 0.3s;
+    }
+
+    .entry:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 18px #00ffee66;
+    }
+
+    .link {
+      display:inline-flex; 
+      align-items:center; 
+      gap:8px; 
+      background:#0077b5; 
+      color:white; 
+      padding:8px 14px; 
+      border-radius:6px; 
+      text-decoration:none; 
+      font-weight:bold; 
+      transition:transform 0.3s ease, box-shadow 0.3s ease; 
+    }
+
+    .link:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 15px #00ffee;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      width: 6em;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 12px #00ffee;
+    }
+
+    .email-btn {
+      background: #00ffee;
+      color: #000;
+    }
+
+    .linkedin-btn {
+      background: #0077b5;
+      color: white;
+    }
+
+    .linkedin-icon {
+      width: 20px;
+      height: 20px;
+      filter: invert(1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="left">
-            <img src="img/jl1.jpg" alt="jlsc" />
-        </div>
-        <div class="center">
-            <h1 data-aos="fade-down">Jose Luis Sánchez Carrasco</h1>
-            <p data-aos="zoom-in">Welcome to my portfolio!</p>
-            <div class="row buttons">
-                <a href="docs/CV-SanchezCarrasco-JoseLuis.pdf" class="btn-cv" id="download-link" download>
-                    <button class="btn-download" id="toggle-download">
-                        <img src="img/pdf_download.png" alt="Download" /> CV
-                    </button>
-                </a>
-                <a href="https://www.linkedin.com/in/jose-luis-s%C3%A1nchez-carrasco-aa479b1a0/" 
-                    class="btn-linkedin" 
-                    target="_blank" 
-                    rel="noopener noreferrer">
-                    <button class="btn-enlace-linkedin" id="toggle-linkedin">
-                        <img src="img/linkedin_icon.png" alt="LinkedIn" />
-                    </button>
-                </a>
-            </div>
-            <div class="row">
-                <button class="btn-description" id="toggle-description" data-aos="fade-up">
-                    <span class="flecha-desc">&#x25BC;</span>
-                </button>
-            </div>
-        </div>
-        <div class="right">
-            <img src="img/jl2.jpg" alt="jlsc" />
-        </div>
-    </header>
+  <button class="lang-toggle" aria-label="Language" onclick="showLangPopup()">🌐</button>
+  <button class="up-toggle" aria-label="Back to top" onclick="goUp()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2L6 10h12L12 2zm0 4.828L15.172 10H8.828L12 6.828zM4 12h16v2H4v-2z"/></svg>
+  </button>
+  <button class="cv-download" aria-label="Download CV" onclick="showPopup()">Download CV</button>
 
-    <!-- Description Section -->
-    <section class="description" id="description">
-        <div data-aos="fade-right">
-            <p>Full Stack Developer with more than 1 year of experience in the development and maintenance of applications and management of Oracle and SQL databases for the Community of Madrid.</p>
-            <p>Among my main functions are the development and maintenance of applications and web services, analysis and resolution of incidents, requirements gathering, assessment of assignments, solution proposals and migrations.</p>
-        </div>
-    </section>
+  <div class="popup" id="popup">
+    <p>Select CV Language:</p>
+    <button onclick="downloadCV('en')">English</button>
+    <button onclick="downloadCV('es')">Español</button>
+  </div>
 
-    <!-- Projects Section -->
-    <section class="projects">
-        <h2 data-aos="fade-up">Highlighted Projects</h2>
-    
-        <!-- Proyecto Madrid Digital -->
-        <div id="modema" class="project-item left" data-aos="fade-right">
-            <div class="project-info">
-                <a href="#" class="popup-trigger" data-project="modema"><h3>Madrid Digital</h3></a>
-                <p>Madrid Comunity Digital Project.</p>
-            </div>
-            <div class="project-img">
-                <img src="img/comunidadMadridMapa.png" alt="Project 1">
-            </div>
-        </div>
-    
-        <!-- Proyecto CoinScope -->
-        <div id="coinscope" class="project-item right" data-aos="fade-left">
-            <div class="project-img">
-                <img src="img/coinScope_logo1.png" alt="Project 2">
-            </div>
-            <div class="project-info">
-                <a href="#" class="popup-trigger" data-project="coinscope"><h3>CoinScope</h3></a>
-                <p>Crypto currencies manager and trading AI.</p>
-            </div>
-        </div>
-    
-        <!-- Proyecto BiwengerProManager -->
-        <div id="biwengerpm" class="project-item left" data-aos="fade-right">
-            <div class="project-info">
-                <a href="#" class="popup-trigger" data-project="biwengerpm"><h3>BiwengerProManager</h3></a>
-                <p>Web app to manage Biwenger Futbol Leagues effectively.</p>
-            </div>
-            <div class="project-img">
-                <img src="img/logoProManager.png" alt="Project 3">
-            </div>
-        </div>
-    </section>
-    
-    <!-- Popup Container -->
-    <div id="popup" class="popup hidden">
-        <div class="popup-content">
-            <button class="close-popup">X</button>
-            <div id="popup-details"></div>
-        </div>
-    </div>
+  <div class="popup" id="langPopup">
+    <p>Select Language:</p>
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('es')">Español</button>
+    <button onclick="setLanguage('de')">Deutsch</button>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Jose Luis Sánchez Carrasco. All rights reserved.</p>
-    </footer>
+  <canvas id="particles-js"></canvas>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/index.js"></script>
+  <header>Welcome to my Portfolio</header>
+
+  <div class="profile">
+    <img src="profile-picture-3.jpg" alt="Profile Photo" loading="lazy"/>
+    <h2>Jose Luis Sánchez Carrasco</h2>
+  </div>
+
+  <nav>
+    <a href="#about"><span>About Me</span></a>
+    <a href="#experience"><span>Experience</span></a>
+    <a href="#education"><span>Education</span></a>
+    <a href="#technologies"><span>Technologies</span></a>
+    <a href="#skills"><span>Skills</span></a>
+    <a href="#projects"><span>Projects</span></a>
+    <a href="#contact"><span>Contact</span></a>
+  </nav>
+
+  <section id="about"><h2>About Me</h2><p></p></section>
+  <section id="experience"><h2>Experience</h2><div class="entries"></div></section>
+  <section id="education"><h2>Education</h2><div class="entries"></div></section>
+  <section id="technologies"><h2>Technologies</h2><div class="entries"></div></section>
+  <section id="skills"><h2>Skills</h2><ul></ul></section>
+  <section id="projects"><h2>Projects</h2><div class="entries"></div></section>
+  <section id="contact">
+    <h2>Contacto</h2>
+    <p>
+      <a href="mailto:joseluischezcarrasco@gmail.com" class="contact-btn email-btn" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+          <path d="M12 13.065L.564 4.5h22.872L12 13.065zm0 2.265L0 6.06v13.38h24V6.06L12 15.33z"/>
+        </svg>
+        <span id="mail"></span>
+      </a>
+      <br/><br/>
+      <a href="https://www.linkedin.com/in/joseluissanchezcarrasco/" class="contact-btn linkedin-btn" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" class="linkedin-icon" />
+        LinkedIn
+      </a>
+    </p>
+  </section>
+
+  <footer>&copy; 2025 - All rights reserved</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+	  const translations = {
+      en: {
+        header: "Welcome to my Portfolio",
+        about: "About Me",
+        aboutText: "Software Developer specialized in Java, with a strong passion for emerging technologies. I am defined by motivation, ambition, and the constant pursuit of learning modern technologies and tools. Committed to my work, I possess strong adaptability and extensive experience in all types of development, both backend and frontend.",
+        
+        experience: "Experience",
+        experienceText: "<div class='entry'><h3>Full Stack Developer & Analyst - NEORIS (March 2023 - Present)</h3><p>Development of web applications for the economy, employment, and environment departments of the Community of Madrid. Backend: Java, Spring Boot. Frontend: JavaScript, XHTML, JSP, CSS, Angular. Design and implementation of RESTful APIs, microservices-based architectures, and automated batch processes. Databases: Oracle, MySQL. Experience in team and project management, requirements gathering, technical analysis, incident resolution, maintenance, and migration processes. Task management through agile methodologies (SCRUM).</p></div>",
+
+        education: "Education",
+        educationText: "<div class='entry'><h3>Advanced Technician in Web Application Development</h3><p>CESUR (2021 - 2023)</p></div><div class='entry'><h3>Bachelor’s Degree in Computer Engineering</h3><p>University of Murcia (2017 - 2024)</p></div><div class='entry'><h3>Technological Baccalaureate</h3><p>Maristas High School (2015 - 2017)</p></div>",
+
+        technologies: "Technologies",
+        technologiesText: "<h3><strong>Languages:</strong></h3><div class='entry'>Java (Advanced)</div><div class='entry'>SQL / PLSQL (Advanced)</div><div class='entry'>JavaScript / TypeScript (High)</div><div class='entry'>HTML / CSS / SCSS / JSP / XHTML (Advanced)</div><div class='entry'>Python (High)</div><div class='entry'>PHP (High)</div><div class='entry'>Bash / SH / CSH (High)</div><div class='entry'>C / C++ (Intermediate)</div><div class='entry'>Pascal (Intermediate)</div><div class='entry'>Assembly (Intermediate)</div><br/><h3><strong>Frameworks:</strong></h3><div class='entry'>Spring Boot (High)</div><div class='entry'>Angular (Intermediate)</div><div class='entry'>Laravel (Intermediate)</div><br/><h3><strong>Repositories:</strong></h3><div class='entry'>Git (High)</div><div class='entry'>Subversion (High)</div><br/><h3><strong>DevOps:</strong></h3><div class='entry'>Jenkins</div><div class='entry'>SonarQube</div><div class='entry'>Docker</div><div class='entry'>Jira</div><br/><h3><strong>Tools & Environments:</strong></h3><div class='entry'>Android Studio</div><div class='entry'>IntelliJ IDEA</div><div class='entry'>Eclipse</div><div class='entry'>Visual Studio Code</div><div class='entry'>Postman</div><div class='entry'>Erwin Data Modeler</div><div class='entry'>Notion</div>",
+
+        skills: "Skills",
+        skillsText: "<li>Leadership & Responsibility</li><li>Creativity & Imagination</li><li>Problem Solving</li><li>Analytical Thinking</li><li>Self-taught</li><li>Client Requirements Gathering</li><li>Quality Focus</li><li>Adaptability</li>",
+
+        projects: "Projects",
+        projectsText: "<div class='entry'><h3>Project 1</h3><p>Development of a web application for managing resources and users in an educational environment. Technologies: Java, Spring Boot, Angular, MySQL.</p></div><div class='entry'><h3>Project 2</h3><p>Reservation system for an equipment rental company. Includes authentication, roles, and admin panel. Technologies: PHP, Laravel, Bootstrap.</p></div>",
+
+        contact: "Contact",
+        contactText: "Email"
+      },
+      es: {
+        header: "Bienvenido a mi Portfolio",
+        about: "Sobre mí",
+        aboutText: "Desarrollador de Software especializado en Java, con gran pasión por las tecnologías emergentes. Me definen la motivación, la ambición y la búsqueda constante de aprendizaje en tecnologías y herramientas modernas. Comprometido con mi trabajo, tengo una fuerte capacidad de adaptación y una amplia experiencia en todo tipo de desarrollos, tanto backend como frontend.",
+        
+        experience: "Experiencia",
+        experienceText: "<div class='entry'><h3>Full Stack Developer & Analyst - NEORIS (Marzo 2023 - Actualidad)</h3><p>Desarrollo de aplicaciones web para las áreas de economía, empleo y medio ambiente de la Comunidad de Madrid. Backend: Java, Spring Boot. Frontend: JavaScript, XHTML, JSP, CSS, Angular. Diseño e implementación de APIs RESTful, arquitecturas basadas en microservicios y procesos batch automatizados. Bases de datos: Oracle, MySQL. Experiencia en gestión de equipos y proyectos, recogida de requisitos, análisis técnico, resolución de incidencias, mantenimiento y procesos de migración. Gestión de tareas mediante metodologías ágiles (SCRUM).</p></div>",
+
+        education: "Educación",
+        educationText: "<div class='entry'><h3>Técnico Superior en Desarrollo de Aplicaciones Web</h3><p>CESUR (2021 - 2023)</p></div><div class='entry'><h3>Grado en Ingeniería Informática</h3><p>Universidad de Murcia (2017 - 2024)</p></div><div class='entry'><h3>Bachillerato Tecnológico</h3><p>Colegio Maristas (2015 - 2017)</p></div>",
+
+        technologies: "Tecnologías",
+        technologiesText: "<h3><strong>Lenguajes:</strong></h3><div class='entry'>Java (Avanzado)</div><div class='entry'>SQL / PLSQL (Avanzado)</div><div class='entry'>JavaScript / TypeScript (Alto)</div><div class='entry'>HTML / CSS / SCSS / JSP / XHTML (Avanzado)</div><div class='entry'>Python (Alto)</div><div class='entry'>PHP (Alto)</div><div class='entry'>Bash / SH / CSH (Alto)</div><div class='entry'>C / C++ (Medio)</div><div class='entry'>Pascal (Medio)</div><div class='entry'>Ensamblador (Medio)</div><br/><h3><strong>Frameworks:</strong></h3><div class='entry'>Spring Boot (Alto)</div><div class='entry'>Angular (Medio)</div><div class='entry'>Laravel (Medio)</div><br/><h3><strong>Repositorios:</strong></h3><div class='entry'>Git (Alto)</div><div class='entry'>Subversion (Alto)</div><br/><h3><strong>DevOps:</strong></h3><div class='entry'>Jenkins</div><div class='entry'>SonarQube</div><div class='entry'>Docker</div><div class='entry'>Jira</div><br/><h3><strong>Herramientas y Entornos:</strong></h3><div class='entry'>Android Studio</div><div class='entry'>IntelliJ IDEA</div><div class='entry'>Eclipse</div><div class='entry'>Visual Studio Code</div><div class='entry'>Postman</div><div class='entry'>Erwin Data Modeler</div><div class='entry'>Notion</div>",
+
+        skills: "Habilidades",
+        skillsText: "<li>Liderazgo y Responsabilidad</li><li>Creatividad e Imaginación</li><li>Resolución de Problemas</li><li>Pensamiento Analítico</li><li>Autodidacta</li><li>Recolección de Requisitos del Cliente</li><li>Enfoque en la Calidad</li><li>Capacidad de Adaptación</li>",
+
+        projects: "Proyectos",
+        projectsText: "<div class='entry'><h3>Ultimate Util Calculator</h3><p>Desarrollo de una serie de mini programas como calculadoras, generadores, encriptadores y demás útiles.</p></div><div class='entry'><h3>File2File</h3><p>Aplicacion Java para la migración automática de scripts (bash, sh, csh).</p></div>",
+
+        contact: "Contacto",
+        contactText: "Correo"
+      },
+      de: {
+        header: "Willkommen in meinem Portfolio",
+        about: "Über mich",
+        aboutText: "Softwareentwickler mit Spezialisierung auf Java und großer Leidenschaft für neue Technologien. Motivation, Ehrgeiz und der ständige Wunsch, moderne Tools und Technologien zu erlernen, zeichnen mich aus. Ich bin engagiert, anpassungsfähig und habe umfangreiche Erfahrung in der Backend- und Frontend-Entwicklung.",
+
+        experience: "Berufserfahrung",
+        experienceText: "<div class='entry'><h3>Full Stack Entwickler & Analyst – NEORIS (März 2023 – Heute)</h3><p>Entwicklung von Webanwendungen für die Bereiche Wirtschaft, Beschäftigung und Umwelt der Gemeinschaft Madrid. Backend: Java, Spring Boot. Frontend: JavaScript, XHTML, JSP, CSS, Angular. Entwurf und Implementierung von RESTful-APIs, Microservice-Architekturen und automatisierten Batch-Prozessen. Datenbanken: Oracle, MySQL. Erfahrung in Team- und Projektleitung, Anforderungserhebung, technischer Analyse, Fehlerbehebung, Wartung und Migrationsprozessen. Aufgabenmanagement mit agilen Methoden (SCRUM).</p></div>",
+
+        education: "Ausbildung",
+        educationText: "<div class='entry'><h3>Fachinformatiker für Webanwendungsentwicklung</h3><p>CESUR (2021 – 2023)</p></div><div class='entry'><h3>Bachelor in Informatik</h3><p>Universität Murcia (2017 – 2024)</p></div><div class='entry'><h3>Technisches Abitur</h3><p>Maristas Schule (2015 – 2017)</p></div>",
+
+        technologies: "Technologien",
+        technologiesText: "<h3><strong>Programmiersprachen:</strong></h3><div class='entry'>Java (Fortgeschritten)</div><div class='entry'>SQL / PLSQL (Fortgeschritten)</div><div class='entry'>JavaScript / TypeScript (Hoch)</div><div class='entry'>HTML / CSS / SCSS / JSP / XHTML (Fortgeschritten)</div><div class='entry'>Python (Hoch)</div><div class='entry'>PHP (Hoch)</div><div class='entry'>Bash / SH / CSH (Hoch)</div><div class='entry'>C / C++ (Mittel)</div><div class='entry'>Pascal (Mittel)</div><div class='entry'>Assembler (Mittel)</div><br/><h3><strong>Frameworks:</strong></h3><div class='entry'>Spring Boot (Hoch)</div><div class='entry'>Angular (Mittel)</div><div class='entry'>Laravel (Mittel)</div><br/><h3><strong>Versionsverwaltung:</strong></h3><div class='entry'>Git (Hoch)</div><div class='entry'>Subversion (Hoch)</div><br/><h3><strong>DevOps:</strong></h3><div class='entry'>Jenkins</div><div class='entry'>SonarQube</div><div class='entry'>Docker</div><div class='entry'>Jira</div><br/><h3><strong>Tools & Umgebungen:</strong></h3><div class='entry'>Android Studio</div><div class='entry'>IntelliJ IDEA</div><div class='entry'>Eclipse</div><div class='entry'>Visual Studio Code</div><div class='entry'>Postman</div><div class='entry'>Erwin Data Modeler</div><div class='entry'>Notion</div>",
+
+        skills: "Fähigkeiten",
+        skillsText: "<li>Führung & Verantwortung</li><li>Kreativität & Vorstellungskraft</li><li>Problemlösung</li><li>Analytisches Denken</li><li>Autodidakt</li><li>Anforderungsanalyse</li><li>Qualitätsorientierung</li><li>Anpassungsfähigkeit</li>",
+
+        projects: "Projekte",
+        projectsText: "<div class='entry'><h3>Projekt 1</h3><p>Entwicklung einer Webanwendung zur Ressourcen- und Benutzerverwaltung in einer Bildungsumgebung. Technologien: Java, Spring Boot, Angular, MySQL.</p></div><div class='entry'><h3>Projekt 2</h3><p>Reservierungssystem für ein Ausrüstungsverleihunternehmen mit Authentifizierung, Rollenverwaltung und Admin-Panel. Technologien: PHP, Laravel, Bootstrap.</p></div>",
+
+        contact: "Kontakt",
+        contactText: "E-Mail"
+      }
+	  };
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js@master/demo/particles.json');
+
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function downloadCV(lang) {
+      const url = lang === 'es' ? './files/CV-SanchezCarrasco-JoseLuis_es.pdf' : './files/CV-SanchezCarrasco-JoseLuis_en.pdf';
+      window.open(url, '_blank');
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function showLangPopup() {
+      document.getElementById('langPopup').style.display = 'block';
+    }
+
+    function goUp() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+	  function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      const t = translations[lang];
+      document.querySelector('header').innerText = t.header;
+      document.querySelector("a[href='#about'] span").innerText = t.about;
+      document.querySelector("a[href='#experience'] span").innerText = t.experience;
+      document.querySelector("a[href='#education'] span").innerText = t.education;
+      document.querySelector("a[href='#technologies'] span").innerText = t.technologies;
+      document.querySelector("a[href='#skills'] span").innerText = t.skills;
+      document.querySelector("a[href='#projects'] span").innerText = t.projects;
+      document.querySelector("a[href='#contact'] span").innerText = t.contact;
+      document.querySelector("#about h2").innerText = t.about;
+      document.querySelector("#about p").innerText = t.aboutText;
+      document.querySelector("#experience").innerHTML = `<h2>${t.experience}</h2>${t.experienceText}`;
+      document.querySelector("#education").innerHTML = `<h2>${t.education}</h2>${t.educationText}`;
+      document.querySelector("#technologies").innerHTML = `<h2>${t.technologies}</h2>${t.technologiesText}`;
+      document.querySelector("#skills").innerHTML = `<h2>${t.skills}</h2><ul>${t.skillsText}</ul>`;
+      document.querySelector("#projects").innerHTML = `<h2>${t.projects}</h2>${t.projectsText}`;
+      document.querySelector("#contact h2").innerText = t.contact;
+      document.querySelector("#contact #mail").innerHTML = t.contactText;
+      document.getElementById('langPopup').style.display = 'none';
+	  }
+
+	  window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('language') || 'en';
+      setLanguage(savedLang);
+	  });
+  </script>
 </body>
 </html>
