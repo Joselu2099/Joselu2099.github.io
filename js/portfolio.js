@@ -191,7 +191,6 @@ function setLanguage(lang) {
     document.querySelector("#contact h2").innerText = t.contact;
     document.querySelector("#contact #mail").innerHTML = t.contactText;
     document.getElementById("langPopup").style.display = "none";
-    loadSounds();
     mainContent.style.opacity = "1";
   }, 250);
 }
@@ -262,7 +261,7 @@ window.addEventListener("DOMContentLoaded", () => {
   startParticles();
 
   // --- SONIDO EN ENLACES ---
-  loadSounds();
+  //loadSounds();
 
   window.addEventListener("keydown", function(e) {
     const popup = document.querySelector(".popup[style*='block']");
