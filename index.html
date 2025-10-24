@@ -228,7 +228,9 @@
                 <div class="desc-content" data-i18n-html="projects.sfoc.desc"><!-- populated from i18n-data --></div>
               </details>
               <div class="card-actions">
+                <!--
                 <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+                -->
               </div>
             </div>
           </article>
@@ -256,7 +258,9 @@
                 <div class="desc-content" data-i18n-html="projects.same.desc"><!-- populated from i18n-data --></div>
               </details>
               <div class="card-actions">
+                <!--
                 <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+                -->
               </div>
             </div>
           </article>
@@ -319,7 +323,9 @@
                 </div>
               </details>
               <div class="card-actions">
+                <!--
                 <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+                -->
               </div>
             </div>
           </article>
@@ -381,7 +387,9 @@
                 </div>
               </details>
               <div class="card-actions">
+                <!--
                 <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+                -->
               </div>
             </div>
           </article>
@@ -412,7 +420,8 @@
                 </div>
               </details>
               <div class="card-actions">
-                <a href="#" class="btn small" data-i18n="actions.repository">Repository</a>
+                <a href="https://github.com/Joselu2099/BiwengerProManagerAPI" class="btn small"
+                  data-i18n="actions.repository">Repository</a>
               </div>
             </div>
           </article>
@@ -443,8 +452,10 @@
                 </div>
               </details>
               <div class="card-actions">
-                <a href="#" class="btn small" data-i18n="actions.repository">Repository</a>
-                <a href="#" class="btn small outline" data-i18n="actions.demo">Demo</a>
+                <a href="https://github.com/Joselu2099/file2file" class="btn small"
+                  data-i18n="actions.repository">Repository</a>
+                <a href="https://github.com/Joselu2099/file2file/releases/tag/v0.0.2-SNAPSHOT" class="btn small outline"
+                  data-i18n="actions.demo">Demo</a>
               </div>
             </div>
           </article>
@@ -470,9 +481,9 @@
           <div class="timeline-item">
             <time>Jul 2025 - Present</time>
             <div class="timeline-body">
-              <h3 data-i18n="experience.other.title">Full-stack Developer — Project / Startup</h3>
-              <p data-i18n="experience.other.desc">Participated in product development from MVP to production, focusing
-                on user experience, backend integration and CI/CD deployments.</p>
+              <h3 data-i18n="experience.leihub.title">CEO & CTO - LeiHub</h3>
+              <p data-i18n="experience.leihub.desc">CEO & CTO at LeiHub, leading the development of innovative solutions
+                using DLTs technologies.</p>
             </div>
           </div>
         </div>
@@ -545,7 +556,8 @@
             required></textarea>
           <div class="form-actions">
             <button class="btn primary" type="submit" data-i18n="contact.send_button">Send message</button>
-            <a class="btn outline" href="mailto:tu.email@dominio.com" data-i18n="contact.send_email">Send email</a>
+            <a class="btn outline" href="mailto:joseluischezcarrasco@gmail.com" data-i18n="contact.send_email">Send
+              email</a>
           </div>
         </form>
       </div>
@@ -560,111 +572,410 @@
       </div>
       <div class="footer-right">
         <nav class="social-nav" aria-label="Social links">
-          <a href="#" data-i18n="footer.github">GitHub</a>
-          <a href="#" data-i18n="footer.linkedin">LinkedIn</a>
+          <a href="https://github.com/Joselu2099" data-i18n="footer.github">GitHub</a>
+          <a href="https://www.linkedin.com/in/joseluissanchezcarrasco/" data-i18n="footer.linkedin">LinkedIn</a>
         </nav>
       </div>
     </div>
   </footer>
 
   <div class="snackbar" role="status" aria-live="polite"></div>
-  <!-- Inline translations: kept here so translations work when page is opened via file:// or when fetch fails -->
   <script id="i18n-data" type="application/json">
-{
-  "en": {
-    "nav": {"about":"About","projects":"Projects","experience":"Experience","skills":"Skills","vision":"Digital assets","contact":"Contact","cv":"CV"},
-    "hero": {"title":"Hello, I'm Joselu","lead":"Software developer and investor. I build scalable products and explore digital assets with real utility.","cta_projects":"View projects","cta_contact":"Contact"},
-    "about": {"title":"About","p1":"Full Stack Developer with 2+ years of experience specialized in Java and Spring Boot, plus government-specific frameworks. I work across the full software lifecycle: REST APIs, microservices, Oracle/MySQL integrations and batch processes.","p2":"I combine engineering rigor, DevOps practices and agile methodologies to deliver scalable, reliable products.","stats": {"exp":"<strong>2+</strong> years professional experience (Full Stack)", "projects":"<strong>20+</strong> personal and professional projects"}},
-    "projects": {
-      "title":"Projects",
-      "lead":"Selection of recent and relevant projects.",
-      "sfoc": {"title":"SFOC — Public Subsidy Platform","desc":"<ul><li>Lead responsible for development and maintenance of web applications and Spring Batch processes.</li><li>Critical system for grant application, management, awarding, and settlement processes.</li><li>Used by various entities and the Community of Madrid for continuous training programs.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
-      "same": {"title":"SAME — Environmental Compliance System","desc":"<ul><li>Developed platform for monitoring environmental compliance across companies.</li><li>Implemented features for emission threshold management and regulatory validation.</li><li>Built batch processing applications for data analysis and reporting.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
-      "azul": {"title":"AZUL — Air Quality Madrid","desc":"<ul><li>Developed REST APIs and cross-platform frontends with Spring Boot and Angular for air quality monitoring.</li><li>Built mobile and web clients; Android/iOS apps with Angular-based frontends.</li></ul>","tech":"<em>Spring Boot, Angular, REST API</em>"},
-      "seem": {"title":"SEEM — Employment Statistics System","desc":"<ul><li>Developed Java batch processes executing Bash scripts for SFTP file collection.</li><li>Processed and loaded employment statistics data into Oracle databases.</li><li>Automated the data processing pipeline for Madrid's employment statistics.</li></ul>","tech":"<em>Spring Batch, Bash Scripts, Oracle</em>"},
-      "utils": {"title":"Utils Web","desc":"<ul><li>Inflation calculator.</li><li>Password generator.</li><li>Text encryptor / decryptor.</li></ul>","tech":"<em>JavaScript</em>"},
-      "coinscope": {"title":"Coinscope — Crypto Dashboard","desc":"<ul><li>Full‑stack personal finance application with login system and transaction management.</li><li>Dynamic reporting dashboard and Docker-based deployments.</li><li>RESTful Spring Boot backend with Angular frontend.</li></ul>","tech":"<em>Angular, Spring Boot, Docker</em>"},
-      "biwenger": {"title":"BiwengerProManager","desc":"<ul><li>Monolithic web application extending Biwenger's football game functionality.</li><li>Custom game rules and enhanced user experience features.</li><li>Reproduced data model and extended official API functionalities.</li></ul>","tech":"<em>PHP, REST API</em>"},
-      "file2file": {"title":"File2File — Script Migration Tool","desc":"<ul><li>Java application for automated migration of shell scripts (bash, sh, csh).</li><li>Optimized script adaptation and portability between different environments.</li><li>Automated conversion and optimization process.</li></ul>","tech":"<em>Java</em>"},
-      "toggle": {"show":"Show description","hide":"Hide description"}
-    },
-    "actions": {"android":"Android","ios":"iOS","details":"Details","web":"Web","repository":"Repository","demo":"Demo"},
-    "vision": {"title":"Vision on utility-focused digital assets","short":"I focus on utility-first digital assets that drive measurable improvements in efficiency, governance and new business models.","read_full":"Read full vision","full":"<p>I believe in digital assets that bring real utility: improvements in efficiency, governance or new business models. I look for projects with clear adoption metrics, fair tokenomics and teams with proven track records. My perspective is deeply rooted in understanding how liquidity flows through global markets, identifying emerging stores of value, and analyzing the shift toward distributed ledger technology (DLT) infrastructures.</p><p>At the core of my vision is the principle of \"Follow the Money\"—tracking how liquidity migrates in response to macroeconomic shifts, policy changes, and technological disruptions. I see utility-focused digital assets as pivotal in this flow, acting as bridges between legacy systems and decentralized networks. For instance, tokens like XRP, XLM, HBAR, XDC, ALGO, and QNT exemplify this by enabling faster, cheaper cross-border payments, interoperable data exchanges, and efficient settlement mechanisms.</p><p>Ultimately, my vision is strategic and forward-looking: utility-focused digital assets are the linchpin in redefining the financial system, channeling liquidity toward innovation, and creating resilient stores of value in a DLT-driven world.</p>"},
-    "experience": {"title":"Professional Experience","epam":{"title":"Full Stack Developer and Analyst — EPAM / NEORIS","desc":"Lead developer on SFOC and other critical applications. Full‑stack development with Java Spring Boot, Angular and batch processes, plus Oracle/MySQL integration."},"other":{"title":"Full-stack Developer — Project / Startup","desc":"Participated in product development from MVP to production, focusing on user experience, backend integration and CI/CD deployments."}},
-    "skills": {
-      "title":"Skills",
-      "lead":"Languages, tools and methodologies I frequently use.",
-      "languages": {"title":"Languages","items":"Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"},
-      "frameworks": {"title":"Frameworks & Libraries","items":"Spring Boot, Angular, Laravel, Thymeleaf"},
-      "databases": {"title":"Databases","items":"Oracle, MySQL, PostgreSQL, MongoDB"},
-      "tools": {"title":"Tools & DevOps","items":"PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"}
-    },
-    "contact": {"title":"Contact","lead":"Have an idea or want to collaborate? Let's talk.","send_button":"Send message","email_placeholder":"Your email","name_placeholder":"Your name","message_placeholder":"Message","send_email":"Send email"},
-    "footer": {"copyright":"© {year} Jose Luis Sánchez Carrasco","github":"GitHub","linkedin":"LinkedIn"}
-  },
-  "es": {
-    "nav": {"about":"Sobre mí","projects":"Proyectos","experience":"Experiencia","skills":"Skills","vision":"Activos digitales","contact":"Contacto","cv":"CV"},
-    "hero": {"title":"Hola, soy Joselu","lead":"Desarrollador de software e inversor. Construyo productos escalables y exploro activos digitales con utilidad.","cta_projects":"Ver proyectos","cta_contact":"Contactar"},
-    "about": {"title":"Sobre mí","p1":"Full Stack Developer con 2+ años de experiencia especializado en Java y Spring Boot, además de frameworks específicos para administración pública. He trabajado en el ciclo completo de desarrollo: APIs REST, microservicios, integraciones Oracle/MySQL y procesos batch.","p2":"Combino rigor técnico, prácticas DevOps y metodologías ágiles para entregar productos escalables y fiables.","stats": {"exp":"<strong>2+</strong> años de experiencia profesional (Full Stack)", "projects":"<strong>20+</strong> proyectos personales y profesionales"}},
-    "projects": {
-      "title":"Proyectos",
-      "lead":"Selección de proyectos recientes y relevantes.",
-      "sfoc": {"title":"SFOC — Plataforma de subvenciones","desc":"<ul><li>Responsable principal del desarrollo y mantenimiento de SFOC, sistema crítico para la gestión de ayudas públicas (Java legacy, frameworks gubernamentales).</li><li>Sistema crítico para la solicitud, gestión, adjudicación y liquidación de subvenciones.</li><li>Usado por entidades y la Comunidad de Madrid para programas de formación continua.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
-      "same": {"title":"SAME — Sistema de Cumplimiento Ambiental","desc":"<ul><li>Plataforma para monitorizar el cumplimiento ambiental en empresas.</li><li>Gestión de umbrales de emisiones y validación regulatoria.</li><li>Incluye procesos batch para análisis e informes.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
-      "azul": {"title":"AZUL — Calidad del Aire Madrid","desc":"<ul><li>Desarrollé APIs REST y frontends multiplataforma con Spring Boot y Angular para monitorizar la calidad del aire.</li><li>Clientes móviles y web con frontends Angular.</li></ul>","tech":"<em>Spring Boot, Angular, REST API</em>"},
-      "seem": {"title":"SEEM — Sistema de Estadísticas de Empleo","desc":"<ul><li>Procesos batch en Java ejecutando scripts Bash para recolección SFTP.</li><li>Procesado y carga de datos en Oracle.</li><li>Automatización del pipeline de datos para estadísticas de empleo.</li></ul>","tech":"<em>Spring Batch, Bash Scripts, Oracle</em>"},
-      "utils": {"title":"Utils Web","desc":"<ul><li>Calculadora de inflación.</li><li>Generador de contraseñas.</li><li>Encriptador/Desencriptador de texto.</li></ul>","tech":"<em>JavaScript</em>"},
-      "coinscope": {"title":"Coinscope — Dashboard crypto","desc":"<ul><li>Aplicación personal full‑stack para gestión financiera con login y gestión de transacciones.</li><li>Panel de informes dinámicos y despliegues con Docker.</li></ul>","tech":"<em>Angular, Spring Boot, Docker</em>"},
-      "biwenger": {"title":"BiwengerProManager","desc":"<ul><li>Aplicación web monolítica que amplía la funcionalidad de Biwenger.</li></ul>","tech":"<em>PHP, REST API</em>"},
-      "file2file": {"title":"File2File — Herramienta de migración de scripts","desc":"<ul><li>Aplicación Java para migración automatizada de scripts shell entre entornos.</li></ul>","tech":"<em>Java</em>"},
-      "toggle": {"show":"Mostrar descripción","hide":"Ocultar descripción"}
-    },
-    "actions": {"android":"Android","ios":"iOS","details":"Detalles","web":"Web","repository":"Repositorio","demo":"Demo"},
-    "vision": {"title":"Visión sobre activos digitales orientados a la utilidad","short":"Me centro en activos digitales orientados a la utilidad que generan mejoras medibles en eficiencia, gobernanza y nuevos modelos de negocio.","read_full":"Leer visión completa","full":"<p>Creo en activos digitales que aportan utilidad real: mejoras en eficiencia, gobernanza o nuevos modelos de negocio. Busco proyectos con métricas claras de adopción, tokenómica justa y equipos con trazabilidad demostrable.</p><p>Mi principio central es \"Follow the Money\": seguir cómo migra la liquidez ante cambios macroeconómicos y tecnológicos. Veo los activos orientados a la utilidad como puentes entre sistemas legacy y redes descentralizadas.</p><p>En última instancia, mi visión es estratégica y orientada al futuro: estos activos son clave para redefinir el sistema financiero y canalizar la innovación.</p>"},
-    "experience": {"title":"Experiencia profesional","epam":{"title":"Full Stack Developer and Analyst — EPAM / NEORIS","desc":"Lead developer en SFOC y otras aplicaciones críticas. Desarrollo full-stack con Java Spring Boot, Angular y procesos batch, además de integración con Oracle/MySQL."},"other":{"title":"Full-stack Developer — Project / Startup","desc":"Participé en desarrollo de producto desde MVP hasta producción, con foco en UX, integración backend y despliegues CI/CD."}},
-    "skills": {
-      "title":"Skills",
-      "lead":"Lenguajes, herramientas y metodologías que uso con frecuencia.",
-      "languages": {"title":"Languages","items":"Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"},
-      "frameworks": {"title":"Frameworks & Libraries","items":"Spring Boot, Angular, Laravel, Thymeleaf"},
-      "databases": {"title":"Databases","items":"Oracle, MySQL, PostgreSQL, MongoDB"},
-      "tools": {"title":"Tools & DevOps","items":"PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"}
-    },
-    "contact": {"title":"Contacto","lead":"¿Tienes una idea o quieres colaborar? Hablemos.","send_button":"Enviar mensaje","email_placeholder":"Tu correo","name_placeholder":"Tu nombre","message_placeholder":"Mensaje","send_email":"Enviar por correo"},
-    "footer": {"copyright":"© {year} Jose Luis Sánchez Carrasco","github":"GitHub","linkedin":"LinkedIn"}
-  },
-  "de": {
-    "nav": {"about":"Über mich","projects":"Projekte","experience":"Erfahrung","skills":"Skills","vision":"Digitale Assets","contact":"Kontakt","cv":"CV"},
-    "hero": {"title":"Hallo, ich bin Joselu","lead":"Softwareentwickler und Investor. Ich baue skalierbare Produkte und untersuche digitale Assets mit echtem Nutzen.","cta_projects":"Projekte ansehen","cta_contact":"Kontakt"},
-    "about": {"title":"Über mich","p1":"Full Stack Developer mit 2+ Jahren Erfahrung, spezialisiert auf Java und Spring Boot sowie behördenspezifische Frameworks. Ich arbeite am gesamten Software-Lifecycle: REST APIs, Microservices, Oracle/MySQL-Integrationen und Batch-Prozesse.","p2":"Ich kombiniere technischen Anspruch, DevOps-Praktiken und agile Methoden, um skalierbare, zuverlässige Produkte zu liefern.","stats": {"exp":"<strong>2+</strong> Jahre Berufserfahrung (Full Stack)", "projects":"<strong>20+</strong> persönliche und berufliche Projekte"}},
-    "projects": {
-      "title":"Projekte",
-      "lead":"Auswahl kürzlicher und relevanter Projekte.",
-      "sfoc": {"title":"SFOC — Public Subsidy Platform","desc":"<ul><li>Leitender Entwickler für SFOC, ein kritisches System zur Verwaltung öffentlicher Zuschüsse (Java legacy, behördliche Frameworks).</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
-      "same": {"title":"SAME — Environmental Compliance System","desc":"<ul><li>Plattform zur Überwachung der Umwelt-Compliance.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
-      "azul": {"title":"AZUL — Air Quality Madrid","desc":"<ul><li>Entwicklung von REST-APIs und plattformübergreifenden Frontends mit Spring Boot und Angular zur Luftqualitätsüberwachung.</li></ul>","tech":"<em>Spring Boot, Angular, REST API</em>"},
-      "seem": {"title":"SEEM — Employment Statistics System","desc":"<ul><li>Java-Batch-Prozesse zur SFTP-Sammlung von Dateien.</li></ul>","tech":"<em>Spring Batch, Bash Scripts, Oracle</em>"},
-      "utils": {"title":"Utils Web","desc":"<ul><li>Sammlung kleiner Web-Utilities: Inflationsrechner, Passwortgenerator und Textverschlüsselung/Entschlüsselung.</li></ul>","tech":"<em>JavaScript</em>"},
-      "coinscope": {"title":"Coinscope — Crypto Dashboard","desc":"<ul><li>Persönliche Full‑Stack-Finanzanwendung mit Login und Transaktionsverwaltung.</li></ul>","tech":"<em>Angular, Spring Boot, Docker</em>"},
-      "biwenger": {"title":"BiwengerProManager","desc":"<ul><li>Monolithische PHP-Webanwendung zur Erweiterung der Biwenger-Funktionalität.</li></ul>","tech":"<em>PHP, REST API</em>"},
-      "file2file": {"title":"File2File — Script Migration Tool","desc":"<ul><li>Java-Anwendung zur Automatisierung der Migration und Anpassung von Shell-Skripten zwischen Umgebungen.</li></ul>","tech":"<em>Java</em>"},
-      "toggle": {"show":"Beschreibung anzeigen","hide":"Beschreibung verbergen"}
-    },
-    "actions": {"android":"Android","ios":"iOS","details":"Details","web":"Web","repository":"Repository","demo":"Demo"},
-    "vision": {"title":"Vision über nutzungsorientierte digitale Assets","short":"Ich fokussiere auf nutzungsorientierte digitale Assets, die messbare Verbesserungen in Effizienz, Governance und neuen Geschäftsmodellen bringen.","read_full":"Vollständige Vision lesen","full":"<p>Ich glaube an digitale Assets, die echten Nutzen bringen: Verbesserungen in Effizienz, Governance oder neuen Geschäftsmodellen. Ich suche Projekte mit klaren Akzeptanzkennzahlen, fairer Tokenomics und Teams mit nachweisbarer Erfahrung.</p><p>Mein Grundprinzip ist \"Follow the Money\": die Verfolgung der Liquiditätsbewegungen als Reaktion auf makroökonomische Veränderungen und technologische Disruptionen.</p>"},
-    "experience": {"title":"Berufserfahrung","epam":{"title":"Full Stack Developer and Analyst — EPAM / NEORIS","desc":"Leitender Entwickler für SFOC und andere kritische Anwendungen. Full‑Stack-Entwicklung mit Java Spring Boot, Angular und Batch-Prozessen sowie Oracle/MySQL-Integration."},"other":{"title":"Full-stack Developer — Project / Startup","desc":"Teilnahme an Produktentwicklung vom MVP bis zur Produktion mit Fokus auf UX, Backend-Integration und CI/CD."}},
-    "skills": {
-      "title":"Skills",
-      "lead":"Sprachen, Tools und Methoden, die ich häufig verwende.",
-      "languages": {"title":"Languages","items":"Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"},
-      "frameworks": {"title":"Frameworks & Libraries","items":"Spring Boot, Angular, Laravel, Thymeleaf"},
-      "databases": {"title":"Databases","items":"Oracle, MySQL, PostgreSQL, MongoDB"},
-      "tools": {"title":"Tools & DevOps","items":"PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"}
-    },
-    "contact": {"title":"Kontakt","lead":"Haben Sie eine Idee oder möchten Sie zusammenarbeiten? Lassen Sie uns sprechen.","send_button":"Nachricht senden","email_placeholder":"Ihre E-Mail","name_placeholder":"Ihr Name","message_placeholder":"Nachricht","send_email":"Per E-Mail senden"},
-    "footer": {"copyright":"© {year} Jose Luis Sánchez Carrasco","github":"GitHub","linkedin":"LinkedIn"}
-  }
-}
+    {
+      "en": {
+        "nav": {
+          "about": "About",
+          "projects": "Projects",
+          "experience": "Experience",
+          "skills": "Skills",
+          "vision": "Digital assets",
+          "contact": "Contact",
+          "cv": "CV"
+        },
+        "hero": {
+          "title": "Hello, I'm Joselu",
+          "lead": "Software developer and investor. I build scalable products and explore digital assets with real utility.",
+          "cta_projects": "View projects",
+          "cta_contact": "Contact"
+        },
+        "about": {
+          "title": "About",
+          "p1": "Full Stack Developer with 2+ years of experience specialized in Java and Spring Boot, plus government-specific frameworks. I work across the full software lifecycle: REST APIs, microservices, Oracle/MySQL integrations and batch processes.",
+          "p2": "I combine engineering rigor, DevOps practices and agile methodologies to deliver scalable, reliable products.",
+          "stats": {
+            "exp": "<strong>2+</strong> years professional experience (Full Stack)",
+            "projects": "<strong>20+</strong> personal and professional projects"
+          }
+        },
+        "projects": {
+          "title": "Projects",
+          "lead": "Selection of recent and relevant projects.",
+          "sfoc": {
+            "title": "SFOC — Public Subsidy Platform",
+            "desc": "<ul><li>Lead responsible for development and maintenance of web applications and Spring Batch processes.</li><li>Critical system for grant application, management, awarding, and settlement processes.</li><li>Used by various entities and the Community of Madrid for continuous training programs.</li></ul>",
+            "tech": "<em>Java, Spring Boot, Oracle</em>"
+          },
+          "same": {
+            "title": "SAME — Environmental Compliance System",
+            "desc": "<ul><li>Developed platform for monitoring environmental compliance across companies.</li><li>Implemented features for emission threshold management and regulatory validation.</li><li>Built batch processing applications for data analysis and reporting.</li></ul>",
+            "tech": "<em>Java, Spring Boot, Oracle</em>"
+          },
+          "azul": {
+            "title": "AZUL — Air Quality Madrid",
+            "desc": "<ul><li>Developed REST APIs and cross-platform frontends with Spring Boot and Angular for air quality monitoring.</li><li>Built mobile and web clients; Android/iOS apps with Angular-based frontends.</li></ul>",
+            "tech": "<em>Spring Boot, Angular, REST API</em>"
+          },
+          "seem": {
+            "title": "SEEM — Employment Statistics System",
+            "desc": "<ul><li>Developed Java batch processes executing Bash scripts for SFTP file collection.</li><li>Processed and loaded employment statistics data into Oracle databases.</li><li>Automated the data processing pipeline for Madrid's employment statistics.</li></ul>",
+            "tech": "<em>Spring Batch, Bash Scripts, Oracle</em>"
+          },
+          "utils": {
+            "title": "Utils Web",
+            "desc": "<ul><li>Inflation calculator.</li><li>Password generator.</li><li>Text encryptor / decryptor.</li></ul>",
+            "tech": "<em>JavaScript</em>"
+          },
+          "coinscope": {
+            "title": "Coinscope — Crypto Dashboard",
+            "desc": "<ul><li>Full‑stack personal finance application with login system and transaction management.</li><li>Dynamic reporting dashboard and Docker-based deployments.</li><li>RESTful Spring Boot backend with Angular frontend.</li></ul>",
+            "tech": "<em>Angular, Spring Boot, Docker</em>"
+          },
+          "biwenger": {
+            "title": "BiwengerProManager",
+            "desc": "<ul><li>Monolithic web application extending Biwenger's football game functionality.</li><li>Custom game rules and enhanced user experience features.</li><li>Reproduced data model and extended official API functionalities.</li></ul>",
+            "tech": "<em>PHP, REST API</em>"
+          },
+          "file2file": {
+            "title": "File2File — Script Migration Tool",
+            "desc": "<ul><li>Java application for automated migration of shell scripts (bash, sh, csh).</li><li>Optimized script adaptation and portability between different environments.</li><li>Automated conversion and optimization process.</li></ul>",
+            "tech": "<em>Java</em>"
+          },
+          "toggle": { "show": "Show description", "hide": "Hide description" }
+        },
+        "actions": {
+          "android": "Android",
+          "ios": "iOS",
+          "details": "Details",
+          "web": "Web",
+          "repository": "Repository",
+          "demo": "Demo"
+        },
+        "vision": {
+          "title": "Vision on Utility-Focused Digital Assets",
+          "short": "I believe in digital assets that create measurable utility—improving efficiency, governance, and financial infrastructure while driving real-world innovation.",
+          "read_full": "Read full vision",
+          "full": "<p>I believe in digital assets that bring real utility—enhancing efficiency, governance, and business models through practical innovation. I look for projects with clear adoption metrics, fair tokenomics, and teams with proven track records. My perspective is rooted in understanding how liquidity moves across global markets, identifying emerging stores of value, and analyzing the ongoing transition toward distributed ledger technology (DLT) infrastructures.</p><p>In an era where traditional financial systems are being reshaped by technological disruption, I prioritize assets that go beyond speculation—those that deliver tangible progress in the global financial ecosystem.</p><p>At the core of my vision is the principle of <strong>“Follow the Money”</strong>—tracking how liquidity migrates in response to macroeconomic shifts, policy changes, and technological innovation. I view utility-focused digital assets as pivotal in this flow, bridging legacy systems with decentralized networks. Tokens such as <strong>XRP, XLM, HBAR, XDC, ALGO, and QNT</strong> exemplify this utility by enabling faster and cheaper cross-border payments, interoperable data exchanges, and efficient settlement mechanisms. These assets are not just stores of value like Bitcoin or gold—they are tools for real-world application, facilitating tokenization, streamlining supply chains, and promoting financial inclusion.</p><p>When comparing traditional reserves like gold to digital counterparts, I consider utility tokens superior in scalability and adaptability. While gold and Bitcoin serve as hedges against inflation—visible in indicators like risk premiums on junk bonds or spikes in the VIX—utility tokens add functionality. They integrate with evolving standards such as <strong>ISO 20022</strong>, replacing outdated systems like SWIFT or DTCC, reducing friction in capital flows, and enabling atomic settlements via smart contracts. Institutional adoption—from <strong>BlackRock’s tokenization initiatives</strong> to the digitalization of derivatives—accelerates this transition, channeling liquidity toward transparent and efficient markets.</p><p>Geopolitically, I anticipate a reconfiguration of the global monetary system shaped by regulatory frameworks like <strong>MiCA</strong> in Europe, <strong>SEC oversight</strong> in the US, and <strong>FATF guidelines</strong> worldwide. Utility tokens thrive under such standards while outpacing central bank digital currencies (CBDCs) in innovation. Within blocs like <strong>BRICS</strong> and <strong>G7</strong>, these assets could redefine liquidity channels, mitigating the risks posed by monetary policies from the FED or ECB. My investment approach centers on measurable growth indicators: on-chain activity, institutional partnerships, and regulatory milestones—ensuring capital flows into projects with enduring impact rather than fleeting hype.</p><ul><li><strong>Practical utility:</strong> solving measurable problems, such as reducing cross-border transaction costs by up to 80% via protocols like XRP’s RippleNet or XLM’s Stellar network, redirecting liquidity toward productive use.</li><li><strong>Sustainability:</strong> long-term economic models with fair tokenomics, such as ALGO’s decentralized governance or QNT’s interoperability framework, fostering resilience amid volatility.</li><li><strong>Transparency:</strong> open governance and real-time metrics, exemplified by HBAR’s Hedera Council or XDC’s enterprise-grade audits, allowing stakeholders to track adoption and liquidity flow.</li><li><strong>Liquidity integration:</strong> alignment with global macro indicators (e.g., yield curve inversions, S&P 500 trends), positioning these assets as both hedges and enablers of capital efficiency.</li><li><strong>Regulatory foresight:</strong> adaptability to emerging frameworks and CBDC coexistence, enabling hybrid public–private DLT ecosystems.</li></ul><p>Ultimately, my vision is strategic and forward-looking: <strong>utility-focused digital assets are the linchpin of financial evolution</strong>, channeling liquidity toward innovation and building resilient stores of value in a DLT-driven world. Through this lens, I aim to anticipate market shifts and uncover investment opportunities aligned with the transformation of global finance.</p>"
+        },
+        "experience": {
+          "title": "Professional Experience",
+          "epam": {
+            "title": "Software Engineer — EPAM / NEORIS",
+            "desc": "Lead developer for SFOC (Subsidies for Continuous Training Programs), one of the most critical public grant management systems used by multiple entities and the Government of Madrid. Full-stack development with Java Spring Boot, Angular (MOVA), and official frameworks (HTML5, CSS, SCSS, xHTML, JSP, JavaScript, XML). Designed and maintained RESTful APIs, JAPIs, microservices, monolithic applications, and web services. Managed Oracle and MySQL databases with advanced SQL/PLSQL expertise, driving performance and reliability. Responsible for incident resolution, root-cause analysis, and deployment of technical solutions while collaborating with cross-functional teams for requirements gathering, estimation, and client communication."
+          },
+          "leihub": {
+            "title": "CEO & CTO — LeiHub",
+            "desc": "Founder and technical leader at LeiHub, overseeing the design and development of innovative web and mobile applications integrating Distributed Ledger Technologies (DLTs). Responsible for architectural decisions, product strategy, and technical vision, combining blockchain, AI, and modern web technologies to create scalable, secure, and impactful solutions."
+          }
+        },
+        "skills": {
+          "title": "Skills",
+          "lead": "Languages, tools and methodologies I frequently use.",
+          "languages": {
+            "title": "Languages",
+            "items": "Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"
+          },
+          "frameworks": {
+            "title": "Frameworks & Libraries",
+            "items": "Spring Boot, Angular, Laravel, Thymeleaf"
+          },
+          "databases": {
+            "title": "Databases",
+            "items": "Oracle, MySQL, PostgreSQL, MongoDB"
+          },
+          "tools": {
+            "title": "Tools & DevOps",
+            "items": "PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"
+          }
+        },
+        "contact": {
+          "title": "Contact",
+          "lead": "Have an idea or want to collaborate? Let's talk.",
+          "send_button": "Send message",
+          "email_placeholder": "Your email",
+          "name_placeholder": "Your name",
+          "message_placeholder": "Message",
+          "send_email": "Send email"
+        },
+        "footer": {
+          "copyright": "© {year} Jose Luis Sánchez Carrasco",
+          "github": "GitHub",
+          "linkedin": "LinkedIn"
+        }
+      },
+      "es": {
+        "nav": {
+          "about": "Sobre mí",
+          "projects": "Proyectos",
+          "experience": "Experiencia",
+          "skills": "Skills",
+          "vision": "Activos digitales",
+          "contact": "Contacto",
+          "cv": "CV"
+        },
+        "hero": {
+          "title": "Hola, soy Joselu",
+          "lead": "Desarrollador de software e inversor. Construyo productos escalables y exploro activos digitales con utilidad.",
+          "cta_projects": "Ver proyectos",
+          "cta_contact": "Contactar"
+        },
+        "about": {
+          "title": "Sobre mí",
+          "p1": "Full Stack Developer con 2+ años de experiencia especializado en Java y Spring Boot, además de frameworks específicos para administración pública. He trabajado en el ciclo completo de desarrollo: APIs REST, microservicios, integraciones Oracle/MySQL y procesos batch.",
+          "p2": "Combino rigor técnico, prácticas DevOps y metodologías ágiles para entregar productos escalables y fiables.",
+          "stats": {
+            "exp": "<strong>2+</strong> años de experiencia profesional (Full Stack)",
+            "projects": "<strong>20+</strong> proyectos personales y profesionales"
+          }
+        },
+        "projects": {
+          "title": "Proyectos",
+          "lead": "Selección de proyectos recientes y relevantes.",
+          "sfoc": {
+            "title": "SFOC — Plataforma de subvenciones",
+            "desc": "<ul><li>Responsable principal del desarrollo y mantenimiento de SFOC, sistema crítico para la gestión de ayudas públicas (Java legacy, frameworks gubernamentales).</li><li>Sistema crítico para la solicitud, gestión, adjudicación y liquidación de subvenciones.</li><li>Usado por entidades y la Comunidad de Madrid para programas de formación continua.</li></ul>",
+            "tech": "<em>Java, Spring Boot, Oracle</em>"
+          },
+          "same": {
+            "title": "SAME — Sistema de Cumplimiento Ambiental",
+            "desc": "<ul><li>Plataforma para monitorizar el cumplimiento ambiental en empresas.</li><li>Gestión de umbrales de emisiones y validación regulatoria.</li><li>Incluye procesos batch para análisis e informes.</li></ul>",
+            "tech": "<em>Java, Spring Boot, Oracle</em>"
+          },
+          "azul": {
+            "title": "AZUL — Calidad del Aire Madrid",
+            "desc": "<ul><li>Desarrollé APIs REST y frontends multiplataforma con Spring Boot y Angular para monitorizar la calidad del aire.</li><li>Clientes móviles y web con frontends Angular.</li></ul>",
+            "tech": "<em>Spring Boot, Angular, REST API</em>"
+          },
+          "seem": {
+            "title": "SEEM — Sistema de Estadísticas de Empleo",
+            "desc": "<ul><li>Procesos batch en Java ejecutando scripts Bash para recolección SFTP.</li><li>Procesado y carga de datos en Oracle.</li><li>Automatización del pipeline de datos para estadísticas de empleo.</li></ul>",
+            "tech": "<em>Spring Batch, Bash Scripts, Oracle</em>"
+          },
+          "utils": {
+            "title": "Utils Web",
+            "desc": "<ul><li>Calculadora de inflación.</li><li>Generador de contraseñas.</li><li>Encriptador/Desencriptador de texto.</li></ul>",
+            "tech": "<em>JavaScript</em>"
+          },
+          "coinscope": {
+            "title": "Coinscope — Dashboard crypto",
+            "desc": "<ul><li>Aplicación personal full‑stack para gestión financiera con login y gestión de transacciones.</li><li>Panel de informes dinámicos y despliegues con Docker.</li></ul>",
+            "tech": "<em>Angular, Spring Boot, Docker</em>"
+          },
+          "biwenger": {
+            "title": "BiwengerProManager",
+            "desc": "<ul><li>Aplicación web monolítica que amplía la funcionalidad de Biwenger.</li></ul>",
+            "tech": "<em>PHP, REST API</em>"
+          },
+          "file2file": {
+            "title": "File2File — Herramienta de migración de scripts",
+            "desc": "<ul><li>Aplicación Java para migración automatizada de scripts shell entre entornos.</li></ul>",
+            "tech": "<em>Java</em>"
+          },
+          "toggle": { "show": "Mostrar descripción", "hide": "Ocultar descripción" }
+        },
+        "actions": {
+          "android": "Android",
+          "ios": "iOS",
+          "details": "Detalles",
+          "web": "Web",
+          "repository": "Repositorio",
+          "demo": "Demo"
+        },
+        "vision": {
+          "title": "Visión sobre los activos digitales orientados a la utilidad",
+          "short": "Creo en los activos digitales que aportan utilidad real: mejoran la eficiencia, la gobernanza y la infraestructura financiera mientras impulsan la innovación práctica.",
+          "read_full": "Leer visión completa",
+          "full": "<p>Creo en los activos digitales que ofrecen utilidad tangible: mejoran la eficiencia, la gobernanza y los modelos de negocio mediante la innovación práctica. Busco proyectos con métricas de adopción claras, tokenomics justos y equipos con trayectoria comprobada. Mi perspectiva se basa en comprender cómo fluye la liquidez a través de los mercados globales, identificar nuevos almacenes de valor y analizar la transición hacia infraestructuras basadas en tecnología de registro distribuido (DLT).</p><p>En una era en la que los sistemas financieros tradicionales están siendo transformados por la tecnología, priorizo los activos que van más allá de la especulación, aquellos que generan progreso real en el ecosistema financiero global.</p><p>En el centro de mi visión está el principio de <strong>“Follow the Money”</strong> — seguir el flujo del dinero para entender cómo la liquidez se desplaza ante los cambios macroeconómicos, las políticas y las innovaciones tecnológicas. Considero los activos digitales con utilidad como puentes entre los sistemas tradicionales y las redes descentralizadas. Tokens como <strong>XRP, XLM, HBAR, XDC, ALGO y QNT</strong> ejemplifican esta utilidad al permitir pagos transfronterizos más rápidos y baratos, intercambios de datos interoperables y mecanismos de liquidación eficientes.</p><p>Al comparar reservas tradicionales como el oro con sus equivalentes digitales, considero que los tokens de utilidad son superiores en escalabilidad y adaptabilidad. Mientras que el oro o Bitcoin sirven como coberturas frente a la inflación, los activos de utilidad aportan funcionalidad adicional. Integran estándares como <strong>ISO 20022</strong>, sustituyendo sistemas obsoletos como SWIFT o DTCC, reduciendo la fricción en los flujos de capital y habilitando liquidaciones atómicas mediante contratos inteligentes. La adopción institucional —desde las iniciativas de tokenización de <strong>BlackRock</strong> hasta la digitalización de derivados— acelera esta transición hacia mercados más eficientes y transparentes.</p><p>Desde el punto de vista geopolítico, preveo una reconfiguración del sistema monetario global, influenciada por regulaciones como <strong>MiCA</strong> en Europa, la supervisión de la <strong>SEC</strong> en Estados Unidos y las directrices de la <strong>FATF</strong>. Los tokens de utilidad prosperan en este entorno al mismo tiempo que superan en innovación a las monedas digitales de bancos centrales (CBDCs). En bloques como <strong>BRICS</strong> o <strong>G7</strong>, estos activos pueden redefinir los canales de liquidez y mitigar los riesgos derivados de las políticas monetarias del FED o del BCE. Mi enfoque de inversión se centra en métricas que reflejan crecimiento sostenible: volumen de transacciones en cadena, alianzas institucionales y avances regulatorios, asegurando que la liquidez se dirija hacia proyectos con impacto duradero.</p><ul><li><strong>Utilidad práctica:</strong> resolver problemas medibles, como reducir los costos de transacción transfronteriza en un 60–80% mediante protocolos como RippleNet (XRP) o Stellar (XLM).</li><li><strong>Sostenibilidad:</strong> modelos económicos a largo plazo con tokenomics justos, como la gobernanza descentralizada de ALGO o el marco de interoperabilidad de QNT.</li><li><strong>Transparencia:</strong> gobernanza abierta y métricas accesibles en tiempo real, ejemplificadas por el Consejo de Hedera (HBAR) o las auditorías empresariales de XDC.</li><li><strong>Integración de liquidez:</strong> alineación con indicadores macroeconómicos globales (curvas de rendimiento, S&P 500), posicionando estos activos como coberturas y facilitadores de eficiencia de capital.</li><li><strong>Visión regulatoria:</strong> adaptación a marcos emergentes y coexistencia con las CBDCs, fomentando ecosistemas híbridos público–privados basados en DLT.</li></ul><p>En última instancia, mi visión es estratégica y orientada al futuro: <strong>los activos digitales centrados en la utilidad son la pieza clave en la evolución del sistema financiero</strong>, canalizando la liquidez hacia la innovación y construyendo reservas de valor resilientes en un mundo impulsado por la tecnología DLT.</p>"
+        },
+        "experience": {
+          "title": "Experiencia Profesional",
+          "epam": {
+            "title": "Ingeniero de Software — EPAM / NEORIS",
+            "desc": "Desarrollador principal del sistema SFOC (Subvenciones para Programas de Formación Continua), uno de los sistemas más críticos utilizados por múltiples entidades y por la Comunidad de Madrid para la gestión de subvenciones públicas. Desarrollo full-stack con Java Spring Boot, Angular (MOVA) y los frameworks oficiales del gobierno (HTML5, CSS, SCSS, xHTML, JSP, JavaScript, XML). Diseño y mantenimiento de APIs RESTful, JAPIs, microservicios, aplicaciones monolíticas y servicios web. Administración de bases de datos Oracle y MySQL con alto nivel de especialización en SQL/PLSQL, optimizando rendimiento y fiabilidad. Responsable del análisis y resolución de incidencias, así como de la implementación de soluciones técnicas en colaboración con equipos multidisciplinares para la recogida de requisitos, estimación de tareas y comunicación con el cliente."
+          },
+          "leihub": {
+            "title": "CEO & CTO — LeiHub",
+            "desc": "Fundador y líder técnico de LeiHub, encargado del diseño y desarrollo de soluciones web y móviles innovadoras integrando tecnologías de registro distribuido (DLT). Responsable de las decisiones arquitectónicas, la estrategia de producto y la visión técnica, combinando blockchain, inteligencia artificial y tecnologías web modernas para crear soluciones escalables, seguras y de alto impacto."
+          }
+        },
+        "skills": {
+          "title": "Skills",
+          "lead": "Lenguajes, herramientas y metodologías que uso con frecuencia.",
+          "languages": {
+            "title": "Languages",
+            "items": "Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"
+          },
+          "frameworks": {
+            "title": "Frameworks & Libraries",
+            "items": "Spring Boot, Angular, Laravel, Thymeleaf"
+          },
+          "databases": {
+            "title": "Databases",
+            "items": "Oracle, MySQL, PostgreSQL, MongoDB"
+          },
+          "tools": {
+            "title": "Tools & DevOps",
+            "items": "PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"
+          }
+        },
+        "contact": {
+          "title": "Contacto",
+          "lead": "¿Tienes una idea o quieres colaborar? Hablemos.",
+          "send_button": "Enviar mensaje",
+          "email_placeholder": "Tu correo",
+          "name_placeholder": "Tu nombre",
+          "message_placeholder": "Mensaje",
+          "send_email": "Enviar por correo"
+        },
+        "footer": {
+          "copyright": "© {year} Jose Luis Sánchez Carrasco",
+          "github": "GitHub",
+          "linkedin": "LinkedIn"
+        }
+      },
+      "de": {
+        "nav": {
+          "about": "Über mich",
+          "projects": "Projekte",
+          "experience": "Erfahrung",
+          "skills": "Skills",
+          "vision": "Digitale Assets",
+          "contact": "Kontakt",
+          "cv": "CV"
+        },
+        "hero": {
+          "title": "Hallo, ich bin Joselu",
+          "lead": "Softwareentwickler und Investor. Ich baue skalierbare Produkte und untersuche digitale Assets mit echtem Nutzen.",
+          "cta_projects": "Projekte ansehen",
+          "cta_contact": "Kontakt"
+        },
+        "about": {
+          "title": "Über mich",
+          "p1": "Full Stack Developer mit 2+ Jahren Erfahrung, spezialisiert auf Java und Spring Boot sowie behördenspezifische Frameworks. Ich arbeite am gesamten Software-Lifecycle: REST APIs, Microservices, Oracle/MySQL-Integrationen und Batch-Prozesse.",
+          "p2": "Ich kombiniere technischen Anspruch, DevOps-Praktiken und agile Methoden, um skalierbare, zuverlässige Produkte zu liefern.",
+          "stats": {
+            "exp": "<strong>2+</strong> Jahre Berufserfahrung (Full Stack)",
+            "projects": "<strong>20+</strong> persönliche und berufliche Projekte"
+          }
+        },
+        "projects": {
+          "title": "Projekte",
+          "lead": "Auswahl kürzlicher und relevanter Projekte.",
+          "sfoc": {
+            "title": "SFOC — Public Subsidy Platform",
+            "desc": "<ul><li>Leitender Entwickler für SFOC, ein kritisches System zur Verwaltung öffentlicher Zuschüsse (Java legacy, behördliche Frameworks).</li></ul>",
+            "tech": "<em>Java, Spring Boot, Oracle</em>"
+          },
+          "same": {
+            "title": "SAME — Environmental Compliance System",
+            "desc": "<ul><li>Plattform zur Überwachung der Umwelt-Compliance.</li></ul>",
+            "tech": "<em>Java, Spring Boot, Oracle</em>"
+          },
+          "azul": {
+            "title": "AZUL — Air Quality Madrid",
+            "desc": "<ul><li>Entwicklung von REST-APIs und plattformübergreifenden Frontends mit Spring Boot und Angular zur Luftqualitätsüberwachung.</li></ul>",
+            "tech": "<em>Spring Boot, Angular, REST API</em>"
+          },
+          "seem": {
+            "title": "SEEM — Employment Statistics System",
+            "desc": "<ul><li>Java-Batch-Prozesse zur SFTP-Sammlung von Dateien.</li></ul>",
+            "tech": "<em>Spring Batch, Bash Scripts, Oracle</em>"
+          },
+          "utils": {
+            "title": "Utils Web",
+            "desc": "<ul><li>Sammlung kleiner Web-Utilities: Inflationsrechner, Passwortgenerator und Textverschlüsselung/Entschlüsselung.</li></ul>",
+            "tech": "<em>JavaScript</em>"
+          },
+          "coinscope": {
+            "title": "Coinscope — Crypto Dashboard",
+            "desc": "<ul><li>Persönliche Full‑Stack-Finanzanwendung mit Login und Transaktionsverwaltung.</li></ul>",
+            "tech": "<em>Angular, Spring Boot, Docker</em>"
+          },
+          "biwenger": {
+            "title": "BiwengerProManager",
+            "desc": "<ul><li>Monolithische PHP-Webanwendung zur Erweiterung der Biwenger-Funktionalität.</li></ul>",
+            "tech": "<em>PHP, REST API</em>"
+          },
+          "file2file": {
+            "title": "File2File — Script Migration Tool",
+            "desc": "<ul><li>Java-Anwendung zur Automatisierung der Migration und Anpassung von Shell-Skripten zwischen Umgebungen.</li></ul>",
+            "tech": "<em>Java</em>"
+          },
+          "toggle": {
+            "show": "Beschreibung anzeigen",
+            "hide": "Beschreibung verbergen"
+          }
+        },
+        "actions": {
+          "android": "Android",
+          "ios": "iOS",
+          "details": "Details",
+          "web": "Web",
+          "repository": "Repository",
+          "demo": "Demo"
+        },
+        "vision": {
+          "title": "Vision über nutzenorientierte digitale Vermögenswerte",
+          "short": "Ich glaube an digitale Vermögenswerte, die echten Nutzen schaffen – sie verbessern Effizienz, Governance und Finanzinfrastruktur und fördern gleichzeitig echte Innovation.",
+          "read_full": "Vollständige Vision lesen",
+          "full": "<p>Ich glaube an digitale Vermögenswerte, die echten Nutzen bringen: Sie verbessern Effizienz, Governance und Geschäftsmodelle durch praktische Innovation. Ich suche nach Projekten mit klaren Adoptionsmetriken, fairen Tokenomics und Teams mit nachgewiesener Erfolgsbilanz. Mein Ansatz basiert auf dem Verständnis globaler Liquiditätsflüsse, der Identifizierung neuer Wertaufbewahrungsmittel und der Analyse des Übergangs zu Distributed-Ledger-Technologien (DLT).</p><p>In einer Zeit, in der traditionelle Finanzsysteme durch technologische Innovation umgestaltet werden, konzentriere ich mich auf Vermögenswerte, die über Spekulation hinausgehen und einen greifbaren Beitrag zur globalen Finanzentwicklung leisten.</p><p>Im Mittelpunkt meiner Vision steht das Prinzip <strong>„Follow the Money“</strong> – die Nachverfolgung von Liquiditätsbewegungen als Reaktion auf makroökonomische, politische und technologische Veränderungen. Nutzenorientierte digitale Vermögenswerte fungieren dabei als Brücken zwischen alten Systemen und dezentralen Netzwerken. Tokens wie <strong>XRP, XLM, HBAR, XDC, ALGO und QNT</strong> sind Beispiele für diese Rolle: Sie ermöglichen schnellere, günstigere grenzüberschreitende Zahlungen, interoperable Datenaustausche und effiziente Abwicklungsmechanismen.</p><p>Im Vergleich zu traditionellen Reserven wie Gold betrachte ich Utility-Tokens als skalierbarer und anpassungsfähiger. Während Gold und Bitcoin als Absicherung gegen Inflation dienen, bieten Utility-Assets zusätzliche Funktionalität. Sie integrieren Standards wie <strong>ISO 20022</strong>, ersetzen veraltete Systeme wie SWIFT oder DTCC, reduzieren Reibung im Kapitalfluss und ermöglichen atomare Abwicklungen über Smart Contracts. Institutionelle Akzeptanz – von <strong>BlackRocks Tokenisierungsinitiativen</strong> bis zur Digitalisierung von Derivaten – beschleunigt diesen Übergang zu transparenteren Märkten.</p><p>Geopolitisch erwarte ich eine Neugestaltung des globalen Währungssystems, beeinflusst durch Regulierungen wie <strong>MiCA</strong> in Europa, <strong>SEC</strong>-Aufsicht in den USA und <strong>FATF</strong>-Richtlinien weltweit. Utility-Tokens gedeihen in diesem Umfeld und übertreffen Zentralbank-Digitalwährungen (CBDCs) in Innovationsgeschwindigkeit. In Blöcken wie <strong>BRICS</strong> und <strong>G7</strong> könnten diese Vermögenswerte Liquiditätskanäle neu definieren und Risiken geldpolitischer Entscheidungen der FED oder EZB abmildern. Mein Investmentansatz konzentriert sich auf nachhaltige Wachstumsindikatoren: On-Chain-Transaktionen, institutionelle Partnerschaften und regulatorische Meilensteine.</p><ul><li><strong>Praktischer Nutzen:</strong> messbare Probleme lösen, z. B. Senkung der grenzüberschreitenden Transaktionskosten um bis zu 80 % durch Protokolle wie RippleNet (XRP) oder Stellar (XLM).</li><li><strong>Nachhaltigkeit:</strong> langfristige Wirtschaftsmodelle mit fairen Tokenomics wie bei ALGO oder QNT, die Stabilität in volatilen Märkten fördern.</li><li><strong>Transparenz:</strong> offene Governance und Echtzeit-Metriken, z. B. durch den Hedera Council (HBAR) oder die Unternehmensprüfungen von XDC.</li><li><strong>Liquiditätsintegration:</strong> Anpassung an globale makroökonomische Indikatoren (z. B. Zinsstrukturkurven, S&P 500-Trends).</li><li><strong>Regulatorischer Weitblick:</strong> Anpassungsfähigkeit an neue Rahmenbedingungen und Koexistenz mit CBDCs, um hybride öffentliche–private DLT-Ökosysteme zu schaffen.</li></ul><p>Letztlich ist meine Vision strategisch und zukunftsorientiert: <strong>Nutzenorientierte digitale Vermögenswerte sind der Schlüssel zur finanziellen Evolution</strong>, sie lenken Liquidität in Richtung Innovation und schaffen widerstandsfähige Wertspeicher in einer DLT-getriebenen Welt.</p>"
+        },
+        "experience": {
+          "title": "Berufserfahrung",
+          "epam": {
+            "title": "Softwareentwickler — EPAM / NEORIS",
+            "desc": "Leitender Entwickler für SFOC (Subsidies for Continuous Training Programs), eines der wichtigsten Systeme zur Verwaltung öffentlicher Förderungen, das von mehreren Einrichtungen und der Regierung der Autonomen Gemeinschaft Madrid genutzt wird. Full-Stack-Entwicklung mit Java Spring Boot, Angular (MOVA) und offiziellen Regierungsframeworks (HTML5, CSS, SCSS, xHTML, JSP, JavaScript, XML). Entwurf und Wartung von RESTful APIs, JAPIs, Microservices, monolithischen Anwendungen und Webdiensten. Verwaltung von Oracle- und MySQL-Datenbanken mit fundierter SQL/PLSQL-Expertise zur Leistungs- und Zuverlässigkeitsoptimierung. Zuständig für Incident-Management, Ursachenanalyse und technische Implementierung in enger Zusammenarbeit mit funktionsübergreifenden Teams zur Anforderungserhebung, Aufwandsschätzung und Kundenkommunikation."
+          },
+          "leihub": {
+            "title": "CEO & CTO — LeiHub",
+            "desc": "Gründer und technischer Leiter von LeiHub, verantwortlich für das Design und die Entwicklung innovativer Web- und Mobilanwendungen unter Verwendung von Distributed-Ledger-Technologien (DLT). Zuständig für Architekturentscheidungen, Produktstrategie und technische Vision, wobei Blockchain, KI und moderne Webtechnologien kombiniert werden, um skalierbare, sichere und wirkungsvolle Lösungen zu schaffen."
+          }
+        },
+        "skills": {
+          "title": "Skills",
+          "lead": "Sprachen, Tools und Methoden, die ich häufig verwende.",
+          "languages": {
+            "title": "Languages",
+            "items": "Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"
+          },
+          "frameworks": {
+            "title": "Frameworks & Libraries",
+            "items": "Spring Boot, Angular, Laravel, Thymeleaf"
+          },
+          "databases": {
+            "title": "Databases",
+            "items": "Oracle, MySQL, PostgreSQL, MongoDB"
+          },
+          "tools": {
+            "title": "Tools & DevOps",
+            "items": "PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"
+          }
+        },
+        "contact": {
+          "title": "Kontakt",
+          "lead": "Haben Sie eine Idee oder möchten Sie zusammenarbeiten? Lassen Sie uns sprechen.",
+          "send_button": "Nachricht senden",
+          "email_placeholder": "Ihre E-Mail",
+          "name_placeholder": "Ihr Name",
+          "message_placeholder": "Nachricht",
+          "send_email": "Per E-Mail senden"
+        },
+        "footer": {
+          "copyright": "© {year} Jose Luis Sánchez Carrasco",
+          "github": "GitHub",
+          "linkedin": "LinkedIn"
+        }
+      }
+    }
   </script>
   <script src="js/script.js" defer></script>
 </body>
