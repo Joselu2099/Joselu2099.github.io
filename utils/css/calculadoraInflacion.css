@@ -1,0 +1,18 @@
+/* utils.css already imported from HTML; no need to import here */
+
+canvas#particles-js{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1}
+
+h1{text-align:center;font-size:2.1rem;margin-bottom:1.2rem;color:var(--text);text-shadow:0 0 8px rgba(139,233,253,0.08)}
+
+section{max-width:600px;margin:auto;margin-bottom:2rem;padding:1.6rem;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.06));border-radius:14px;border:1px solid rgba(255,255,255,0.02);box-shadow:var(--shadow-soft);backdrop-filter:blur(6px)}
+
+section label{margin-top:0.8rem;font-weight:600;color:var(--text)}
+
+section input,section select,section textarea{width:100%;max-width:520px;padding:.8rem;margin-top:.4rem;margin-bottom:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg,#0b0b10,#0a0a0f);color:var(--text);font-size:1rem}
+
+section button{background:linear-gradient(90deg,var(--accent),var(--accent-pink));color:var(--bg);border:0;border-radius:10px;padding:.7rem 1.2rem;cursor:pointer;font-weight:700;box-shadow:0 10px 26px rgba(189,147,249,0.06)}
+section button:hover{transform:translateY(-3px)}
+
+#infoIPC{margin:auto;max-width:600px;margin-bottom:1.8rem;padding:1.2rem;border-left:5px solid var(--success);border-radius:10px;color:var(--text);background:linear-gradient(180deg,#0c0c10,#0e0e14)}
+
+@media (max-width:600px){section{padding:1rem}section input,section textarea{max-width:100%}h1{font-size:1.6rem}}

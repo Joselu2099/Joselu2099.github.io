@@ -1,135 +1,672 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
-  <meta name="description"
-    content="Portfolio de Jose Luis Sánchez Carrasco, desarrollador web y de software. Proyectos, experiencia, tecnologías y contacto.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Joselu's Portfolio" />
   <meta name="author" content="Jose Luis Sánchez Carrasco">
-  <meta name="keywords"
-    content="portfolio, Jose Luis Sánchez Carrasco, developer, web, software, projects, experience, technologies, contact">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Jose Luis Sánchez Carrasco | Portfolio" />
-  <meta property="og:description"
-    content="Explore my personal portfolio: projects, experience, skills and downloadable CV." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://joselu2099.github.io/" />
-  <meta property="og:image" content="https://joselu2099.github.io/img/miniatura.jpg" />
-  <meta property="og:image:secure_url" content="https://joselu2099.github.io/img/miniatura.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jose Luis Sánchez Carrasco | Portfolio" />
-  <meta name="twitter:description"
-    content="Explore my personal portfolio: projects, experience, skills and downloadable CV." />
-  <meta name="twitter:image" content="https://joselu2099.github.io/img/miniatura.jpg" />
-
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="icon" type="image/x-icon" href="img/logo_jsc.png">
+  <title>Joselu</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/header-footer.css" />
+  <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
-  <button class="lang-toggle" aria-label="Language" onclick="showLangPopup()">
-    <img src="img/language.png" alt="Language" width="20" height="20">
-  </button>
-  <button class="up-toggle" aria-label="Back to top" onclick="goUp()">
-    <img src="img/up.png" alt="^" width="20" height="20">
-  </button>
-  <button id="cv-download" class="cv-download" aria-label="Download CV" onclick="showPopup()">
-    <img src="img/download.png" alt="Descargar CV" width="20" height="20">
-    <span id="cv">CV</span>
-  </button>
+  <!-- Header: logo/nombre y navegación principal -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <a class="brand" href="#home" aria-label="Home - Joselu">
+          <span class="brand-logo" aria-hidden="true">
+            <img src="img/logo_jsc.png" alt="Joselu logo" width="50" height="50" />
+          </span>
+          <span class="brand-text">Joselu</span>
+        </a>
+      </div>
+      <!-- Centro: navegación principal (centro en escritorio) -->
+      <div class="header-center">
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+          <a class="nav-item" href="#about" data-i18n="nav.about">About</a>
+          <a class="nav-item" href="#projects" data-i18n="nav.projects">Projects</a>
+          <a class="nav-item" href="#experience" data-i18n="nav.experience">Experience</a>
+          <a class="nav-item" href="#skills" data-i18n="nav.skills">Skills</a>
+          <a class="nav-item" href="#vision" data-i18n="nav.vision">Digital assets</a>
+          <a class="nav-item" href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+      </div>
 
-  <div class="popup" id="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-    <p id="popupTitle">Select CV Language:</p>
-    <button onclick="downloadCV('en')" aria-label="Download CV in English">English</button>
-    <button onclick="downloadCV('es')" aria-label="Descargar CV en Español">Español</button>
-  </div>
+      <!-- Derecha: acciones (idioma, cv, hamburguesa) -->
+      <div class="header-right">
+        <div class="header-actions">
+          <div class="lang-wrap">
+            <button id="langToggle" class="icon-btn" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu"
+              title="Language (English)">
+              <span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M2 12h20M12 2c2.5 4 2.5 12 0 20" />
+                </svg></span>
+            </button>
+            <ul id="langMenu" class="lang-menu" role="menu" aria-hidden="true">
+              <li role="none"><button role="menuitem" data-lang="en" class="lang-item">English</button></li>
+              <li role="none"><button role="menuitem" data-lang="es" class="lang-item">Español</button></li>
+              <li role="none"><button role="menuitem" data-lang="de" class="lang-item">Deutsch</button></li>
+            </ul>
+          </div>
+          <a class="icon-btn cv-btn" href="docs/JoseLuis_Sanchezcarrasco_CV.pdf" download title="Download CV"
+            aria-label="Download CV">
+            <span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3v10" />
+                <path d="M8 11l4 4 4-4" />
+                <path d="M4 21h16v-4H4v4z" />
+              </svg></span>
+            <span data-i18n="nav.cv">CV</span>
+          </a>
+          <button id="navToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+      </div>
+    </div>
 
-  <div class="popup" id="langPopup" role="dialog" aria-modal="true" aria-labelledby="langPopupTitle">
-    <p id="langPopupTitle">Select Language:</p>
-    <button onclick="setLanguage('en')" aria-label="Cambiar idioma a inglés">English</button>
-    <button onclick="setLanguage('es')" aria-label="Cambiar idioma a español">Español</button>
-    <button onclick="setLanguage('de')" aria-label="Cambiar idioma a alemán">Deutsch</button>
-  </div>
+    <!-- Mobile menu (oculto por defecto) -->
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-nav">
+        <a class="nav-item" href="#about"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" />
+            <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v1H4v-1z" />
+          </svg> <span data-i18n="nav.about">About</span></a>
+        <a class="nav-item" href="#projects"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+          </svg> <span data-i18n="nav.projects">Projects</span></a>
+        <a class="nav-item" href="#experience"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 7h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7zm6-3h6v3H9V4z" />
+          </svg> <span data-i18n="nav.experience">Experience</span></a>
+        <a class="nav-item" href="#skills"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.7 9.3l-5.4 5.4" />
+            <path d="M10.7 10.7l-1.4 1.4-4 4 1.9 1.9 4-4 1.4-1.4" />
+          </svg> <span data-i18n="nav.skills">Skills</span></a>
+        <a class="nav-item" href="#vision"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 4.5c4.5 0 8.5 3.5 10 7.5-1.5 4-5.5 7.5-10 7.5S3.5 16 2 12c1.5-4 5.5-7.5 10-7.5zM12 9.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+          </svg> <span data-i18n="nav.vision">Digital assets</span></a>
+        <a class="nav-item" href="#contact"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v.5l-10 6-10-6V6z" />
+            <path d="M21 8.7v7.8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.7l9.4 5.64c.36.22.79.22 1.14 0L21 8.7z" />
+          </svg> <span data-i18n="nav.contact">Contact</span></a>
+      </nav>
+      <div class="mobile-actions">
+        <button id="langToggleMobile" class="icon-btn" title="Language" aria-label="Language"><svg width="18"
+            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M2 12h20M12 2c2.5 4 2.5 12 0 20" />
+          </svg></button>
+        <a class="icon-btn cv-btn" href="docs/JoseLuis_Sanchezcarrasco_CV.pdf" download title="Download CV"
+          aria-label="Download CV"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3v10" />
+            <path d="M8 11l4 4 4-4" />
+            <path d="M4 21h16v-4H4v4z" />
+          </svg></a>
+      </div>
+    </div>
+    <!-- Barra de navegación scrollable para pantallas pequeñas (estética elegante en lugar de hamburguesa) -->
+    <div class="container nav-scroll-wrap" aria-hidden="true">
+      <nav class="nav-scroll" aria-label="Secondary navigation">
+        <a class="nav-item" href="#about"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z" />
+              <path d="M4 20c0-3.314 2.686-6 6-6h4c3.314 0 6 2.686 6 6v1H4v-1z" />
+            </svg></span> <span data-i18n="nav.about">About</span></a>
+        <a class="nav-item" href="#projects"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" />
+            </svg></span> <span data-i18n="nav.projects">Projects</span></a>
+        <a class="nav-item" href="#experience"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 7h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7zm6-3h6v3H9V4z" />
+            </svg></span> <span data-i18n="nav.experience">Experience</span></a>
+        <a class="nav-item" href="#skills"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.7 9.3l-5.4 5.4" />
+              <path d="M10.7 10.7l-1.4 1.4-4 4 1.9 1.9 4-4 1.4-1.4" />
+            </svg></span> <span data-i18n="nav.skills">Skills</span></a>
+        <a class="nav-item" href="#vision"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 4.5c4.5 0 8.5 3.5 10 7.5-1.5 4-5.5 7.5-10 7.5S3.5 16 2 12c1.5-4 5.5-7.5 10-7.5zM12 9.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+            </svg></span> <span data-i18n="nav.vision">Digital assets</span></a>
+        <a class="nav-item" href="#contact"><span class="nav-icon" aria-hidden="true"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v.5l-10 6-10-6V6z" />
+              <path d="M21 8.7v7.8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.7l9.4 5.64c.36.22.79.22 1.14 0L21 8.7z" />
+            </svg></span> <span data-i18n="nav.contact">Contact</span></a>
+      </nav>
+    </div>
+  </header>
 
-  <canvas id="particles-js"></canvas>
+  <!-- Hero Section: ocupa 100vh -->
+  <main>
+    <section id="home" class="hero" aria-label="Home">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 data-i18n="hero.title">Hello, I'm Joselu</h1>
+          <p class="lead" data-i18n="hero.lead">Software developer and investor. I build scalable products and explore
+            digital assets with real utility.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#projects" data-i18n="hero.cta_projects">View projects</a>
+            <a class="btn outline" href="#contact" data-i18n="hero.cta_contact">Contact</a>
+          </div>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <!-- Sutil ilustración / avatar geométrico -->
+          <div class="avatar">
+            <img class="profile-photo" src="img/profilePhoto.jpeg" alt="Jose Luis Sanchez Carrasco" decoding="async"
+              loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <header>Welcome to my Portfolio</header>
+    <!-- About -->
+    <section id="about" class="section" aria-label="About">
+      <div class="container">
+        <h2 data-i18n="about.title">About</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p data-i18n="about.p1"></p>
+            <p data-i18n="about.p2"></p>
+          </div>
+          <div class="about-stats">
+            <ul>
+              <li data-i18n-html="about.stats.exp"></li>
+              <li data-i18n-html="about.stats.projects"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="profile">
-    <img src="img/profile-picture-3.jpg" alt="Profile Photo" loading="lazy" />
-    <h2>Jose Luis Sánchez Carrasco</h2>
-  </div>
+    <!-- projects -->
+    <section id="projects" class="section" aria-label="Projects">
+      <div class="container">
+        <h2 data-i18n="projects.title">Projects</h2>
+        <p class="muted" data-i18n="projects.lead"></p>
+        <div class="projects-grid">
+          <!-- Restored projects defined in i18n.json but missing from HTML -->
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#ffecd2,#fcb69f)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.sfoc.title">SFOC — Public Subsidy Platform</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.sfoc.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.sfoc.desc"><!-- populated from i18n-data --></div>
+              </details>
+              <div class="card-actions">
+                <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+              </div>
+            </div>
+          </article>
 
-  <nav>
-    <a href="#about"><span>About Me</span></a>
-    <a href="#experience"><span>Experience</span></a>
-    <a href="#projects"><span>Projects</span></a>
-    <a href="#technologies"><span>Technologies</span></a>
-    <a href="#skills"><span>Skills</span></a>
-    <a href="#languages"><span>Languages</span></a>
-    <a href="#education"><span>Education</span></a>
-    <a href="#contact"><span>Contact</span></a>
-  </nav>
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#fbc2eb,#a6c1ee)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.same.title">SAME — Environmental Compliance System</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.same.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.same.desc"><!-- populated from i18n-data --></div>
+              </details>
+              <div class="card-actions">
+                <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+              </div>
+            </div>
+          </article>
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#96fbc4,#f9f586)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.azul.title">AZUL — Air Quality Madrid</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.azul.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.azul.desc">
+                  <!-- populated from i18n-data -->
+                </div>
+              </details>
+              <div class="card-actions">
+                <a href="https://play.google.com/store/apps/details?id=org.madrid.azul.calidadAire&hl=en-US"
+                  class="btn small outline" data-i18n="actions.android">Android</a>
+                <a href="https://apps.apple.com/ai/app/calidad-del-aire-madrid/id1601780575" class="btn small outline"
+                  data-i18n="actions.ios">iOS</a>
+              </div>
+            </div>
+          </article>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p></p>
-  </section>
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="entries"></div>
-  </section>
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="entries"></div>
-  </section>
-  <section id="technologies">
-    <h2>Technologies</h2>
-    <div class="entries"></div>
-  </section>
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul></ul>
-  </section>
-  <section id="languages">
-    <h2>Languages</h2>
-    <div class="entries"></div>
-  </section>
-  <section id="education">
-    <h2>Education</h2>
-    <div class="entries"></div>
-  </section>
-  <section id="contact">
-    <h2>Contacto</h2>
-    <p>
-      <a href="mailto:joseluischezcarrasco@gmail.com" class="contact-btn email-btn" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
-          <path d="M12 13.065L.564 4.5h22.872L12 13.065zm0 2.265L0 6.06v13.38h24V6.06L12 15.33z" />
-        </svg>
-        <span id="mail"></span>
-      </a>
-      <br /><br />
-      <a href="https://www.linkedin.com/in/joseluissanchezcarrasco/" class="contact-btn linkedin-btn" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
-          class="linkedin-icon" />
-        LinkedIn
-      </a>
-    </p>
-  </section>
+          <!-- SEEM -->
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#fbc2eb,#a6c1ee)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.seem.title">SEEM — Employment Statistics System</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.seem.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.seem.desc">
+                  <!-- populated from i18n-data -->
+                </div>
+              </details>
+              <div class="card-actions">
+                <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+              </div>
+            </div>
+          </article>
 
-  <footer>&copy; 2025 - All rights reserved</footer>
+          <!-- Utils-->
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#c471f5,#fa71cd)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.utils.title">Utils Web</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.utils.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.utils.desc">
+                  <!-- populated from i18n-data -->
+                </div>
+              </details>
+              <div class="card-actions">
+                <a href="utils/index.html" class="btn small outline" data-i18n="actions.web">Web</a>
+              </div>
+            </div>
+          </article>
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <script src="js/portfolio.js"></script>
+          <!-- Coinscope -->
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#c471f5,#fa71cd)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.coinscope.title">Coinscope — Crypto Dashboard</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.coinscope.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.coinscope.desc">
+                  <!-- populated from i18n-data -->
+                </div>
+              </details>
+              <div class="card-actions">
+                <a href="#" class="btn small" data-i18n="actions.details">Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- BiwengerProManager -->
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#ffecd2,#fcb69f)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.biwenger.title">BiwengerProManager</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.biwenger.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.biwenger.desc">
+                  <!-- populated from i18n-data -->
+                </div>
+              </details>
+              <div class="card-actions">
+                <a href="#" class="btn small" data-i18n="actions.repository">Repository</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- File2File -->
+          <article class="card project">
+            <div class="card-media" style="background: linear-gradient(135deg,#96fbc4,#f9f586)"></div>
+            <div class="card-body">
+              <div class="project-title">
+                <h3 data-i18n="projects.file2file.title">File2File — Script Migration Tool</h3>
+              </div>
+              <div class="project-tech">
+                <p data-i18n-html="projects.file2file.tech"></p>
+              </div>
+              <details class="project-desc">
+                <summary class="btn-link small" aria-expanded="false">
+                  <span class="visually-hidden" data-i18n="projects.toggle.show">Show description</span>
+                  <svg class="icon-collapse" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.06">
+                    </circle>
+                    <path class="chev" d="M8 10l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round" fill="none" />
+                  </svg>
+                </summary>
+                <div class="desc-content" data-i18n-html="projects.file2file.desc">
+                  <!-- populated from i18n-data -->
+                </div>
+              </details>
+              <div class="card-actions">
+                <a href="#" class="btn small" data-i18n="actions.repository">Repository</a>
+                <a href="#" class="btn small outline" data-i18n="actions.demo">Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional experience -->
+    <section id="experience" class="section" aria-label="Professional experience">
+      <div class="container">
+        <h2 data-i18n="experience.title">Professional Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <time>Mar 2023 — Present</time>
+            <div class="timeline-body">
+              <h3 data-i18n="experience.epam.title">Full Stack Developer and Analyst — EPAM / NEORIS</h3>
+              <p data-i18n="experience.epam.desc">Lead developer on SFOC and other critical applications. Full‑stack
+                development with Java Spring Boot, Angular and internal frameworks, API design, Oracle/MySQL
+                integration, batch processes and deployments.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <time>Jul 2025 - Present</time>
+            <div class="timeline-body">
+              <h3 data-i18n="experience.other.title">Full-stack Developer — Project / Startup</h3>
+              <p data-i18n="experience.other.desc">Participated in product development from MVP to production, focusing
+                on user experience, backend integration and CI/CD deployments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section" aria-label="Skills">
+      <div class="container">
+        <h2 data-i18n="skills.title">Skills</h2>
+        <p class="muted" data-i18n="skills.lead">Languages, tools and methodologies I frequently use.</p>
+        <div class="skills-grid">
+          <div class="skill">
+            <h4 data-i18n="skills.languages.title">Languages</h4>
+            <p data-i18n-html="skills.languages.items">Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5,
+              CSS, SCSS, JSP, xHTML</p>
+          </div>
+
+          <div class="skill">
+            <h4 data-i18n="skills.frameworks.title">Frameworks & Libraries</h4>
+            <p data-i18n-html="skills.frameworks.items">Spring Boot, Angular, Laravel, Thymeleaf</p>
+          </div>
+
+          <div class="skill">
+            <h4 data-i18n="skills.databases.title">Databases</h4>
+            <p data-i18n-html="skills.databases.items">Oracle, MySQL, PostgreSQL, MongoDB</p>
+          </div>
+
+          <div class="skill">
+            <h4 data-i18n="skills.tools.title">Tools & DevOps</h4>
+            <p data-i18n-html="skills.tools.items">PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube,
+              Postman, IntelliJ, VS Code, Cursor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision on utility-focused digital assets -->
+    <section id="vision" class="section" aria-label="Vision on digital assets">
+      <div class="container">
+        <h2 data-i18n="vision.title">Vision on utility-focused digital assets</h2>
+
+        <!-- Short, elegant summary with expandable full text -->
+        <p class="muted" data-i18n="vision.short">I focus on utility-first digital assets that drive measurable
+          improvements in efficiency, governance and new business models. I prioritise projects with clear adoption
+          metrics, fair tokenomics, and teams with proven track records.</p>
+
+        <details class="vision-details">
+          <summary class="btn-link" data-i18n="vision.read_full">Read full vision</summary>
+          <div class="vision-full" data-i18n-html="vision.full">
+            <!-- Populated from i18n.json (vision.full) -->
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="container">
+        <h2 data-i18n="contact.title">Contact</h2>
+        <p class="muted" data-i18n="contact.lead">Have an idea or want to collaborate? Let's talk.</p>
+        <form class="contact-form" action="#" onsubmit="handleContact(event)">
+          <div class="form-row">
+            <input type="text" name="name" data-i18n="contact.name_placeholder" placeholder="Your name" required />
+            <input type="email" name="email" data-i18n="contact.email_placeholder" placeholder="Your email" required />
+          </div>
+          <br />
+          <textarea name="message" rows="6" data-i18n="contact.message_placeholder" placeholder="Message"
+            required></textarea>
+          <div class="form-actions">
+            <button class="btn primary" type="submit" data-i18n="contact.send_button">Send message</button>
+            <a class="btn outline" href="mailto:tu.email@dominio.com" data-i18n="contact.send_email">Send email</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p data-i18n-footer></p>
+      </div>
+      <div class="footer-right">
+        <nav class="social-nav" aria-label="Social links">
+          <a href="#" data-i18n="footer.github">GitHub</a>
+          <a href="#" data-i18n="footer.linkedin">LinkedIn</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <div class="snackbar" role="status" aria-live="polite"></div>
+  <!-- Inline translations: kept here so translations work when page is opened via file:// or when fetch fails -->
+  <script id="i18n-data" type="application/json">
+{
+  "en": {
+    "nav": {"about":"About","projects":"Projects","experience":"Experience","skills":"Skills","vision":"Digital assets","contact":"Contact","cv":"CV"},
+    "hero": {"title":"Hello, I'm Joselu","lead":"Software developer and investor. I build scalable products and explore digital assets with real utility.","cta_projects":"View projects","cta_contact":"Contact"},
+    "about": {"title":"About","p1":"Full Stack Developer with 2+ years of experience specialized in Java and Spring Boot, plus government-specific frameworks. I work across the full software lifecycle: REST APIs, microservices, Oracle/MySQL integrations and batch processes.","p2":"I combine engineering rigor, DevOps practices and agile methodologies to deliver scalable, reliable products.","stats": {"exp":"<strong>2+</strong> years professional experience (Full Stack)", "projects":"<strong>20+</strong> personal and professional projects"}},
+    "projects": {
+      "title":"Projects",
+      "lead":"Selection of recent and relevant projects.",
+      "sfoc": {"title":"SFOC — Public Subsidy Platform","desc":"<ul><li>Lead responsible for development and maintenance of web applications and Spring Batch processes.</li><li>Critical system for grant application, management, awarding, and settlement processes.</li><li>Used by various entities and the Community of Madrid for continuous training programs.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
+      "same": {"title":"SAME — Environmental Compliance System","desc":"<ul><li>Developed platform for monitoring environmental compliance across companies.</li><li>Implemented features for emission threshold management and regulatory validation.</li><li>Built batch processing applications for data analysis and reporting.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
+      "azul": {"title":"AZUL — Air Quality Madrid","desc":"<ul><li>Developed REST APIs and cross-platform frontends with Spring Boot and Angular for air quality monitoring.</li><li>Built mobile and web clients; Android/iOS apps with Angular-based frontends.</li></ul>","tech":"<em>Spring Boot, Angular, REST API</em>"},
+      "seem": {"title":"SEEM — Employment Statistics System","desc":"<ul><li>Developed Java batch processes executing Bash scripts for SFTP file collection.</li><li>Processed and loaded employment statistics data into Oracle databases.</li><li>Automated the data processing pipeline for Madrid's employment statistics.</li></ul>","tech":"<em>Spring Batch, Bash Scripts, Oracle</em>"},
+      "utils": {"title":"Utils Web","desc":"<ul><li>Inflation calculator.</li><li>Password generator.</li><li>Text encryptor / decryptor.</li></ul>","tech":"<em>JavaScript</em>"},
+      "coinscope": {"title":"Coinscope — Crypto Dashboard","desc":"<ul><li>Full‑stack personal finance application with login system and transaction management.</li><li>Dynamic reporting dashboard and Docker-based deployments.</li><li>RESTful Spring Boot backend with Angular frontend.</li></ul>","tech":"<em>Angular, Spring Boot, Docker</em>"},
+      "biwenger": {"title":"BiwengerProManager","desc":"<ul><li>Monolithic web application extending Biwenger's football game functionality.</li><li>Custom game rules and enhanced user experience features.</li><li>Reproduced data model and extended official API functionalities.</li></ul>","tech":"<em>PHP, REST API</em>"},
+      "file2file": {"title":"File2File — Script Migration Tool","desc":"<ul><li>Java application for automated migration of shell scripts (bash, sh, csh).</li><li>Optimized script adaptation and portability between different environments.</li><li>Automated conversion and optimization process.</li></ul>","tech":"<em>Java</em>"},
+      "toggle": {"show":"Show description","hide":"Hide description"}
+    },
+    "actions": {"android":"Android","ios":"iOS","details":"Details","web":"Web","repository":"Repository","demo":"Demo"},
+    "vision": {"title":"Vision on utility-focused digital assets","short":"I focus on utility-first digital assets that drive measurable improvements in efficiency, governance and new business models.","read_full":"Read full vision","full":"<p>I believe in digital assets that bring real utility: improvements in efficiency, governance or new business models. I look for projects with clear adoption metrics, fair tokenomics and teams with proven track records. My perspective is deeply rooted in understanding how liquidity flows through global markets, identifying emerging stores of value, and analyzing the shift toward distributed ledger technology (DLT) infrastructures.</p><p>At the core of my vision is the principle of \"Follow the Money\"—tracking how liquidity migrates in response to macroeconomic shifts, policy changes, and technological disruptions. I see utility-focused digital assets as pivotal in this flow, acting as bridges between legacy systems and decentralized networks. For instance, tokens like XRP, XLM, HBAR, XDC, ALGO, and QNT exemplify this by enabling faster, cheaper cross-border payments, interoperable data exchanges, and efficient settlement mechanisms.</p><p>Ultimately, my vision is strategic and forward-looking: utility-focused digital assets are the linchpin in redefining the financial system, channeling liquidity toward innovation, and creating resilient stores of value in a DLT-driven world.</p>"},
+    "experience": {"title":"Professional Experience","epam":{"title":"Full Stack Developer and Analyst — EPAM / NEORIS","desc":"Lead developer on SFOC and other critical applications. Full‑stack development with Java Spring Boot, Angular and batch processes, plus Oracle/MySQL integration."},"other":{"title":"Full-stack Developer — Project / Startup","desc":"Participated in product development from MVP to production, focusing on user experience, backend integration and CI/CD deployments."}},
+    "skills": {
+      "title":"Skills",
+      "lead":"Languages, tools and methodologies I frequently use.",
+      "languages": {"title":"Languages","items":"Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"},
+      "frameworks": {"title":"Frameworks & Libraries","items":"Spring Boot, Angular, Laravel, Thymeleaf"},
+      "databases": {"title":"Databases","items":"Oracle, MySQL, PostgreSQL, MongoDB"},
+      "tools": {"title":"Tools & DevOps","items":"PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"}
+    },
+    "contact": {"title":"Contact","lead":"Have an idea or want to collaborate? Let's talk.","send_button":"Send message","email_placeholder":"Your email","name_placeholder":"Your name","message_placeholder":"Message","send_email":"Send email"},
+    "footer": {"copyright":"© {year} Jose Luis Sánchez Carrasco","github":"GitHub","linkedin":"LinkedIn"}
+  },
+  "es": {
+    "nav": {"about":"Sobre mí","projects":"Proyectos","experience":"Experiencia","skills":"Skills","vision":"Activos digitales","contact":"Contacto","cv":"CV"},
+    "hero": {"title":"Hola, soy Joselu","lead":"Desarrollador de software e inversor. Construyo productos escalables y exploro activos digitales con utilidad.","cta_projects":"Ver proyectos","cta_contact":"Contactar"},
+    "about": {"title":"Sobre mí","p1":"Full Stack Developer con 2+ años de experiencia especializado en Java y Spring Boot, además de frameworks específicos para administración pública. He trabajado en el ciclo completo de desarrollo: APIs REST, microservicios, integraciones Oracle/MySQL y procesos batch.","p2":"Combino rigor técnico, prácticas DevOps y metodologías ágiles para entregar productos escalables y fiables.","stats": {"exp":"<strong>2+</strong> años de experiencia profesional (Full Stack)", "projects":"<strong>20+</strong> proyectos personales y profesionales"}},
+    "projects": {
+      "title":"Proyectos",
+      "lead":"Selección de proyectos recientes y relevantes.",
+      "sfoc": {"title":"SFOC — Plataforma de subvenciones","desc":"<ul><li>Responsable principal del desarrollo y mantenimiento de SFOC, sistema crítico para la gestión de ayudas públicas (Java legacy, frameworks gubernamentales).</li><li>Sistema crítico para la solicitud, gestión, adjudicación y liquidación de subvenciones.</li><li>Usado por entidades y la Comunidad de Madrid para programas de formación continua.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
+      "same": {"title":"SAME — Sistema de Cumplimiento Ambiental","desc":"<ul><li>Plataforma para monitorizar el cumplimiento ambiental en empresas.</li><li>Gestión de umbrales de emisiones y validación regulatoria.</li><li>Incluye procesos batch para análisis e informes.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
+      "azul": {"title":"AZUL — Calidad del Aire Madrid","desc":"<ul><li>Desarrollé APIs REST y frontends multiplataforma con Spring Boot y Angular para monitorizar la calidad del aire.</li><li>Clientes móviles y web con frontends Angular.</li></ul>","tech":"<em>Spring Boot, Angular, REST API</em>"},
+      "seem": {"title":"SEEM — Sistema de Estadísticas de Empleo","desc":"<ul><li>Procesos batch en Java ejecutando scripts Bash para recolección SFTP.</li><li>Procesado y carga de datos en Oracle.</li><li>Automatización del pipeline de datos para estadísticas de empleo.</li></ul>","tech":"<em>Spring Batch, Bash Scripts, Oracle</em>"},
+      "utils": {"title":"Utils Web","desc":"<ul><li>Calculadora de inflación.</li><li>Generador de contraseñas.</li><li>Encriptador/Desencriptador de texto.</li></ul>","tech":"<em>JavaScript</em>"},
+      "coinscope": {"title":"Coinscope — Dashboard crypto","desc":"<ul><li>Aplicación personal full‑stack para gestión financiera con login y gestión de transacciones.</li><li>Panel de informes dinámicos y despliegues con Docker.</li></ul>","tech":"<em>Angular, Spring Boot, Docker</em>"},
+      "biwenger": {"title":"BiwengerProManager","desc":"<ul><li>Aplicación web monolítica que amplía la funcionalidad de Biwenger.</li></ul>","tech":"<em>PHP, REST API</em>"},
+      "file2file": {"title":"File2File — Herramienta de migración de scripts","desc":"<ul><li>Aplicación Java para migración automatizada de scripts shell entre entornos.</li></ul>","tech":"<em>Java</em>"},
+      "toggle": {"show":"Mostrar descripción","hide":"Ocultar descripción"}
+    },
+    "actions": {"android":"Android","ios":"iOS","details":"Detalles","web":"Web","repository":"Repositorio","demo":"Demo"},
+    "vision": {"title":"Visión sobre activos digitales orientados a la utilidad","short":"Me centro en activos digitales orientados a la utilidad que generan mejoras medibles en eficiencia, gobernanza y nuevos modelos de negocio.","read_full":"Leer visión completa","full":"<p>Creo en activos digitales que aportan utilidad real: mejoras en eficiencia, gobernanza o nuevos modelos de negocio. Busco proyectos con métricas claras de adopción, tokenómica justa y equipos con trazabilidad demostrable.</p><p>Mi principio central es \"Follow the Money\": seguir cómo migra la liquidez ante cambios macroeconómicos y tecnológicos. Veo los activos orientados a la utilidad como puentes entre sistemas legacy y redes descentralizadas.</p><p>En última instancia, mi visión es estratégica y orientada al futuro: estos activos son clave para redefinir el sistema financiero y canalizar la innovación.</p>"},
+    "experience": {"title":"Experiencia profesional","epam":{"title":"Full Stack Developer and Analyst — EPAM / NEORIS","desc":"Lead developer en SFOC y otras aplicaciones críticas. Desarrollo full-stack con Java Spring Boot, Angular y procesos batch, además de integración con Oracle/MySQL."},"other":{"title":"Full-stack Developer — Project / Startup","desc":"Participé en desarrollo de producto desde MVP hasta producción, con foco en UX, integración backend y despliegues CI/CD."}},
+    "skills": {
+      "title":"Skills",
+      "lead":"Lenguajes, herramientas y metodologías que uso con frecuencia.",
+      "languages": {"title":"Languages","items":"Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"},
+      "frameworks": {"title":"Frameworks & Libraries","items":"Spring Boot, Angular, Laravel, Thymeleaf"},
+      "databases": {"title":"Databases","items":"Oracle, MySQL, PostgreSQL, MongoDB"},
+      "tools": {"title":"Tools & DevOps","items":"PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"}
+    },
+    "contact": {"title":"Contacto","lead":"¿Tienes una idea o quieres colaborar? Hablemos.","send_button":"Enviar mensaje","email_placeholder":"Tu correo","name_placeholder":"Tu nombre","message_placeholder":"Mensaje","send_email":"Enviar por correo"},
+    "footer": {"copyright":"© {year} Jose Luis Sánchez Carrasco","github":"GitHub","linkedin":"LinkedIn"}
+  },
+  "de": {
+    "nav": {"about":"Über mich","projects":"Projekte","experience":"Erfahrung","skills":"Skills","vision":"Digitale Assets","contact":"Kontakt","cv":"CV"},
+    "hero": {"title":"Hallo, ich bin Joselu","lead":"Softwareentwickler und Investor. Ich baue skalierbare Produkte und untersuche digitale Assets mit echtem Nutzen.","cta_projects":"Projekte ansehen","cta_contact":"Kontakt"},
+    "about": {"title":"Über mich","p1":"Full Stack Developer mit 2+ Jahren Erfahrung, spezialisiert auf Java und Spring Boot sowie behördenspezifische Frameworks. Ich arbeite am gesamten Software-Lifecycle: REST APIs, Microservices, Oracle/MySQL-Integrationen und Batch-Prozesse.","p2":"Ich kombiniere technischen Anspruch, DevOps-Praktiken und agile Methoden, um skalierbare, zuverlässige Produkte zu liefern.","stats": {"exp":"<strong>2+</strong> Jahre Berufserfahrung (Full Stack)", "projects":"<strong>20+</strong> persönliche und berufliche Projekte"}},
+    "projects": {
+      "title":"Projekte",
+      "lead":"Auswahl kürzlicher und relevanter Projekte.",
+      "sfoc": {"title":"SFOC — Public Subsidy Platform","desc":"<ul><li>Leitender Entwickler für SFOC, ein kritisches System zur Verwaltung öffentlicher Zuschüsse (Java legacy, behördliche Frameworks).</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
+      "same": {"title":"SAME — Environmental Compliance System","desc":"<ul><li>Plattform zur Überwachung der Umwelt-Compliance.</li></ul>","tech":"<em>Java, Spring Boot, Oracle</em>"},
+      "azul": {"title":"AZUL — Air Quality Madrid","desc":"<ul><li>Entwicklung von REST-APIs und plattformübergreifenden Frontends mit Spring Boot und Angular zur Luftqualitätsüberwachung.</li></ul>","tech":"<em>Spring Boot, Angular, REST API</em>"},
+      "seem": {"title":"SEEM — Employment Statistics System","desc":"<ul><li>Java-Batch-Prozesse zur SFTP-Sammlung von Dateien.</li></ul>","tech":"<em>Spring Batch, Bash Scripts, Oracle</em>"},
+      "utils": {"title":"Utils Web","desc":"<ul><li>Sammlung kleiner Web-Utilities: Inflationsrechner, Passwortgenerator und Textverschlüsselung/Entschlüsselung.</li></ul>","tech":"<em>JavaScript</em>"},
+      "coinscope": {"title":"Coinscope — Crypto Dashboard","desc":"<ul><li>Persönliche Full‑Stack-Finanzanwendung mit Login und Transaktionsverwaltung.</li></ul>","tech":"<em>Angular, Spring Boot, Docker</em>"},
+      "biwenger": {"title":"BiwengerProManager","desc":"<ul><li>Monolithische PHP-Webanwendung zur Erweiterung der Biwenger-Funktionalität.</li></ul>","tech":"<em>PHP, REST API</em>"},
+      "file2file": {"title":"File2File — Script Migration Tool","desc":"<ul><li>Java-Anwendung zur Automatisierung der Migration und Anpassung von Shell-Skripten zwischen Umgebungen.</li></ul>","tech":"<em>Java</em>"},
+      "toggle": {"show":"Beschreibung anzeigen","hide":"Beschreibung verbergen"}
+    },
+    "actions": {"android":"Android","ios":"iOS","details":"Details","web":"Web","repository":"Repository","demo":"Demo"},
+    "vision": {"title":"Vision über nutzungsorientierte digitale Assets","short":"Ich fokussiere auf nutzungsorientierte digitale Assets, die messbare Verbesserungen in Effizienz, Governance und neuen Geschäftsmodellen bringen.","read_full":"Vollständige Vision lesen","full":"<p>Ich glaube an digitale Assets, die echten Nutzen bringen: Verbesserungen in Effizienz, Governance oder neuen Geschäftsmodellen. Ich suche Projekte mit klaren Akzeptanzkennzahlen, fairer Tokenomics und Teams mit nachweisbarer Erfahrung.</p><p>Mein Grundprinzip ist \"Follow the Money\": die Verfolgung der Liquiditätsbewegungen als Reaktion auf makroökonomische Veränderungen und technologische Disruptionen.</p>"},
+    "experience": {"title":"Berufserfahrung","epam":{"title":"Full Stack Developer and Analyst — EPAM / NEORIS","desc":"Leitender Entwickler für SFOC und andere kritische Anwendungen. Full‑Stack-Entwicklung mit Java Spring Boot, Angular und Batch-Prozessen sowie Oracle/MySQL-Integration."},"other":{"title":"Full-stack Developer — Project / Startup","desc":"Teilnahme an Produktentwicklung vom MVP bis zur Produktion mit Fokus auf UX, Backend-Integration und CI/CD."}},
+    "skills": {
+      "title":"Skills",
+      "lead":"Sprachen, Tools und Methoden, die ich häufig verwende.",
+      "languages": {"title":"Languages","items":"Java, JavaScript, TypeScript, PHP, Python, C/C++, SQL, HTML5, CSS, SCSS, JSP, xHTML"},
+      "frameworks": {"title":"Frameworks & Libraries","items":"Spring Boot, Angular, Laravel, Thymeleaf"},
+      "databases": {"title":"Databases","items":"Oracle, MySQL, PostgreSQL, MongoDB"},
+      "tools": {"title":"Tools & DevOps","items":"PL/SQL, XAMPP, pgAdmin4, Git, Subversion, Jenkins, Docker, SonarQube, Postman, IntelliJ, VS Code"}
+    },
+    "contact": {"title":"Kontakt","lead":"Haben Sie eine Idee oder möchten Sie zusammenarbeiten? Lassen Sie uns sprechen.","send_button":"Nachricht senden","email_placeholder":"Ihre E-Mail","name_placeholder":"Ihr Name","message_placeholder":"Nachricht","send_email":"Per E-Mail senden"},
+    "footer": {"copyright":"© {year} Jose Luis Sánchez Carrasco","github":"GitHub","linkedin":"LinkedIn"}
+  }
+}
+  </script>
+  <script src="js/script.js" defer></script>
 </body>
 
 </html>

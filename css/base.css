@@ -1,0 +1,98 @@
+/* base.css — variables y estilos globales */
+:root{
+  /* Dracula palette */
+  --bg: #282a36;
+  --surface: #343746;
+  --text: #f8f8f2;
+  --muted: #6272a4;
+  --accent: #bd93f9;
+  --accent-pink: #ff79c6;
+  --accent-cyan: #8be9fd;
+  --success: #50fa7b;
+  --danger: #ff5555;
+
+  /* Spacing / sizes */
+  --radius: 12px;
+  --container-width: 1100px;
+  --gap-xs: 0.4rem;
+  --gap-sm: 0.8rem;
+  --gap-md: 1.25rem;
+  --gap-lg: 2rem;
+
+  /* typography */
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  --fz-lg: 1.05rem;
+  --fz-md: 0.95rem;
+  --fz-sm: 0.88rem;
+
+  /* shadows */
+  --shadow-1: 0 8px 24px rgba(10,8,20,0.55);
+  --shadow-soft: 0 6px 18px rgba(10,8,20,0.45);
+  --header-height: 64px;
+}
+
+/* Reset + base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  font-size:var(--fz-md);
+  line-height:1.6;
+  color:var(--text);
+  background: linear-gradient(180deg,var(--bg), #21222c 60%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.container{width:100%;max-width:var(--container-width);margin:0 auto;padding:0 1rem}
+
+/* Links & button underline animation (multicolor) */
+a, .icon-btn, button{color:var(--accent-cyan);text-decoration:none;position:relative}
+
+/* Reuse same multicolor underline for interactive elements (links and buttons) */
+a::after, .icon-btn::after, header button::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-2px;
+  height:2px;
+  width:0;
+  background:linear-gradient(90deg,var(--accent-pink),var(--accent-cyan));
+  transition:width .28s cubic-bezier(.2,.9,.2,1);
+  border-radius:2px;
+}
+
+a:hover::after, .icon-btn:hover::after, button:hover::after{width:100%}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .95rem;border-radius:10px;border:1px solid transparent;text-decoration:none;cursor:pointer;font-weight:600}
+.btn.primary{background:linear-gradient(90deg,var(--accent), #b084f5);color:#1b0028;box-shadow:0 10px 26px rgba(189,147,249,0.06)}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--text)}
+.btn.small{padding:var(--gap-xs) var(--gap-sm);font-size:var(--fz-sm)}
+.btn:hover{transform:translateY(-3px);transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease}
+
+/* Animations & reveal */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-visible{opacity:1;transform:none;animation:fadeUp .6s ease both}
+
+/* Accessibility focus */
+:focus{outline:2px solid rgba(189,147,249,0.12);outline-offset:3px}
+
+/* Global fixed background layer to keep hero/header/footer visuals continuous across sections */
+body::before{
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-color: var(--bg);
+  background-image: radial-gradient(800px 400px at 10% 20%, rgba(189,147,249,0.04), transparent),
+                    linear-gradient(180deg, rgba(40,42,54,0.0), rgba(33,34,44,0.12));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+}
+
+/* Reserve space for the fixed header to avoid content being overlapped */
+body{padding-top:var(--header-height)}

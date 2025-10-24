@@ -17,5 +17,5 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function goBack() {
-  window.location.href = "utils.html";
+  window.location.href = "index.html";
 }

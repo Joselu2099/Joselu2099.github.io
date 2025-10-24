@@ -1,0 +1,77 @@
+/* Importar variables globales (tema Dracula) */
+@import url('../../css/base.css');
+
+/* Partículas como fondo (heredado de la paleta) */
+canvas#particles-js{
+	position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;
+	mix-blend-mode:screen;
+}
+
+/* Forzar enlaces y botones a usar la variable --accent (sobrescribe base.css para utils) */
+a, .icon-btn, button{color:var(--accent);text-decoration:none}
+
+/* Header simplificado y con acento */
+header{
+	padding:1.25rem 1rem;text-align:center;font-size:1.6rem;font-weight:700;color:var(--text);
+	text-shadow:0 2px 12px rgba(11,13,23,0.35);
+}
+header h3{margin:0}
+header p{color:var(--muted);margin-top:.4rem;font-weight:500}
+
+/* Botón fijo para volver a utilidades (si se usa) */
+.utils-home-toggle{
+	position:fixed;top:14px;right:14px;background:linear-gradient(135deg,var(--accent-pink),var(--accent));
+	color:var(--bg);border-radius:12px;padding:10px;z-index:100;cursor:pointer;border:0;display:flex;align-items:center;gap:.5rem;
+	box-shadow:0 8px 30px rgba(139,233,253,0.08), inset 0 -2px 8px rgba(255,121,198,0.06);
+	transition:transform .16s ease,box-shadow .16s ease,opacity .16s ease;
+}
+.utils-home-toggle img{filter:invert(1);width:20px;height:20px}
+.utils-home-toggle:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 34px rgba(139,233,253,0.16)}
+
+/* Contenedor principal de utilidades: moderno y colorido */
+.utils-grid{
+	display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:center;margin:2.2rem auto 3rem;max-width:1100px;padding:0 1rem;
+}
+
+.util-card{
+	width:300px;min-height:260px;padding:1.6rem 1.2rem;border-radius:16px;position:relative;overflow:hidden;
+	display:flex;flex-direction:column;align-items:center;gap:.8rem;text-decoration:none;color:var(--text);
+	background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(11,11,18,0.12));
+	border:1px solid rgba(255,255,255,0.03);
+	box-shadow:0 8px 28px rgba(10,8,20,0.45);
+	transition:transform .2s cubic-bezier(.22,.9,.35,1), box-shadow .2s;
+}
+.util-card::before{
+	content:'';position:absolute;inset:0;background:linear-gradient(120deg, rgba(139,233,253,0.06), rgba(189,147,249,0.04));pointer-events:none;mix-blend-mode:overlay;
+}
+.util-card:hover{transform:translateY(-8px);box-shadow:0 18px 48px rgba(139,233,253,0.14)}
+
+.util-card img{width:68px;height:68px;border-radius:10px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(139,233,253,0.12))}
+.util-card h2{margin:.2rem 0 .2rem;color:var(--text);font-size:1.05rem}
+.util-card p{color:var(--muted);font-size:.95rem;text-align:center;margin:0}
+
+/* Borde acrílico animado en hover (pequeño efecto colorido) */
+.util-card:hover{outline:2px solid transparent}
+.util-card:hover::after{content:'';position:absolute;inset:1px;border-radius:14px;padding:2px;background:linear-gradient(90deg,var(--accent-pink),var(--accent));-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);mask-composite: exclude}
+
+/* Formularios y resultados */
+section{max-width:680px;margin:auto;margin-bottom:2.25rem;padding:1.6rem;background:rgba(255,255,255,0.02);border-radius:14px;border:1px solid rgba(255,255,255,0.02);box-shadow:var(--shadow-soft);backdrop-filter:blur(6px)}
+
+input,textarea,select{width:100%;padding:.8rem;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg,#0b0b10,#0a0a0f);color:var(--text);font-size:1rem}
+label{display:block;margin-top:1rem;font-weight:600;color:var(--text)}
+
+.resultado{margin-top:1rem;padding:1rem;border-radius:10px;background:linear-gradient(180deg,#08080b,#0e0e12);border-left:4px solid var(--accent);color:var(--accent)}
+
+/* Info Box */
+#infoIPC{background:linear-gradient(180deg,#0c0c10,#0e0e14);padding:1rem;border-radius:10px;border-left:5px solid var(--success);max-width:680px;margin:0 auto 1.4rem;color:var(--text)}
+
+/* Footer */
+footer{display:block;text-align:center;padding:2rem;color:var(--muted);font-size:0.95rem}
+
+/* Responsive */
+@media (max-width:900px){
+	.utils-grid{gap:1rem}
+	.util-card{width:92vw;min-height:180px;padding:1rem;border-radius:12px}
+	section{padding:1.1rem}
+}
+

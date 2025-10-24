@@ -1,0 +1,273 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Jose Luis Sanchez Carrasco - Full Stack Developer CV},
+    pdfauthor={Jose Luis Sanchez Carrasco},
+    pdfkeywords={Full Stack Developer, Java, Spring Boot, Angular, JavaScript, SQL, REST API, Microservices},
+    pdfsubject={CV/Resume},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% Ensure PDF is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+% Settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0cm}
+\makeatletter
+\let\ps@customFooterStyle\ps@plain
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Jose Luis Sánchez Carrasco - Page \thepage{} of \pageref*{LastPage}}
+}{}{}
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+\renewcommand\labelitemi{$\circ$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm}{0.2 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newcommand{\placelastupdatedtext}{%
+  \AddToShipoutPictureFG*{%
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{}}}%
+  }%
+}
+
+\let\hrefWithoutArrow\href
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+\begin{document}
+    % Header
+    \placelastupdatedtext
+    \begin{center}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Jose Luis Sánchez Carrasco}
+        
+        \vspace{0.2 cm}
+        
+        \normalsize\textbf{Full Stack Developer}
+        
+        \vspace{0.3 cm}
+        
+        \normalfont
+        \faMapMarker*\ Weingarten, Germany \quad 
+        \faEnvelope[regular]\ \href{mailto:joseluischezcarrasco@gmail.com}{joseluischezcarrasco@gmail.com} \\
+        \faPhone*\ +34 692 978 909 \quad 
+        \faLink\ \href{https://joselu2099.github.io}{Portfolio} \\
+        \faGithub\ \href{https://github.com/joselu2099}{github.com/joselu2099}
+    \end{center}
+
+    % Professional Summary
+    \section{Professional Summary}
+    \begin{onecolentry}
+    Full Stack Developer with 2+ years of experience specializing in Java, Spring Boot, and government-specific frameworks. Proven expertise in full-cycle software development, REST API design, microservices architecture, and Oracle/MySQL database management. Skilled in agile methodologies and DevOps environments, delivering scalable, high-impact solutions for Madrid's government systems and enterprise applications.
+    \end{onecolentry}
+
+    % Technical Skills - MOVED UP for better ATS visibility
+    \section{Technical Skills}
+    \begin{onecolentry}
+        \textbf{Programming Languages:} 
+        Java, JavaScript, TypeScript, SQL/PLSQL, HTML5, CSS, SCSS, PHP, Python, C/C++, Pascal, Assembler \\
+        \textbf{Frameworks \& Technologies:} 
+        Spring Boot, Angular, Laravel, JSP, XHTML, XML, REST APIs, Microservices \\
+        \textbf{Databases:} 
+        Oracle, MySQL \\
+        \textbf{DevOps \& Tools:} 
+        Git, Subversion, Jenkins, Docker, SonarQube, Jira, IntelliJ IDEA, Eclipse, VS Code, Android Studio, Postman, Erwin Data Modeler, Notion \\
+        \textbf{Methodologies:} 
+        Agile Development, DevOps, Batch Processing, Monolithic & Microservices Architecture
+    \end{onecolentry}
+
+    % Professional Experience
+    \section{Professional Experience}
+    \begin{twocolentry}{\textit{Mar 2023 -- Present}\\\textit{Madrid, Spain}}
+        \textbf{Full Stack Developer and Analyst} \\
+        \textit{EPAM / NEORIS}
+    \end{twocolentry}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Lead developer for SFOC (Subsidies for Continuous Training Programs), one of the most critical systems used by various entities and Madrid's government for public grant management
+            \item Full stack development using Java Spring Boot and Madrid's government frameworks (HTML5, CSS, SCSS, xHTML, XML, JSP, JavaScript) and Angular (MOVA)
+            \item Developed RESTful APIs, JAPIs, microservices, monolithic applications, and web services
+            \item Managed Oracle and MySQL databases with advanced SQL/PLSQL expertise
+            \item Responsible for incident resolution, problem analysis, and implementation of technical solutions
+            \item Collaborated with cross-functional teams for client communication, requirements gathering, and task estimation
+        \end{highlights}
+    \end{onecolentry}
+
+    % Projects
+    \section{Projects}
+    
+    \begin{onecolentry}
+        \textbf{Enterprise Projects}
+    \end{onecolentry}
+
+    \begin{onecolentry}
+        \textbf{SFOC: Public Subsidy Platform} \hfill \textit{Java 1.6, Custom Government Framework} \\
+        - Lead responsible for development and maintenance of web applications and Spring Batch processes \\
+        - Critical system for grant application, management, awarding, and settlement processes \\
+        - Used by various entities and Community of Madrid for continuous training programs
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{SAME: Environmental Compliance System} \hfill \textit{Spring Boot, Government Framework} \\
+        - Developed platform for monitoring environmental compliance across companies \\
+        - Implemented features for emission threshold management and regulatory validation \\
+        - Built batch processing applications for data analysis and reporting
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{AZUL: Air Quality Madrid} \href{https://play.google.com/store/apps/details?id=org.madrid.azul.calidadAire&hl=en-US&pli=1}{ Calidad del Aire Madrid} \hfill \textit{Spring Boot, Angular, REST API} \\
+        - Developed REST APIs and cross-platform mobile applications for air quality monitoring \\
+        - Built applications for Android and iOS using Angular framework
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{SEEM: Employment Statistics System} \hfill \textit{Spring Batch, Bash Scripts, Oracle} \\
+        - Developed Java batch processes executing Bash scripts for SFTP file collection \\
+        - Processed and loaded employment statistics data into Oracle database \\
+        - Automated data processing pipeline for Madrid's employment statistics
+    \end{onecolentry}
+
+    \begin{onecolentry}
+        \textbf{Personal Projects}
+    \end{onecolentry}
+    
+    \begin{onecolentry}
+        \textbf{Coinscope: Crypto Dashboard} \hfill \textit{Angular, Spring Boot, Docker} \\
+       % \href{https://github.com/joselu2099/coinscope}{github.com/joselu2099/coinscope} \\
+        - Full-stack personal finance application with login system and transaction management \\
+        - Dynamic reporting dashboard with Docker deployment \\
+        - RESTful Spring Boot backend with Angular frontend
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{BiwengerProManager} \hfill \textit{PHP, REST API} \\
+        - Monolithic web application extending Biwenger's football game functionality \\
+        - Custom game rules and enhanced user experience features \\
+        - Reproduced data model and extended official API functionalities
+    \end{onecolentry}
+
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{File2File: Script Migration Tool} \hfill \textit{Java} \\
+        - Java application for automated migration of shell scripts (bash, sh, csh) \\
+        - Optimized script adaptation and portability between different environments \\
+        - Automated conversion and optimization process
+    \end{onecolentry}
+
+    % Education
+    \section{Education}
+    \begin{twocolentry}{\textit{Sep 2021 -- June 2023}}
+        \textbf{Higher National Diploma in Web Application Development} \\
+        \textit{CESUR}
+    \end{twocolentry}
+    
+    \begin{twocolentry}{\textit{Sep 2017 -- June 2024}}
+        \textbf{Bachelor's Degree in Computer Engineering} \\
+        \textit{Universidad de Murcia}
+    \end{twocolentry}
+    
+    \begin{twocolentry}{\textit{Sep 2015 -- June 2017}}
+        \textbf{Technological Baccalaureate} \\
+        \textit{Maristas}
+    \end{twocolentry}
+
+    % Languages & Additional Info
+    \section{Languages}
+    \begin{onecolentry}
+        \textbf{Spanish:} Native proficiency \\
+        \textbf{English:} B2 – Upper-intermediate (currently preparing for C1) \\
+        \textbf{German:} A1 – Basic proficiency (currently learning)
+    \end{onecolentry}
+
+    % Soft Skills
+    \section{Soft Skills}
+    \begin{onecolentry}
+        \textbf{Technical:} Problem Solving, Analytical Thinking, Self-Learning, Creativity \\
+        \textbf{Interpersonal:} Leadership, Responsibility, Adaptability, Cross-functional Collaboration
+    \end{onecolentry}
+
+    % Additional Information
+    \section{Additional Information}
+    \begin{onecolentry}
+        \textbf{Driving License:} European Category B \\
+        \textbf{Availability:} 15 days notice (current employment)
+    \end{onecolentry}
+
+\end{document}
