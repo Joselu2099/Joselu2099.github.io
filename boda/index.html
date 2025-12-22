@@ -25,12 +25,12 @@
             <p class="hero__date">Sábado 18 de Abril · 12:00h</p>
             <h1 class="hero__names">Jose Luis <span class="amp">&</span> Sarita</h1>
             <p class="hero__location">El Casón de la Vega, Murcia</p>
-            <div class="hero__scroll-down"><span>Descubre más</span><i class="arrow-down"></i></div>
         </div>
+        <a href="#reveal-on-scroll" class="hero__scroll-down"><span>Descubre más</span><i class="arrow-down"></i></a>
     </header>
 
     <main>
-        <section class="section intro reveal-on-scroll">
+        <section id="reveal-on-scroll" class="section intro reveal-on-scroll">
             <div class="container">
                 <h2 class="section__title">¡Nos Casamos!</h2>
                 <p class="section__text">Después de tantas aventuras juntos, llega la más especial de todas. Queremos celebrar nuestro amor rodeados de las personas que hacen nuestra vida más bonita.</p>
@@ -78,24 +78,9 @@
             <div class="container">
                 <h2 class="section__title">Regalos</h2>
                 <p class="section__text">Vuestra presencia es nuestro mayor regalo. Si deseáis tener un detalle con nosotros:</p>
-                <div class="tabs-wrapper glass">
-                    <div class="tabs-header">
-                        <button class="tab-btn active" data-tab="bank">Transferencia</button>
-                        <button class="tab-btn" data-tab="crypto">Cripto</button>
-                    </div>
-                    <div class="tabs-content">
-                        <div id="bank" class="tab-pane active">
-                            <div class="copy-row"><span class="label">IBAN:</span><code id="iban-text">ES03 1583 0001 1091 2475 6174</code><button class="btn-copy" onclick="copyToClipboard('ES03 1583 0001 1091 2475 6174')">Copiar</button></div>
-                            <div class="copy-row"><span class="label">Titular:</span><span>S C Gutiérrez & J S Carrasco</span></div>
-                        </div>
-                        <div id="crypto" class="tab-pane">
-                             <div class="crypto-widget">
-                                <iframe src="https://nowpayments.io/embeds/donation-widget?api_key=GR2FQFA-DMKMMJ6-PET1ZFD-NTWTDKX&medium=web&v=1" width="346" height="623" frameborder="0" scrolling="no" style="overflow-y: hidden;">
-                                    No se puede cargar el widget
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card glass">
+                    <div class="copy-row"><span class="label">IBAN:</span><code id="iban-text">ES03 1583 0001 1091 2475 6174</code><button class="btn-copy" onclick="copyToClipboard('ES03 1583 0001 1091 2475 6174')">Copiar</button></div>
+                    <div class="copy-row"><span class="label">Titular:</span><span>S C Gutiérrez & J S Carrasco</span></div>
                 </div>
             </div>
         </section>
