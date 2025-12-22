@@ -6,9 +6,7 @@
   --text-main: #1e3d2f; /* Deep Green */
   --text-light: #4a6356;
   --accent-gold: #c5a059; /* Muted Gold */
-  background-size: cover; /* desktop/large: cover */
-  background-position: center center;
-  background-attachment: fixed;
+  --accent-green: #2d5a42; /* Monstera Green */
   --radius-lg: 24px;
   --radius-md: 16px;
   overflow-x: hidden; /* evita desplazamiento horizontal si imagen sobredimensiona */
@@ -25,6 +23,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Overlay to ensure text readability over the wallpaper */
@@ -37,16 +36,36 @@ body::before {
   z-index: -1;
 }
 
+/* Layout without card: content over background with subtle text glow */
 .wedding-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  gap: 1.5rem;
+  padding: 2.5rem 1.25rem 3rem;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+}
+
+/* Translucent surface behind text/buttons for readability without a full card */
+.content-surface {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 22px;
+  padding: 2rem 1.5rem;
+  max-width: 880px;
+  width: 100%;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 /* Main Card Effect */
@@ -64,50 +83,57 @@ body::before {
 
 .wedding-title {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  margin: 0 0 1rem 0;
+  font-size: 3.2rem;
+  margin: 0;
   color: var(--text-main);
   font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
+  text-shadow: 0 6px 22px rgba(0,0,0,0.25);
 }
 
 .wedding-subtitle {
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--text-light);
-  margin-bottom: 2.5rem;
+  margin: 0;
+  max-width: 720px;
   line-height: 1.6;
   font-style: italic;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.18);
 }
 
 /* Currency Selectors */
 .currency-selector {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin: 1rem 0 0.5rem;
+  width: 100%;
+  max-width: 720px;
 }
 
 .currency-btn {
-  background: #fff;
-  border: 2px solid transparent;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,255,255,0.55);
   color: var(--text-main);
-  padding: 1.2rem 2rem;
+  padding: 1rem 1.4rem;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  min-width: 200px;
+  transition: all 0.25s ease;
+  min-width: 180px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  gap: 0.65rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .currency-btn .icon {
   font-size: 2rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 .currency-btn span:not(.icon) {
@@ -119,25 +145,27 @@ body::before {
 
 .currency-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(45, 90, 66, 0.15);
-  border-color: var(--accent-green);
+  box-shadow: 0 12px 28px rgba(30, 61, 47, 0.18);
+  border-color: rgba(45, 90, 66, 0.35);
 }
 
 .currency-btn.active {
-  background: var(--accent-green);
+  background: rgba(45, 90, 66, 0.85);
   color: #fff;
-  box-shadow: 0 10px 30px rgba(45, 90, 66, 0.3);
+  box-shadow: 0 12px 32px rgba(45, 90, 66, 0.32);
+  border-color: rgba(255,255,255,0.7);
 }
 
 /* Content Area */
 .donation-content {
   width: 100%;
-  max-width: 500px;
+  max-width: 640px;
   margin: 0 auto;
   display: none;
   flex-direction: column;
   align-items: center;
   animation: slideUpFade 0.5s ease-out forwards;
+  gap: 1rem;
 }
 
 .donation-content.show {
@@ -154,21 +182,25 @@ body::before {
   font-family: 'Playfair Display', serif;
   color: var(--accent-green);
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.16);
 }
 
 .bank-card {
-  background: #f4f7f5; /* Very light green/grey */
-  padding: 1.5rem;
+  background: rgba(255,255,255,0.7);
+  padding: 1.1rem 1rem;
   border-radius: var(--radius-md);
-  margin-bottom: 1rem;
-  border-left: 4px solid var(--accent-gold);
-  transition: transform 0.2s ease;
+  margin-bottom: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 0.18s ease;
 }
 
 .bank-card:hover {
-  transform: scale(1.01);
+  transform: translateY(-2px);
 }
 
 .bank-label {
@@ -192,10 +224,19 @@ body::before {
 .copy-hint {
   font-size: 0.8rem;
   color: var(--accent-gold);
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
   text-align: right;
   display: block;
   font-style: italic;
+}
+
+.euro-note {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.14);
 }
 
 /* Crypto Widget */
@@ -203,10 +244,13 @@ body::before {
   width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.7);
   display: flex;
   justify-content: center;
+  border: 1px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .crypto-widget iframe {
@@ -228,6 +272,14 @@ body::before {
 @media (max-width: 768px) {
   .wedding-container {
     padding: 1rem;
+  }
+
+  .content-surface {
+    padding: 1.4rem 1.1rem;
+    gap: 1rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.1);
   }
   
   .wedding-card {
@@ -279,8 +331,8 @@ body::before {
   .mobile-bg img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* show entire image without cropping */
-    object-position: top center; /* show upper area of wallpaper (good for vertical images) */
+    object-fit: cover; /* fill viewport like a mobile wallpaper */
+    object-position: center center; /* balanced focus on mobile */
     display: block;
   }
 
@@ -294,6 +346,14 @@ body::before {
     padding: 1rem;
     justify-content: flex-start; /* Allow scrolling if content is tall */
     padding-top: 2rem;
+  }
+
+  .content-surface {
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 1.25rem 1rem 1.5rem;
+    gap: 0.9rem;
+    box-shadow: 0 10px 30px rgba(30,61,47,0.12);
   }
 
   .wedding-card {
