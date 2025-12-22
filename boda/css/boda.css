@@ -1,0 +1,236 @@
+/* boda.css — Estilos personalizados para la página de boda (Monstera Theme) */
+
+:root {
+  /* Palette inspired by Monstera & Wedding Invitation */
+  --bg-overlay: rgba(255, 255, 255, 0.85); /* Light overlay for readability */
+  --text-main: #1e3d2f; /* Deep Green */
+  --text-light: #4a6356;
+  --accent-gold: #c5a059; /* Muted Gold */
+  --accent-green: #2d5a42; /* Monstera Green */
+  --surface-card: rgba(255, 255, 255, 0.95);
+  --shadow-card: 0 20px 40px rgba(30, 61, 47, 0.15);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-main);
+  background-image: url('../img/wedding_wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/* Overlay to ensure text readability over the wallpaper */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3); /* Subtle tint */
+  backdrop-filter: blur(3px); /* Optional: slight blur for focus */
+  z-index: -1;
+}
+
+.wedding-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Main Card Effect */
+.wedding-card {
+  background: var(--surface-card);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  max-width: 800px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.wedding-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.wedding-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Currency Selectors */
+.currency-selector {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.currency-btn {
+  background: #fff;
+  border: 2px solid transparent;
+  color: var(--text-main);
+  padding: 1.2rem 2rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.currency-btn .icon {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+}
+
+.currency-btn span:not(.icon) {
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.currency-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(45, 90, 66, 0.15);
+  border-color: var(--accent-green);
+}
+
+.currency-btn.active {
+  background: var(--accent-green);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(45, 90, 66, 0.3);
+}
+
+/* Content Area */
+.donation-content {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: slideUpFade 0.5s ease-out forwards;
+}
+
+.donation-content.show {
+  display: flex;
+}
+
+/* Euro Details */
+.euro-details {
+  width: 100%;
+  text-align: left;
+}
+
+.euro-details h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-green);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.bank-card {
+  background: #f4f7f5; /* Very light green/grey */
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--accent-gold);
+  transition: transform 0.2s ease;
+}
+
+.bank-card:hover {
+  transform: scale(1.01);
+}
+
+.bank-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-light);
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+  display: block;
+  font-weight: 600;
+}
+
+.bank-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  font-family: 'Poppins', monospace;
+  word-break: break-all;
+}
+
+.copy-hint {
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  margin-top: 0.5rem;
+  text-align: right;
+  display: block;
+  font-style: italic;
+}
+
+/* Crypto Widget */
+.crypto-widget {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .wedding-title {
+    font-size: 2.5rem;
+  }
+  .wedding-card {
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.98); /* More opaque on mobile */
+  }
+  .currency-btn {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .currency-btn .icon {
+    font-size: 1.5rem;
+    margin: 0 1rem 0 0;
+  }
+}

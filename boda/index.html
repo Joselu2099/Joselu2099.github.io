@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regalo de Boda - Jose Luis & Sarita</title>
+  <!-- Fuentes elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/boda.css" />
+</head>
+<body>
+  
+  <div class="wedding-container">
+    <div class="wedding-card">
+      <h1 class="wedding-title">Jose Luis & Sarita</h1>
+      <p class="wedding-subtitle">
+        Vuestra presencia es nuestro mayor regalo. Si deseáis tener un detalle con nosotros para empezar nuestra nueva vida juntos, podéis hacerlo aquí.
+      </p>
+      
+      <div class="currency-selector">
+        <button class="currency-btn" id="btn-euro">
+          <span class="icon">💶</span>
+          <span>Transferencia</span>
+        </button>
+        <button class="currency-btn" id="btn-crypto">
+          <span class="icon">🪙</span>
+          <span>Criptomonedas</span>
+        </button>
+      </div>
+
+      <div class="donation-content" id="donation-area">
+        
+        <!-- Contenido para Euros -->
+        <div id="euro-content" style="display: none;">
+          <div class="euro-details">
+            <h3>Datos Bancarios</h3>
+            
+            <div class="bank-card">
+              <span class="bank-label">IBAN</span>
+              <div class="bank-value">ES03 1583 0001 1091 2475 6174</div>
+              <span class="copy-hint">S C Gutiérrez & J S Carrasco</span>
+            </div>
+            
+            <p style="font-size: 0.9rem; color: var(--text-light); text-align: center; margin-top: 1.5rem; font-style: italic;">
+              ¡Muchas gracias por vuestro cariño!
+            </p>
+          </div>
+        </div>
+
+        <!-- Contenido para Crypto -->
+        <div id="crypto-content" style="display: none;">
+          <div class="crypto-widget">
+            <iframe src="https://nowpayments.io/embeds/donation-widget?api_key=241c9afb-31c9-45f2-8aa9-4c6316e78b34" width="346" height="623" frameborder="0" scrolling="no" style="overflow-y: hidden;">
+                No se puede cargar el widget
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/boda.js"></script>
+</body>
+</html>
