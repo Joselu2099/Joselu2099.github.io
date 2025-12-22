@@ -116,6 +116,7 @@ ul {
   text-align: center;
   position: relative;
   overflow: hidden;
+  padding-bottom: 140px;
 }
 
 .hero__bg {
@@ -144,7 +145,7 @@ ul {
 .hero__img {
   max-width: 180px;
   height: auto;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
   filter: drop-shadow(0 10px 15px rgba(188, 182, 12, 0.1));
   animation: float 6s ease-in-out infinite;
 }
@@ -388,7 +389,7 @@ code {
 
 .hero__scroll-down {
   position: fixed;
-  bottom: -78px;
+  bottom: -58px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -427,14 +428,27 @@ code {
     transform: translateY(0) rotate(45deg);
   }
   40% {
-    transform: translateY(-10px) rotate(45deg);
+    transform: translateY(-5px) rotate(45deg);
   }
   60% {
-    transform: translateY(-5px) rotate(45deg);
+    transform: translateY(-2px) rotate(45deg);
   }
 }
 
 @media (min-width: 768px) {
+  .nav-bar {
+    top: 20px;
+    bottom: auto;
+  }
+
+  .hero {
+    padding-bottom: 0;
+  }
+
+  .hero__scroll-down {
+    bottom: -78px;
+  }
+
   .hero__names {
     font-size: 5rem;
   }
