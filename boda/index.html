@@ -1,70 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Regalo de Boda - Jose Luis & Sarita</title>
-  <!-- Fuentes elegantes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/boda.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Jose Luis & Sarita · 18 de Abril</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/boda.css">
 </head>
 <body>
-  <!-- Mobile-specific background image (used only on small screens via CSS) -->
-  <div class="mobile-bg" aria-hidden="true">
-    <img src="img/wedding_wallpaper.jpg" alt="Fondo boda" />
-  </div>
-  
-  <div class="wedding-container">
-    <div class="content-surface">
-      <h1 class="wedding-title">Jose Luis & Sarita</h1>
-      <p class="wedding-subtitle">
-        Vuestra presencia es nuestro mayor regalo. Si deseáis tener un detalle con nosotros para empezar nuestra nueva vida juntos, podéis hacerlo aquí.
-      </p>
-      
-      <div class="currency-selector">
-        <button class="currency-btn" id="btn-euro">
-          <span class="icon">💶</span>
-          <span>Transferencia</span>
-        </button>
-        <button class="currency-btn" id="btn-crypto">
-          <span class="icon">🪙</span>
-          <span>Criptomonedas</span>
-        </button>
-      </div>
+    <nav class="nav-bar glass">
+        <ul class="nav-list">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#ubicacion">Lugar</a></li>
+            <li><a href="#horario">Horario</a></li>
+            <li><a href="#regalos">Regalos</a></li>
+        </ul>
+    </nav>
 
-      <div class="donation-content" id="donation-area">
-        
-        <!-- Contenido para Euros -->
-        <div id="euro-content" style="display: none;">
-          <div class="euro-details">
-            <h3>Datos Bancarios</h3>
-            
-            <div class="bank-card">
-              <span class="bank-label">IBAN</span>
-              <div class="bank-value">ES03 1583 0001 1091 2475 6174</div>
-              <span class="copy-hint">S C Gutiérrez & J S Carrasco</span>
+    <header id="inicio" class="hero">
+        <div class="hero__bg"></div>
+        <div class="hero__content reveal-on-scroll">
+            <p class="hero__date">Sábado 18 de Abril · 12:00h</p>
+            <h1 class="hero__names">Jose Luis <span class="amp">&</span> Sarita</h1>
+            <p class="hero__location">El Casón de la Vega, Murcia</p>
+            <div class="hero__scroll-down"><span>Descubre más</span><i class="arrow-down"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section intro reveal-on-scroll">
+            <div class="container">
+                <h2 class="section__title">¡Nos Casamos!</h2>
+                <p class="section__text">Después de tantas aventuras juntos, llega la más especial de todas. Queremos celebrar nuestro amor rodeados de las personas que hacen nuestra vida más bonita.</p>
             </div>
-            
-            <p class="euro-note">¡Muchas gracias por vuestro cariño!</p>
-          </div>
-        </div>
+        </section>
 
-        <!-- Contenido para Crypto -->
-        <div id="crypto-content" style="display: none;">
-          <div class="crypto-widget">
-            <iframe src="https://nowpayments.io/embeds/donation-widget?api_key=241c9afb-31c9-45f2-8aa9-4c6316e78b34" width="346" height="623" frameborder="0" scrolling="no" style="overflow-y: hidden;">
-                No se puede cargar el widget
-            </iframe>
-          </div>
-        </div>
+        <section id="ubicacion" class="section location reveal-on-scroll">
+            <div class="container">
+                <h2 class="section__title">Ubicación</h2>
+                <div class="card glass">
+                    <h3 class="card__title">El Casón de la Vega</h3>
+                    <p class="card__subtitle">Santomera, Murcia</p>
+                    <div class="map-wrapper">
+                        <iframe title="Mapa El Casón de la Vega" src="https://www.google.com/maps?q=El+Cason+de+la+Vega+Santomera+Murcia&output=embed" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <a href="https://maps.google.com/?q=El+Cason+de+la+Vega+Santomera+Murcia" target="_blank" class="btn btn--primary">Cómo llegar</a>
+                </div>
+            </div>
+        </section>
 
-      </div>
-    </div>
-  </div>
+        <section id="horario" class="section timeline reveal-on-scroll">
+            <div class="container">
+                <h2 class="section__title">Itinerario</h2>
+                <div class="timeline__container">
+                    <div class="timeline__item"><div class="timeline__time">12:00</div><div class="timeline__content glass"><h3>Ceremonia</h3><p>¡Sí, quiero!</p></div></div>
+                    <div class="timeline__item"><div class="timeline__time">13:00</div><div class="timeline__content glass"><h3>Cóctel</h3><p>Aperitivos y brindis</p></div></div>
+                    <div class="timeline__item"><div class="timeline__time">14:30</div><div class="timeline__content glass"><h3>Banquete</h3><p>A comer y disfrutar</p></div></div>
+                    <div class="timeline__item"><div class="timeline__time">17:30</div><div class="timeline__content glass"><h3>Fiesta</h3><p>Baile y barra libre</p></div></div>
+                </div>
+            </div>
+        </section>
 
-  <script src="js/boda.js"></script>
+        <section class="section dresscode reveal-on-scroll">
+            <div class="container">
+                <h2 class="section__title">Código de Vestimenta</h2>
+                <div class="card glass">
+                    <span class="icon">✨</span>
+                    <h3>Formal de Día</h3>
+                    <p>Elegante pero cómodo para disfrutar del día.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="regalos" class="section gifts reveal-on-scroll">
+            <div class="container">
+                <h2 class="section__title">Regalos</h2>
+                <p class="section__text">Vuestra presencia es nuestro mayor regalo. Si deseáis tener un detalle con nosotros:</p>
+                <div class="tabs-wrapper glass">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="bank">Transferencia</button>
+                        <button class="tab-btn" data-tab="crypto">Cripto</button>
+                    </div>
+                    <div class="tabs-content">
+                        <div id="bank" class="tab-pane active">
+                            <div class="copy-row"><span class="label">IBAN:</span><code id="iban-text">ES03 1583 0001 1091 2475 6174</code><button class="btn-copy" onclick="copyToClipboard('ES03 1583 0001 1091 2475 6174')">Copiar</button></div>
+                            <div class="copy-row"><span class="label">Titular:</span><span>S C Gutiérrez & J S Carrasco</span></div>
+                        </div>
+                        <div id="crypto" class="tab-pane">
+                             <div class="crypto-widget">
+                                <iframe src="https://nowpayments.io/embeds/donation-widget?api_key=241c9afb-31c9-45f2-8aa9-4c6316e78b34" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer"><p>Jose Luis & Sarita · 18.04.2026</p></footer>
+    <div id="toast" class="toast">¡Copiado al portapapeles!</div>
+    <script src="js/boda.js"></script>
 </body>
 </html>

@@ -1,266 +1,350 @@
-/* boda.css — Estilos personalizados para la página de boda (Monstera Theme) */
-
+/* Estilos boda — mobile-first y sin dependencias */
 :root {
-  /* Palette inspired by Monstera & Wedding Invitation */
-  --bg-overlay: rgba(255, 255, 255, 0.85); /* Light overlay for readability */
-  --text-main: #1e3d2f; /* Deep Green */
-  --text-light: #4a6356;
-  --accent-gold: #c5a059; /* Muted Gold */
-  --accent-green: #2d5a42; /* Monstera Green */
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  overflow-x: hidden; /* evita desplazamiento horizontal si imagen sobredimensiona */
+    --color-bg: #FDFBF7; --color-primary: #C5A059; --color-secondary: #E6F4F1; --color-accent: #88B04B;
+    --color-text: #2C2C2C; --color-text-light: #666;
+    --font-heading: 'Cinzel', serif; --font-body: 'Lato', sans-serif;
+    --glass-bg: rgba(255, 255, 255, 0.65); --glass-border: 1px solid rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); --blur: blur(12px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-main);
-  background-image: url('../img/wedding_wallpaper.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Overlay to ensure text readability over the wallpaper */
-body::before {
-  content: '';
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+}
+
+.nav-bar {
   position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(5px);
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  z-index: 100;
+  padding: 0.8rem;
+  border-radius: 50px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.nav-list a:hover {
+  color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .nav-bar {
+    top: 20px;
+    bottom: auto;
+  }
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, var(--color-secondary), var(--color-bg));
   z-index: -1;
 }
 
-/* Layout without card: content over background with subtle text glow */
-.wedding-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  padding: 2.5rem 1.25rem 3rem;
+.hero__names {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.hero__names .amp {
+  font-size: 2rem;
+  color: var(--color-accent);
+  vertical-align: middle;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section__title {
   text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.card {
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.map-wrapper {
   width: 100%;
-  box-sizing: border-box;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.timeline__container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timeline__container::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-primary);
+  opacity: 0.3;
+}
+
+.timeline__item {
+  display: flex;
+  margin-bottom: 2rem;
   position: relative;
 }
 
-/* Translucent surface behind text/buttons for readability without a full card */
-.content-surface {
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 22px;
-  padding: 2rem 1.5rem;
-  max-width: 880px;
-  width: 100%;
-  box-shadow: 0 12px 34px rgba(0,0,0,0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-/* Main Card Effect */
-.wedding-card {
-  background: var(--surface-card);
-  padding: 3rem 2rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  max-width: 800px;
-  width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  box-sizing: border-box;
-}
-
-.wedding-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.2rem;
-  margin: 0;
-  color: var(--text-main);
+.timeline__time {
+  min-width: 60px;
   font-weight: 700;
-  letter-spacing: -0.3px;
-  text-shadow: 0 6px 22px rgba(0,0,0,0.25);
-}
-
-.wedding-subtitle {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: var(--text-light);
-  margin: 0;
-  max-width: 720px;
-  line-height: 1.6;
-  font-style: italic;
-  text-shadow: 0 4px 14px rgba(0,0,0,0.18);
-}
-
-/* Currency Selectors */
-.currency-selector {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 1rem 0 0.5rem;
-  width: 100%;
-  max-width: 720px;
-}
-
-.currency-btn {
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(255,255,255,0.55);
-  color: var(--text-main);
-  padding: 1rem 1.4rem;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  min-width: 180px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.65rem;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.currency-btn .icon {
-  font-size: 2rem;
-  margin-bottom: 0;
-}
-
-.currency-btn span:not(.icon) {
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.currency-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(30, 61, 47, 0.18);
-  border-color: rgba(45, 90, 66, 0.35);
-}
-
-.currency-btn.active {
-  background: rgba(45, 90, 66, 0.85);
-  color: #fff;
-  box-shadow: 0 12px 32px rgba(45, 90, 66, 0.32);
-  border-color: rgba(255,255,255,0.7);
-}
-
-/* Content Area */
-.donation-content {
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  animation: slideUpFade 0.5s ease-out forwards;
-  gap: 1rem;
-}
-
-.donation-content.show {
-  display: flex;
-}
-
-/* Euro Details */
-.euro-details {
-  width: 100%;
-  text-align: left;
-}
-
-.euro-details h3 {
-  font-family: 'Playfair Display', serif;
-  color: var(--accent-green);
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.35rem;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.16);
-}
-
-.bank-card {
-  background: rgba(255,255,255,0.7);
-  padding: 1.1rem 1rem;
-  border-radius: var(--radius-md);
-  margin-bottom: 0.8rem;
-  border: 1px solid rgba(255,255,255,0.5);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: transform 0.18s ease;
-}
-
-.bank-card:hover {
-  transform: translateY(-2px);
-}
-
-.bank-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: var(--text-light);
-  letter-spacing: 1px;
-  margin-bottom: 0.25rem;
-  display: block;
-  font-weight: 600;
-}
-
-.bank-value {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-main);
-  font-family: 'Poppins', monospace;
-  word-break: break-all;
-}
-
-.copy-hint {
-  font-size: 0.8rem;
-  color: var(--accent-gold);
-  margin-top: 0.4rem;
+  color: var(--color-primary);
+  padding-top: 1rem;
   text-align: right;
-  display: block;
-  font-style: italic;
+  margin-right: 1.5rem;
+  font-family: var(--font-heading);
 }
 
-.euro-note {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  text-align: center;
-  margin-top: 1rem;
-  font-style: italic;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.14);
+.timeline__content {
+  flex: 1;
+  padding: 1.5rem;
+  position: relative;
 }
 
-/* Crypto Widget */
-.crypto-widget {
-  width: 100%;
-  border-radius: var(--radius-md);
+.timeline__content::before {
+  content: '';
+  position: absolute;
+  left: -21px;
+  top: 25px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-bg);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+}
+
+.tabs-wrapper {
+  max-width: 600px;
+  margin: 2rem auto 0;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-  background: rgba(255,255,255,0.7);
+}
+
+.tabs-header {
   display: flex;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-light);
+  transition: all 0.3s;
+}
+
+.tab-btn.active {
+  color: var(--color-primary);
+  background: rgba(197, 160, 89, 0.1);
+}
+
+.tabs-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.tab-pane {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.copy-row {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,0.5);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  gap: 10px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
-.crypto-widget iframe {
-  max-width: 100%;
+code {
+  background: rgba(255,255,255,0.5);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--color-primary);
+  border: 1px dashed var(--color-primary);
 }
 
-@keyframes slideUpFade {
+.btn-copy {
+  background: none;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.btn-copy:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.footer {
+  text-align: center;
+  padding: 3rem 1rem 6rem;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 200;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -268,138 +352,53 @@ body::before {
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .wedding-container {
-    padding: 1rem;
-  }
-
-  .content-surface {
-    padding: 1.4rem 1.1rem;
-    gap: 1rem;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.1);
-  }
-  
-  .wedding-card {
-    padding: 2rem 1.5rem;
-    border-radius: var(--radius-md);
-  }
-
-  .wedding-title {
-    font-size: 2.5rem;
-  }
-
-  .wedding-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-  }
-
-  .currency-selector {
-    gap: 1rem;
-  }
-
-  .currency-btn {
-    min-width: 140px;
-    padding: 1rem;
-  }
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
 }
 
-/* Mobile-friendly wallpaper + layout tweaks
-   - For a vertical wallpaper we fit to viewport height (auto width) on smaller screens
-   - Use a larger breakpoint so many phones get the improved fit */
-@media (max-width: 820px) {
-  /* Use the DOM <img> as the visible wallpaper on mobile for exact control */
-  body {
-    background: none; /* hide CSS background to avoid double images */
-    min-height: 100vh;
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .hero__names {
+    font-size: 5rem;
   }
 
-  /* Mobile background image element */
-  .mobile-bg {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
+  .timeline__container::before {
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .mobile-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* fill viewport like a mobile wallpaper */
-    object-position: center center; /* balanced focus on mobile */
-    display: block;
+  .timeline__item:nth-child(odd) {
+    flex-direction: row-reverse;
   }
 
-  /* Adjust overlay so image is visible but text remains readable */
-  body::before {
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(3px);
+  .timeline__item:nth-child(odd) .timeline__time {
+    text-align: left;
+    margin-left: 1.5rem;
+    margin-right: 0;
   }
 
-  .wedding-container {
-    padding: 1rem;
-    justify-content: flex-start; /* Allow scrolling if content is tall */
-    padding-top: 2rem;
+  .timeline__item:nth-child(odd) .timeline__content::before {
+    left: auto;
+    right: -21px;
   }
 
-  .content-surface {
-    background: rgba(255, 255, 255, 0.74);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    padding: 1.25rem 1rem 1.5rem;
-    gap: 0.9rem;
-    box-shadow: 0 10px 30px rgba(30,61,47,0.12);
+  .timeline__content::before {
+    left: auto;
+    right: -21px;
   }
 
-  .wedding-card {
-    padding: 1.5rem 1rem;
-    /* Transparencia elegante: más translúcido y con blur para efecto 'tarjeta' */
-    background: rgba(255,255,255,0.66);
-    border: 1px solid rgba(255,255,255,0.45);
-    box-shadow: 0 10px 30px rgba(30,61,47,0.08);
-    margin: 0 auto 2rem auto;
-    width: calc(100% - 2rem);
-    max-width: 720px;
-    margin-top: 8vh;
-    display: block;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+  .timeline__item:nth-child(even) .timeline__content::before {
+    left: -21px;
+    right: auto;
   }
 
-  .wedding-title {
-    font-size: 2rem;
-  }
-
-  .currency-selector {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.75rem;
-  }
-
-  .currency-btn {
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0.9rem;
-    min-width: 0;
-  }
-
-  .currency-btn .icon {
-    font-size: 1.5rem;
-    margin: 0 0.9rem 0 0;
-    margin-bottom: 0;
-  }
-
-  .bank-card {
-    padding: 1rem;
-  }
-
-  .bank-value {
-    font-size: 0.95rem;
+  .footer {
+    padding-bottom: 3rem;
   }
 }
