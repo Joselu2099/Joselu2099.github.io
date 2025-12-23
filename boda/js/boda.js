@@ -145,7 +145,7 @@ function initRSVP() {
         const subject = `Confirmación Boda - ${name}`;
         const body = `Hola Jose Luis y Sarita,%0D%0A%0D%0AConfirmamos nuestra asistencia a la boda.%0D%0A%0D%0ANombre: ${name}%0D%0AAdultos: ${guests}%0D%0ANiños: ${children}%0D%0AAlergias/Notas: ${allergies}%0D%0A%0D%0A¡Nos vemos allí!`;
 
-        window.location.href = `mailto:joseluischezcarrasco@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:joseluischezcarrasco@gmail.com,sarita98cespedes@gmail.com?subject=${subject}&body=${body}`;
     });
 }
 
