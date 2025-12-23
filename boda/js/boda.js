@@ -128,7 +128,26 @@ function init() {
 document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initScrollObserver();
+    initRSVP();
 });
+
+function initRSVP() {
+    const form = document.getElementById('rsvp-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const guests = document.getElementById('guests').value;
+        const children = document.getElementById('children').value;
+        const allergies = document.getElementById('allergies').value;
+
+        const subject = `Confirmación Boda - ${name}`;
+        const body = `Hola Jose Luis y Sarita,%0D%0A%0D%0AConfirmamos nuestra asistencia a la boda.%0D%0A%0D%0ANombre: ${name}%0D%0AAdultos: ${guests}%0D%0ANiños: ${children}%0D%0AAlergias/Notas: ${allergies}%0D%0A%0D%0A¡Nos vemos allí!`;
+
+        window.location.href = `mailto:joseluischezcarrasco@gmail.com?subject=${subject}&body=${body}`;
+    });
+}
 
 function initTabs() {
     const tabButtons = document.querySelectorAll('.tab-btn');

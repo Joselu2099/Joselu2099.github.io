@@ -33,6 +33,7 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#ubicacion">Lugar</a></li>
             <li><a href="#horario">Horario</a></li>
+            <li><a href="#confirmacion">Asistencia</a></li>
             <li><a href="#regalos">Regalos</a></li>
         </ul>
     </nav>
@@ -74,7 +75,7 @@
             <div class="container">
                 <h2 class="section__title">Itinerario</h2>
                 <div class="timeline__container">
-                    <div class="timeline__item"><div class="timeline__time">12:00</div><div class="timeline__content glass"><h3>Ceremonia</h3><p>¡Sí, quiero!</p></div></div>
+                    <div class="timeline__item"><div class="timeline__time">12:30</div><div class="timeline__content glass"><h3>Ceremonia</h3><p>¡Sí, quiero!</p></div></div>
                     <div class="timeline__item"><div class="timeline__time">13:00</div><div class="timeline__content glass"><h3>Cóctel</h3><p>Aperitivos y brindis</p></div></div>
                     <div class="timeline__item"><div class="timeline__time">14:30</div><div class="timeline__content glass"><h3>Banquete</h3><p>A comer y disfrutar</p></div></div>
                     <div class="timeline__item"><div class="timeline__time">17:30</div><div class="timeline__content glass"><h3>Fiesta</h3><p>Baile y barra libre</p></div></div>
@@ -89,6 +90,57 @@
                     <span class="icon">✨</span>
                     <h3>Formal de Día</h3>
                     <p>Elegante pero cómodo para disfrutar del día.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="confirmacion" class="section rsvp reveal-on-scroll">
+            <div class="container">
+                <h2 class="section__title">Confirmación</h2>
+                <div class="card glass">
+                    <p class="card__subtitle">Por favor, confirma tu asistencia antes del 1 de Marzo</p>
+                    <form id="rsvp-form" class="rsvp-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Nombre y Apellidos" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <select id="guests" required>
+                                    <option value="" disabled selected>Adultos</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select id="children">
+                                    <option value="" disabled selected>Niños</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="allergies" placeholder="Alergias o restricciones alimentarias" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Confirmar Asistencia</button>
+                    </form>
                 </div>
             </div>
         </section>
