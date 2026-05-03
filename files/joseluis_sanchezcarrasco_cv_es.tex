@@ -1,0 +1,273 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2 cm,
+    bottom=2 cm,
+    left=2 cm,
+    right=2 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 79, 144}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Jose Luis Sanchez Carrasco - Full Stack Developer CV},
+    pdfauthor={Jose Luis Sanchez Carrasco},
+    pdfkeywords={Full Stack Developer, Java, Spring Boot, Angular, JavaScript, SQL, REST API, Microservices},
+    pdfsubject={CV/Resume},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% Ensure PDF is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+% Settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0cm}
+\makeatletter
+\let\ps@customFooterStyle\ps@plain
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Jose Luis Sánchez Carrasco - Página \thepage{} de \pageref*{LastPage}}
+}{}{}
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.3 cm}{0.2 cm}
+
+\renewcommand\labelitemi{$\circ$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm}{0.2 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newcommand{\placelastupdatedtext}{%
+  \AddToShipoutPictureFG*{%
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{}}}%
+  }%
+}
+
+\let\hrefWithoutArrow\href
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+\begin{document}
+    % Header
+    \placelastupdatedtext
+    \begin{center}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Jose Luis Sánchez Carrasco}
+        
+        \vspace{0.2 cm}
+        
+        \normalsize\textbf{Desarrollador Full Stack}
+        
+        \vspace{0.3 cm}
+        
+        \normalfont
+        \faMapMarker*\ Murcia, España \quad 
+        \faEnvelope[regular]\ \href{mailto:joseluischezcarrasco@gmail.com}{joseluischezcarrasco@gmail.com} \\
+        \faPhone*\ +34 692978909 \quad 
+        \faLink\ \href{https://joselu2099.github.io}{Portfolio} \\
+        \faGithub\ \href{https://github.com/joselu2099}{github.com/joselu2099}
+    \end{center}
+
+    % Resumen Profesional
+    \section{Resumen Profesional}
+    \begin{onecolentry}
+    Desarrollador Full Stack con más de 3 años de experiencia especializado en Java, Spring Boot y frameworks específicos de la administración pública. Experiencia demostrada en el ciclo completo de desarrollo de software, diseño de APIs REST, arquitectura de microservicios y gestión de bases de datos Oracle/MySQL. Experto en metodologías ágiles y entornos DevOps, entregando soluciones escalables y de alto impacto para sistemas gubernamentales y aplicaciones empresariales.
+    \end{onecolentry}
+
+    % Habilidades Técnicas
+    \section{Habilidades Técnicas}
+    \begin{onecolentry}
+        \textbf{Lenguajes de Programación:} 
+        Java, JavaScript, TypeScript, SQL/PLSQL, HTML5, CSS, SCSS, PHP, Python, C/C++, Pascal, Assembler \\
+        \textbf{Frameworks y Tecnologías:} 
+        Spring Boot, Angular, Laravel, JSP, XHTML, XML, APIs REST, Microservicios \\
+        \textbf{Bases de Datos:} 
+        Oracle, MySQL, PostgreSQL, MongoDB \\
+        \textbf{Herramientas y DevOps:} 
+        Git, Subversion, Jenkins, Docker, SonarQube, Jira, IntelliJ IDEA, Eclipse, VS Code, Android Studio, Postman, Erwin Data Modeler, Notion \\
+        \textbf{Metodologías:} 
+        Desarrollo Ágil, DevOps, Procesamiento Batch, Arquitectura Monolítica y de Microservicios
+    \end{onecolentry}
+
+    % Experiencia Profesional
+    \section{Experiencia Profesional}
+    \begin{twocolentry}{\textit{Mar 2023 -- Actualidad}\\\textit{Madrid, España}}
+        \textbf{Analista Programador Full Stack} \\
+        \textit{EPAM / NEORIS}
+    \end{twocolentry}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Desarrollador principal de SFOC (Subvenciones para Programas de Formación Continua), uno de los sistemas más críticos utilizados por diversas entidades y el Gobierno de Madrid para la gestión de ayudas públicas.
+            \item Desarrollo full stack utilizando Java Spring Boot y frameworks gubernamentales de Madrid (HTML5, CSS, SCSS, xHTML, XML, JSP, JavaScript) y Angular (MOVA).
+            \item Desarrollo de APIs RESTful, JAPIs, microservicios, aplicaciones monolíticas y servicios web.
+            \item Gestión de bases de datos Oracle y MySQL con conocimientos avanzados de SQL/PLSQL.
+            \item Responsable de la resolución de incidencias, análisis de problemas e implementación de soluciones técnicas.
+            \item Colaboración con equipos multidisciplinares para comunicación con el cliente, toma de requisitos y estimación de tareas.
+        \end{highlights}
+    \end{onecolentry}
+
+    % Proyectos
+    \section{Proyectos}
+    
+    \begin{onecolentry}
+        \textbf{Proyectos Empresariales}
+    \end{onecolentry}
+
+    \begin{onecolentry}
+        \textbf{SFOC: Plataforma de Subvenciones Públicas} \hfill \textit{Java 1.6, Weblogic Server, Framework Gubernamental Propio} \\
+        - Responsable principal del desarrollo y mantenimiento de aplicaciones web y procesos Spring Batch \\
+        - Sistema crítico para los procesos de solicitud, gestión, adjudicación y liquidación de subvenciones \\
+        - Utilizado por diversas entidades y la Comunidad de Madrid para programas de formación continua
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{SAME: Sistema de Cumplimiento Ambiental} \hfill \textit{Java 8, Spring Boot, Framework Gubernamental} \\
+        - Plataforma desarrollada para el seguimiento del cumplimiento ambiental en las empresas \\
+        - Implementación de funciones para la gestión de umbrales de emisión y validación normativa \\
+        - Desarrollo de aplicaciones de procesamiento por lotes para análisis de datos e informes
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{AZUL: Calidad del Aire Madrid} \href{https://play.google.com/store/apps/details?id=org.madrid.azul.calidadAire&hl=es&pli=1}{ Calidad del Aire Madrid} \hfill \textit{Spring Boot, Angular, API REST} \\
+        - Desarrollo de APIs REST y aplicaciones móviles multiplataforma para la monitorización de la calidad del aire \\
+        - Creación de aplicaciones para Android e iOS utilizando el framework Angular
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{SEEM: Sistema de Estadísticas de Empleo} \hfill \textit{Spring Batch, Scripts Bash, Oracle} \\
+        - Desarrollo de procesos batch Java que ejecutan scripts Bash para la recogida de archivos por SFTP \\
+        - Procesamiento y carga de datos estadísticos de empleo en base de datos Oracle \\
+        - Automatización del pipeline de procesamiento de datos para las estadísticas de empleo de Madrid
+    \end{onecolentry}
+
+    \begin{onecolentry}
+        \textbf{Proyectos Personales}
+    \end{onecolentry}
+    
+    \begin{onecolentry}
+        \textbf{BitWealths: Gestor de Inversiones} \hfill \textit{Angular 19, Spring Boot 3.5, PostgreSQL, Docker} \\
+        - Aplicación full-stack de gestión de carteras con sincronización de billeteras multi-exchange \\
+        - Backend Spring Boot RESTful con frontend Angular 19 standalone, base de datos PostgreSQL y contenedorización Docker \\
+        - Dashboard de informes dinámicos con cálculos de saldo en tiempo real, historial de transacciones e integración de datos de mercado \\
+        - Soporte para múltiples exchanges centralizados (Binance, Kraken, MEXC, Bitunix, Bitvavo) con integración de API firmada mediante HMAC
+    \end{onecolentry}
+    
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{BiwengerProManager} \hfill \textit{PHP, API REST, MYSQL} \\
+        - Aplicación web monolítica que amplía la funcionalidad del juego de fútbol Biwenger \\
+        - Reglas de juego personalizadas y funciones mejoradas para la experiencia del usuario \\
+        - Reproducción del modelo de datos y ampliación de las funcionalidades oficiales de la API
+    \end{onecolentry}
+
+    \vspace{0.1 cm}
+    
+    \begin{onecolentry}
+        \textbf{File2File: Herramienta de Migración de Scripts} \hfill \textit{Java} \\
+        - Aplicación Java para la migración automatizada de scripts shell (bash, sh, csh) \\
+        - Optimización de la adaptación y portabilidad de scripts entre diferentes entornos \\
+        - Proceso de conversión y optimización automatizado
+    \end{onecolentry}
+
+    % Educación
+    \section{Educación}
+    \begin{twocolentry}{\textit{Sep 2021 -- Junio 2023}}
+        \textbf{Técnico Superior en Desarrollo de Aplicaciones Web} \\
+        \textit{CESUR}
+    \end{twocolentry}
+    
+    \begin{twocolentry}{\textit{Sep 2017 -- Junio 2024}}
+        \textbf{Grado en Ingeniería Informática} \\
+        \textit{Universidad de Murcia}
+    \end{twocolentry}
+    
+    \begin{twocolentry}{\textit{Sep 2015 -- Junio 2017}}
+        \textbf{Bachillerato Tecnológico} \\
+        \textit{Maristas}
+    \end{twocolentry}
+
+    % Idiomas
+    \section{Idiomas}
+    \begin{onecolentry}
+        \textbf{Español:} Nativo \\
+        \textbf{Inglés:} B2 – Intermedio-alto (actualmente preparando C1) \\
+        \textbf{Alemán:} A1 – Nivel básico (en aprendizaje)
+    \end{onecolentry}
+
+    % Soft Skills
+    \section{Habilidades Blandas}
+    \begin{onecolentry}
+        \textbf{Técnicas:} Resolución de problemas, Pensamiento analítico, Autoaprendizaje, Creatividad \\
+        \textbf{Interpersonales:} Liderazgo, Responsabilidad, Adaptabilidad, Colaboración multifuncional
+    \end{onecolentry}
+
+    % Información Adicional
+    \section{Información Adicional}
+    \begin{onecolentry}
+        \textbf{Permiso de Conducir:} Categoría B europea \\
+        \textbf{Disponibilidad:} 15 días de preaviso (empleo actual)
+    \end{onecolentry}
+
+\end{document}

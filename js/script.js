@@ -540,3 +540,132 @@ window.handleContact = function(e) {
   if (typeof showSnackbar === 'function') showSnackbar('Thanks — your message was received (mock).'); else alert('Thanks — your message was received (mock).');
   form.reset();
 };
+/**
+ * CV Modal & Dynamic Generation Logic
+ */
+const cvModal = document.getElementById('cvModal');
+const cvStatus = document.getElementById('cvStatus');
+const closeCvModalBtn = document.getElementById('closeCvModal');
+
+function openCvModal() {
+  if (cvModal) {
+    cvModal.classList.add('active');
+    cvModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // Prevent scroll
+  }
+}
+
+function closeCvModal() {
+  if (cvModal) {
+    cvModal.classList.remove('active');
+    cvModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    // Reset status
+    setTimeout(() => {
+      cvStatus.style.display = 'none';
+    }, 300);
+  }
+}
+
+if (closeCvModalBtn) {
+  closeCvModalBtn.addEventListener('click', closeCvModal);
+}
+
+// Close on background click
+if (cvModal) {
+  cvModal.addEventListener('click', (e) => {
+    if (e.target === cvModal) closeCvModal();
+  });
+}
+
+/**
+ * CV Modal - Download CV in selected language
+ * Uses local PDFs directly since .tex files aren't on GitHub yet
+ * @param {string} lang 'en' or 'es' 
+ */
+function generateCV(lang) {
+  const cvStatusText = document.getElementById('cvStatusText');
+  const currentLang = window.CURRENT_LANG || 'en';
+  
+  const langTexts = { 
+    en: { 
+      downloading: 'Preparing download...', 
+      success: 'CV downloaded!',
+      tryFirst: 'Trying dynamic compilation...'
+    },
+    es: { 
+      downloading: 'Preparando descarga...', 
+      success: '¡CV descargado!',
+      tryFirst: 'Intentando compilación dinámica...'
+    }
+  };
+  const texts = langTexts[currentLang] || langTexts.en;
+
+  cvStatus.style.display = 'block';
+  cvStatusText.textContent = texts.tryFirst;
+  
+  const repoBaseUrl = 'https://joselu2099.github.io/files/';
+  const texFileName = lang === 'es' ? 'joseluis_sanchezcarrasco_cv_es.tex' : 'joseluis_sanchezcarrasco_cv.tex';
+  const texUrl = repoBaseUrl + texFileName;
+  const compileUrl = `https://latexonline.cc/compile?url=${encodeURIComponent(texUrl)}`;
+  
+  const staticPdfUrl = lang === 'es' 
+    ? 'docs/JoseLuis_SanchezCarrasco_CV.pdf'  // TODO: create ES version when .tex files are pushed
+    : 'docs/JoseLuis_SanchezCarrasco_CV.pdf';
+  const downloadName = lang === 'es' ? 'JoseLuis_SanchezCarrasco_CV_ES.pdf' : 'JoseLuis_SanchezCarrasco_CV_EN.pdf';
+
+  const timeoutId = setTimeout(() => {
+    cvStatusText.textContent = texts.downloading;
+    doFallback();
+  }, 3000);
+
+  async function doFallback() {
+    const a = document.createElement('a');
+    a.href = staticPdfUrl;
+    a.download = downloadName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showSnackbar(texts.success);
+    setTimeout(closeCvModal, 1000);
+  }
+
+  fetch(compileUrl, { mode: 'cors' })
+    .then(res => {
+      clearTimeout(timeoutId);
+      if (res.ok && res.status !== 404) {
+        return res.blob().then(blob => {
+          if (blob.size > 1000) {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = downloadName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            showSnackbar(texts.success);
+            setTimeout(closeCvModal, 1000);
+            return;
+          }
+          doFallback();
+        });
+      }
+      doFallback();
+    })
+    .catch(() => {
+      clearTimeout(timeoutId);
+      doFallback();
+    });
+}
+
+// Keyboard accessibility: ESC closes the modal
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && cvModal && cvModal.classList.contains('active')) {
+    closeCvModal();
+  }
+});
+
+// Expose globally
+window.openCvModal = openCvModal;
+window.generateCV = generateCV;

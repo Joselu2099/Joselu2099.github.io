@@ -74,8 +74,7 @@
               <li role="none"><button role="menuitem" data-lang="de" class="lang-item">Deutsch</button></li>
             </ul>
           </div>
-          <a class="icon-btn cv-btn" href="docs/JoseLuis_Sanchezcarrasco_CV.pdf" download title="Download CV"
-            aria-label="Download CV">
+          <button class="icon-btn cv-btn" onclick="openCvModal()" title="Download CV" aria-label="Download CV">
             <span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 3v10" />
@@ -83,7 +82,7 @@
                 <path d="M4 21h16v-4H4v4z" />
               </svg></span>
             <span data-i18n="nav.cv">CV</span>
-          </a>
+          </button>
           <button id="navToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
         </div>
       </div>
@@ -129,13 +128,13 @@
             <circle cx="12" cy="12" r="9" />
             <path d="M2 12h20M12 2c2.5 4 2.5 12 0 20" />
           </svg></button>
-        <a class="icon-btn cv-btn" href="docs/JoseLuis_Sanchezcarrasco_CV.pdf" download title="Download CV"
+        <button class="icon-btn cv-btn" onclick="openCvModal()" title="Download CV"
           aria-label="Download CV"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M12 3v10" />
             <path d="M8 11l4 4 4-4" />
             <path d="M4 21h16v-4H4v4z" />
-          </svg></a>
+          </svg></button>
       </div>
     </div>
     <!-- Barra de navegación scrollable para pantallas pequeñas (estética elegante en lugar de hamburguesa) -->
@@ -615,6 +614,29 @@
     </div>
   </footer>
 
+  <!-- Modal para selección de idioma del CV -->
+  <div id="cvModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="cvModalTitle">
+    <div class="modal-content">
+      <button id="closeCvModal" class="modal-close" aria-label="Close modal">&times;</button>
+      <h2 id="cvModalTitle" data-i18n="cv_modal.title">Download CV</h2>
+      <p class="muted" data-i18n="cv_modal.subtitle">Select document language</p>
+      
+      <div class="cv-options-grid">
+        <button class="btn outline cv-download-option" onclick="generateCV('en')">
+          <span class="flag" aria-hidden="true">🇬🇧</span> <span class="lang-name">English</span>
+        </button>
+        <button class="btn outline cv-download-option" onclick="generateCV('es')">
+          <span class="flag" aria-hidden="true">🇪🇸</span> <span class="lang-name">Español</span>
+        </button>
+      </div>
+
+      <div id="cvStatus" class="cv-status" style="display: none;">
+        <div class="spinner"></div>
+        <p id="cvStatusText" data-i18n="cv_modal.loading">Compiling LaTeX...</p>
+      </div>
+    </div>
+  </div>
+
   <div class="snackbar" role="status" aria-live="polite"></div>
   <script id="i18n-data" type="application/json">
     {
@@ -746,6 +768,11 @@
           "copyright": "© {year} Jose Luis Sánchez Carrasco",
           "github": "GitHub",
           "linkedin": "LinkedIn"
+        },
+        "cv_modal": {
+          "title": "Download CV",
+          "subtitle": "Select document language",
+          "loading": "Compiling LaTeX..."
         }
       },
       "es": {
@@ -876,6 +903,11 @@
           "copyright": "© {year} Jose Luis Sánchez Carrasco",
           "github": "GitHub",
           "linkedin": "LinkedIn"
+        },
+        "cv_modal": {
+          "title": "Descargar CV",
+          "subtitle": "Selecciona el idioma del documento",
+          "loading": "Compilando LaTeX..."
         }
       },
       "de": {

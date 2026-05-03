@@ -151,3 +151,84 @@
 @media (max-width:480px){
   .card-media img.card-media-img{opacity:0.6}
 }
+
+/* CV Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 20, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-content {
+  background: var(--surface);
+  padding: var(--gap-lg);
+  border-radius: var(--radius);
+  max-width: 420px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: var(--shadow-1);
+  transform: translateY(20px);
+  transition: transform .3s cubic-bezier(.2, .9, .2, 1);
+}
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+.modal-close {
+  position: absolute;
+  top: var(--gap-sm);
+  right: var(--gap-sm);
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover {
+  color: var(--accent);
+}
+.cv-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-sm);
+  margin-top: var(--gap-md);
+}
+.cv-download-option {
+  flex-direction: column;
+  padding: var(--gap-md) !important;
+  height: auto;
+}
+.cv-download-option .flag {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.cv-status {
+  margin-top: var(--gap-md);
+  padding-top: var(--gap-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(189, 147, 249, 0.1);
+  border-top: 3px solid var(--accent);
+  border-radius: 50%;
+  margin: 0 auto var(--gap-xs);
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
