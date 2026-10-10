@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#070b1a">
+    <title>Resultados · Japón 2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+<body class="page-resultados">
+    <main class="app wide" id="app">
+        <h1 class="page-title">Resultados</h1>
+
+        <section class="panel">
+            <h2>Quién ha votado</h2>
+            <div id="people" class="people"></div>
+        </section>
+
+        <section class="panel">
+            <h2>Sumar votos de otros</h2>
+            <p class="hint">Pega aquí los enlaces o códigos que os mandéis por WhatsApp (puedes pegar varios a la vez). Si abres un enlace de votos, se importa solo.</p>
+            <textarea id="paste" rows="3" placeholder="Pega aquí enlaces o códigos..."></textarea>
+            <div class="actions"><button type="button" class="btn primary" id="btn-import">Importar</button></div>
+        </section>
+
+        <div class="tabs" role="tablist">
+            <button type="button" class="tab on" data-f="all" role="tab">Todo</button>
+            <button type="button" class="tab" data-f="juntos" role="tab">Decidimos juntos</button>
+            <button type="button" class="tab" data-f="split" role="tab">Cada uno a lo suyo</button>
+            <button type="button" class="tab" data-f="ideas" role="tab">Ideas</button>
+        </div>
+
+        <div id="list"></div>
+
+        <section class="panel">
+            <h2>Plan resultante</h2>
+            <p class="hint">Resumen en texto para pegar en el grupo.</p>
+            <div class="actions"><button type="button" class="btn" id="btn-plan">Copiar plan</button></div>
+        </section>
+    </main>
+    <script src="js/decisiones.js"></script>
+    <script src="js/votos.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/resultados.js"></script>
+</body>
+</html>
